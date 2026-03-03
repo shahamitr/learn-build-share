@@ -27,15 +27,23 @@ export default function TutorialViewer() {
     fetch(module.path)
       .then(res => {
         if (!res.ok) throw new Error('Failed to load content');
+        const contentType = res.headers.get('content-type');
+        if (contentType && contentType.includes('text/html')) {
+          // This happens when the file doesn't exist and Vite serves index.html
+          throw new Error('Content coming soon');
+        }
         return res.text();
       })
       .then(text => {
+        if (text.trim().startsWith('<!doctype html>') || text.trim().startsWith('<!DOCTYPE html>')) {
+             throw new Error('Content coming soon');
+        }
         setContent(text);
         setLoading(false);
       })
       .catch(err => {
-        console.error(err);
-        setError('Failed to load tutorial content. Please try again later.');
+        console.warn(err);
+        setError(err.message === 'Content coming soon' ? 'This tutorial is currently being written. Check back soon!' : 'Failed to load tutorial content.');
         setLoading(false);
       });
   }, [module]);

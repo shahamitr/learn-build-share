@@ -21,9 +21,9 @@ export default function LandingPage() {
               <a href="https://github.com" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">
                 <Github className="w-5 h-5" />
               </a>
-              <button className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors">
+              <Link to="/tutorials" className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors">
                 Get Started
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -53,9 +53,9 @@ export default function LandingPage() {
                 Start Learning
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
-              <button className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all">
+              <Link to="/tutorials" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all">
                 View Documentation
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -140,7 +140,7 @@ export default function LandingPage() {
             <span className="font-semibold text-slate-900">Learn Build Share</span>
           </div>
           <div className="text-slate-500 text-sm">
-            © 2024 Learn Build Share. Open Source.
+            © 2026 Learn Build Share. Open Source.
           </div>
         </div>
       </footer>

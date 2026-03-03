@@ -1,20 +1,24 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Learn Build Share
 
-# Run and deploy your AI Studio app
+> A platform to learn, build, and share projects.
 
-This contains everything you need to run your app locally.
+## Our Mission
 
-View your app in AI Studio: https://ai.studio/apps/5682589a-c426-42b1-8f2e-414294ba8ba9
+We are dedicated to building a vibrant community for developers to **Learn**, **Build**, and **Share**.
 
-## Run Locally
+The idea is simple: we want to contribute for the community. This repository serves as a central hub for collaborative learning and development.
 
-**Prerequisites:**  Node.js
+## How to Contribute
 
+We believe that everyone has something to teach and something to learn. We encourage you to get involved!
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Please check out our [Contributing Guidelines](CONTRIBUTING.md) for details on how you can help.
+
+Whether it's:
+*   Reporting a bug
+*   Discussing the current state of the code
+*   Submitting a fix
+*   Proposing new features
+*   Becoming a maintainer
+
+...we want to hear from you!

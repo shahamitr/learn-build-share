@@ -11,7 +11,7 @@ Files in a Git repo don't just exist; they live in specific **states**. Understa
 
 ### Visualizing the Lifecycle
 
-![Git Lifecycle Diagram](./images/git-lifecycle.png)
+![Git Lifecycle Diagram](https://placehold.co/600x400?text=Git+Lifecycle+Diagram)
 
 **Diagram Explanation:**
 *   **Add:** Untracked/Modified → Staged.

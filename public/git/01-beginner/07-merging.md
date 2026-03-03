@@ -9,7 +9,7 @@
 
 ### Visualizing Merge
 
-![Git Merge Diagram](./images/git-merge-basic.png)
+![Git Merge Diagram](https://placehold.co/600x400?text=Git+Merge+Diagram)
 
 **Diagram Explanation:**
 *   **Fast Forward:** A straight line.

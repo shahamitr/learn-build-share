@@ -8,7 +8,7 @@ It copies the *changes* introduced by that commit and creates a new commit with 
 
 ### Visualizing Cherry Pick
 
-![Cherry Pick Diagram](./images/cherry-pick.png)
+![Cherry Pick Diagram](https://placehold.co/600x400?text=Cherry+Pick+Diagram)
 
 **Diagram Explanation:**
 *   **Source:** Branch A has commits `C1`, `C2`, `C3`.

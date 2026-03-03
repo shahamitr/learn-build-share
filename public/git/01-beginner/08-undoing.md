@@ -12,7 +12,7 @@ In Git, "undo" is not a single button. It depends on *where* the mistake is.
 
 ### Visualizing the Undo
 
-![Git Undo Diagram](./images/git-undo.png)
+![Git Undo Diagram](https://placehold.co/600x400?text=Git+Undo+Diagram)
 
 **Diagram Explanation:**
 *   **Reset:** Moves the branch pointer backward. The old commits become "orphaned" and eventually deleted.

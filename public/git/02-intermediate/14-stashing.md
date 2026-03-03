@@ -12,7 +12,7 @@ You don't want to commit "half-broken code" just to save it.
 
 ### Visualizing Stash
 
-![Git Stash Diagram](./images/git-stash.png)
+![Git Stash Diagram](https://placehold.co/600x400?text=Git+Stash+Diagram)
 
 **Diagram Explanation:**
 *   **Working Directory:** Dirty (Modified files).

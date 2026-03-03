@@ -8,7 +8,7 @@ Git is smart, but it is not a mind reader. It pauses the merge and asks you (the
 
 ### Visualizing a Conflict
 
-![Merge Conflict Diagram](./images/merge-conflict.png)
+![Merge Conflict Diagram](https://placehold.co/600x400?text=Merge+Conflict+Diagram)
 
 **Diagram Explanation:**
 *   **Branch A:** Changes line 10 to "Color: Blue".

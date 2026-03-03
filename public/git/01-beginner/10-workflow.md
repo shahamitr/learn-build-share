@@ -10,7 +10,7 @@
 
 ### Visualizing the Workflow
 
-![GitHub Workflow Diagram](./images/github-workflow.png)
+![GitHub Workflow Diagram](https://placehold.co/600x400?text=GitHub+Workflow+Diagram)
 
 **Diagram Explanation:**
 *   **Local:** You code and commit.

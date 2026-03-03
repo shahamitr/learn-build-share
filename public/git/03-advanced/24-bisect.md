@@ -19,7 +19,7 @@ It finds the bad commit in `log2(100) = ~7` steps.
 
 ### Visualizing Bisect
 
-![Git Bisect Diagram](./images/git-bisect.png)
+![Git Bisect Diagram](https://placehold.co/600x400?text=Git+Bisect+Diagram)
 
 **Diagram Explanation:**
 *   **Good:** Known working state.

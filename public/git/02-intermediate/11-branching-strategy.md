@@ -9,7 +9,7 @@ Think of a `feature` branch as a **draft chapter**. You can scribble, cross thin
 
 ### Visualizing the Flow
 
-![Feature Branch Diagram](./images/feature-branch-diagram.png)
+![Feature Branch Diagram](https://placehold.co/600x400?text=Feature+Branch+Diagram)
 
 **Diagram Explanation:**
 1.  **Main Line (Blue):** Represents the stable history of your project.

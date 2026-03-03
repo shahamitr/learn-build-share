@@ -15,7 +15,7 @@ A normal rebase might try to re-apply `feature-A`'s commits.
 
 ### Visualizing Rebase Onto
 
-![Rebase Onto Diagram](./images/rebase-onto.png)
+![Rebase Onto Diagram](https://placehold.co/600x400?text=Rebase+Onto+Diagram)
 
 **Diagram Explanation:**
 *   **Before:** `Main -- A -- B`

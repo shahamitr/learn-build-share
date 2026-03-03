@@ -11,7 +11,7 @@ Even if you delete a branch, do a hard reset, or amend a commit, the data is not
 
 ### Visualizing Reflog
 
-![Git Reflog Diagram](./images/git-reflog.png)
+![Git Reflog Diagram](https://placehold.co/600x400?text=Git+Reflog+Diagram)
 
 **Diagram Explanation:**
 *   **HEAD@{0}:** Where you are now.

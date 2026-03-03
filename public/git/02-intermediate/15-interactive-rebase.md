@@ -12,7 +12,7 @@ While `git merge` preserves history exactly as it happened (warts and all), `git
 
 ### Visualizing Rebase
 
-![Git Rebase Diagram](./images/git-rebase.png)
+![Git Rebase Diagram](https://placehold.co/600x400?text=Git+Rebase+Diagram)
 
 **Diagram Explanation:**
 *   **Before:** Commits `A -> B -> C` (where B is a typo fix).

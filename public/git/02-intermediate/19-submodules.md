@@ -13,7 +13,7 @@ Submodules let you link to a specific commit of another repo.
 
 ### Visualizing Submodules
 
-![Git Submodule Diagram](./images/git-submodule.png)
+![Git Submodule Diagram](https://placehold.co/600x400?text=Git+Submodule+Diagram)
 
 **Diagram Explanation:**
 *   **Parent Repo:** Contains its own files + a pointer to the Child Repo.

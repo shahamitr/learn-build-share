@@ -12,7 +12,7 @@ Modern Git has `git maintenance`, a background process that optimizes the repo a
 
 ### Visualizing GC
 
-![Git GC Diagram](./images/git-gc.png)
+![Git GC Diagram](https://placehold.co/600x400?text=Git+GC+Diagram)
 
 **Diagram Explanation:**
 *   **Before:** Thousands of tiny files (loose objects). Slow to read.

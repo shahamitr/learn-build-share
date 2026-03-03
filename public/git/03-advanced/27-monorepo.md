@@ -13,7 +13,7 @@ Instead of `repo-frontend` and `repo-backend`, you have one `repo-company`.
 
 ### Visualizing Monorepo
 
-![Monorepo Diagram](./images/monorepo.png)
+![Monorepo Diagram](https://placehold.co/600x400?text=Monorepo+Diagram)
 
 **Diagram Explanation:**
 *   **Polyrepo:** Multiple distinct git repos.

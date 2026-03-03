@@ -9,7 +9,7 @@
 
 ### Visualizing the Difference
 
-![Merge vs Rebase Diagram](./images/merge-vs-rebase.png)
+![Merge vs Rebase Diagram](https://placehold.co/600x400?text=Merge+vs+Rebase+Diagram)
 
 **Diagram Explanation:**
 *   **Merge:** A diamond shape. History splits and rejoins.

@@ -14,7 +14,7 @@ They are the "Gatekeepers" of your repo. You can use them to block bad code from
 
 ### Visualizing Hooks
 
-![Git Hooks Diagram](./images/git-hooks.png)
+![Git Hooks Diagram](https://placehold.co/600x400?text=Git+Hooks+Diagram)
 
 **Diagram Explanation:**
 *   **Command:** You type `git commit`.

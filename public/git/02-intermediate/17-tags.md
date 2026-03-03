@@ -11,7 +11,7 @@ A **Tag** is a permanent bookmark in your history. While branches move (the `mai
 
 ### Visualizing Tags
 
-![Git Tags Diagram](./images/git-tags.png)
+![Git Tags Diagram](https://placehold.co/600x400?text=Git+Tags+Diagram)
 
 **Diagram Explanation:**
 *   **Commits:** Moving forward.

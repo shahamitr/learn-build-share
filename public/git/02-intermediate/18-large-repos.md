@@ -8,7 +8,7 @@ Git is designed for text. It compresses text efficiently. It *cannot* compress a
 
 ### Visualizing Bloat
 
-![Git Bloat Diagram](./images/git-bloat.png)
+![Git Bloat Diagram](https://placehold.co/600x400?text=Git+Bloat+Diagram)
 
 **Diagram Explanation:**
 *   **Text:** Git stores deltas (changes). Small.

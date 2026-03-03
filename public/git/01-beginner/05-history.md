@@ -12,7 +12,7 @@ You can see:
 
 ### Visualizing History
 
-![Git Log Diagram](./images/git-log.png)
+![Git Log Diagram](https://placehold.co/600x400?text=Git+Log+Diagram)
 
 **Diagram Explanation:**
 *   **Commit Hash (SHA):** The unique ID (e.g., `a1b2c3d`).

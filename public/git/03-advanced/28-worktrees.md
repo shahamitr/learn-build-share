@@ -12,7 +12,7 @@
 
 ### Visualizing Worktrees
 
-![Git Worktree Diagram](./images/git-worktree.png)
+![Git Worktree Diagram](https://placehold.co/600x400?text=Git+Worktree+Diagram)
 
 **Diagram Explanation:**
 *   **Repo:** `.git` folder (Shared).

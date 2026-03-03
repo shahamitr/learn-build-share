@@ -10,7 +10,7 @@ Git is not just a "Save" button; it is a time machine. To use it effectively, yo
 
 ### Visualizing the Flow
 
-![Git Three States Diagram](./images/git-three-states.png)
+![Git Three States Diagram](https://placehold.co/600x400?text=Git+Three+States+Diagram)
 
 **Diagram Explanation:**
 *   **Edit file** → Change is in *Working Directory*.

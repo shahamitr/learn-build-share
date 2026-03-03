@@ -14,7 +14,7 @@ Everything in Git is one of four objects:
 
 ### Visualizing Objects
 
-![Git Internals Diagram](./images/git-internals.png)
+![Git Internals Diagram](https://placehold.co/600x400?text=Git+Internals+Diagram)
 
 **Diagram Explanation:**
 *   **Commit** points to **Tree**.

@@ -13,7 +13,7 @@ Version Control Systems (VCS) let you:
 
 ### Visualizing Centralized vs Distributed
 
-![Centralized vs Distributed](./images/vcs-diagram.png)
+![Centralized vs Distributed](https://placehold.co/600x400?text=Centralized+vs+Distributed+Diagram)
 
 **Diagram Explanation:**
 *   **Centralized (Old way, e.g., SVN):** Everyone connects to one central server. If the server goes down, no one can work.

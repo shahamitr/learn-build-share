@@ -10,7 +10,7 @@ It's like being in a "Read-Only" mode or "Exploration" mode. You are looking at 
 
 ### Visualizing Detached HEAD
 
-![Detached HEAD Diagram](./images/detached-head.png)
+![Detached HEAD Diagram](https://placehold.co/600x400?text=Detached+HEAD+Diagram)
 
 **Diagram Explanation:**
 *   **Normal:** HEAD → main → Commit C.

@@ -8,7 +8,7 @@ Before you can cook, you need a kitchen. **Installing Git** is setting up your d
 
 ### Visualizing Config
 
-![Git Config Diagram](./images/git-config.png)
+![Git Config Diagram](https://placehold.co/600x400?text=Git+Config+Diagram)
 
 **Diagram Explanation:**
 *   **System Level:** Settings for every user on the computer.

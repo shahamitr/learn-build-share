@@ -11,7 +11,7 @@ Creating a branch is cheap and fast. It doesn't copy all the files; it just crea
 
 ### Visualizing Branches
 
-![Git Branch Diagram](./images/git-branch.png)
+![Git Branch Diagram](https://placehold.co/600x400?text=Git+Branch+Diagram)
 
 **Diagram Explanation:**
 *   **Checkout:** Switching your "HEAD" (current view) to a different branch.

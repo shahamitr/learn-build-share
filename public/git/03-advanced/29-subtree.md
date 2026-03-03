@@ -11,7 +11,7 @@ With Subtree, the code lives *inside* your repo. Users cloning your repo don't n
 
 ### Visualizing Difference
 
-![Subtree vs Submodule Diagram](./images/subtree-vs-submodule.png)
+![Subtree vs Submodule Diagram](https://placehold.co/600x400?text=Subtree+vs+Submodule+Diagram)
 
 **Diagram Explanation:**
 *   **Submodule:** A pointer. Requires 2 requests to fetch.

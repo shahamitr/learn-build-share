@@ -11,7 +11,7 @@ Git is **distributed**. Your computer has a full copy of the repo, and the serve
 
 ### Visualizing the Flow
 
-![Git Remote Diagram](./images/git-remote.png)
+![Git Remote Diagram](https://placehold.co/600x400?text=Git+Remote+Diagram)
 
 **Diagram Explanation:**
 *   **Remote Repo:** The source of truth.

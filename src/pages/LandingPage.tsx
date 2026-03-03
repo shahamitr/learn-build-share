@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { BookOpen, Hammer, Share2, Github, ArrowRight } from 'lucide-react';
+import { BookOpen, Hammer, Share2, Github, ArrowRight, Terminal, GitBranch, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function LandingPage() {
@@ -99,6 +99,74 @@ export default function LandingPage() {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tutorials Section */}
+      <section id="tutorials" className="py-20 bg-slate-50 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Start Your Journey</h2>
+            <p className="text-lg text-slate-600">
+              Dive into our comprehensive guides and master essential tools.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Beginner Card */}
+            <Link to="/tutorials/01-intro" className="group block h-full">
+              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-200 transition-all h-full flex flex-col">
+                <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Terminal className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
+                  Git Essentials
+                </h3>
+                <p className="text-slate-600 mb-6 flex-grow">
+                  Start here! Learn the basics of version control, commits, and history.
+                </p>
+                <div className="flex items-center text-emerald-600 font-medium">
+                  Start Learning <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+
+            {/* Intermediate Card */}
+            <Link to="/tutorials/11-branching-strategy" className="group block h-full">
+              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-200 transition-all h-full flex flex-col">
+                <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <GitBranch className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
+                  Branching & Merging
+                </h3>
+                <p className="text-slate-600 mb-6 flex-grow">
+                  Master feature branches, merge conflicts, and team workflows.
+                </p>
+                <div className="flex items-center text-amber-600 font-medium">
+                  Level Up <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+
+            {/* Advanced Card */}
+            <Link to="/tutorials/21-internals" className="group block h-full">
+              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-rose-200 transition-all h-full flex flex-col">
+                <div className="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-rose-600 transition-colors">
+                  Advanced Git
+                </h3>
+                <p className="text-slate-600 mb-6 flex-grow">
+                  Deep dive into internals, history rewriting, and complex recovery.
+                </p>
+                <div className="flex items-center text-rose-600 font-medium">
+                  Go Deep <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

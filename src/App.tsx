@@ -10,7 +10,7 @@ import TutorialViewer from './pages/TutorialViewer';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/learn-build-share">
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/tutorials" element={<Tutorials />} />

@@ -1,33 +1,13 @@
 import { motion } from 'motion/react';
 import { BookOpen, Hammer, Share2, Github, ArrowRight, Terminal, GitBranch, Shield, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function LandingPage() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
-      {/* Navigation */}
-      <nav className="fixed w-full bg-white/80 backdrop-blur-md border-b border-slate-200 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">
-                LBS
-              </div>
-              <span className="font-bold text-xl tracking-tight">Learn Build Share</span>
-            </div>
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Features</a>
-              <a href="#community" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Community</a>
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">
-                <Github className="w-5 h-5" />
-              </a>
-              <Link to="/tutorials" className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors">
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -270,32 +250,19 @@ export default function LandingPage() {
                 Follow our Code of Conduct to ensure a safe space for everyone.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <a href="#" className="px-6 py-3 bg-white text-slate-900 rounded-lg font-medium hover:bg-indigo-50 transition-colors">
+                <Link to="/code-of-conduct" className="px-6 py-3 bg-white text-slate-900 rounded-lg font-medium hover:bg-indigo-50 transition-colors">
                   Read Code of Conduct
-                </a>
-                <a href="#" className="px-6 py-3 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors">
+                </Link>
+                <Link to="/contributing" className="px-6 py-3 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors">
                   Contribution Guidelines
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white py-12 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-slate-900 rounded flex items-center justify-center text-white text-xs font-bold">
-              LBS
-            </div>
-            <span className="font-semibold text-slate-900">Learn Build Share</span>
-          </div>
-          <div className="text-slate-500 text-sm">
-            © 2026 Learn Build Share. Open Source.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

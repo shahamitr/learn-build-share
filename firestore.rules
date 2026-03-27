@@ -1,0 +1,164 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: {userId}
+    // Fields:
+    //   - uid: string (required) - The user's unique ID
+    //   - email: string (required) - The user's email address
+    //   - name: string (required) - The user's display name
+    //   - avatar: string (optional) - The user's profile picture URL
+    //   - createdAt: timestamp (required) - When the user was created
+    //   - lastActive: timestamp (optional) - When the user was last active
+    //   - timeSpent: map (optional) - Time spent per course in seconds
+    //
+    // Collection: users/{userId}/progress
+    // Document ID: {progressId}
+    // Fields:
+    //   - userId: string (required) - The ID of the user who completed the module
+    //   - courseId: string (required) - The ID of the course
+    //   - moduleId: string (required) - The ID of the module
+    //   - completedAt: timestamp (required) - When the module was completed
+    //
+    // Collection: public_profiles
+    // Document ID: {userId}
+    // Fields:
+    //   - uid: string (required) - The user's unique ID
+    //   - name: string (required) - The user's display name
+    //   - avatar: string (optional) - The user's profile picture URL
+    //   - score: number (required) - The user's total score
+    //   - streak: number (required) - The user's current streak
+    //   - lastActive: timestamp (optional) - When the user was last active
+    //
+    // Collection: certificates
+    // Document ID: {certId}
+    // Fields:
+    //   - certId: string (required) - Unique certificate identifier
+    //   - userId: string (required) - The ID of the user who earned the certificate
+    //   - userName: string (required) - The name of the user on the certificate
+    //   - courseId: string (required) - The ID of the completed course
+    //   - issueDate: timestamp (required) - When the certificate was issued
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    // Check if the user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Check if user owns the resource (for user-owned documents)
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    // Check if user is owner based on document's uid field
+    function isDocOwner() {
+      return isAuthenticated() && request.auth.uid == resource.data.uid;
+    }
+    
+    // Verify UID hasn't been tampered with on create
+    function uidUnchanged() {
+      return !('uid' in request.resource.data) ||
+        request.resource.data.uid == request.auth.uid;
+    }
+    
+    // Ensure uid field is not modified on update
+    function uidNotModified() {
+      return !('uid' in request.resource.data) ||
+        request.resource.data.uid == resource.data.uid;
+    }
+    
+    // Validate required fields exist
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+    
+    // Validate email format
+    function isValidEmail(email) {
+      return email is string &&
+        email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidUser() {
+      return hasRequiredFields(['uid', 'email', 'name', 'createdAt']) &&
+             request.resource.data.uid is string &&
+             request.resource.data.email is string && isValidEmail(request.resource.data.email) &&
+             request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() < 100 &&
+             (!('avatar' in request.resource.data) || (request.resource.data.avatar is string && request.resource.data.avatar.size() < 1000)) &&
+             request.resource.data.createdAt is timestamp &&
+             (!('lastActive' in request.resource.data) || request.resource.data.lastActive is timestamp) &&
+             (!('timeSpent' in request.resource.data) || request.resource.data.timeSpent is map);
+    }
+
+    function isValidProgress() {
+      return hasRequiredFields(['userId', 'courseId', 'moduleId', 'completedAt']) &&
+             request.resource.data.userId is string &&
+             request.resource.data.courseId is string && request.resource.data.courseId.size() > 0 && request.resource.data.courseId.size() < 100 &&
+             request.resource.data.moduleId is string && request.resource.data.moduleId.size() > 0 && request.resource.data.moduleId.size() < 100 &&
+             request.resource.data.completedAt is timestamp;
+    }
+
+    function isValidPublicProfile() {
+      return hasRequiredFields(['uid', 'name', 'score', 'streak']) &&
+             request.resource.data.uid is string &&
+             request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() < 100 &&
+             (!('avatar' in request.resource.data) || (request.resource.data.avatar is string && request.resource.data.avatar.size() < 1000)) &&
+             request.resource.data.score is number && request.resource.data.score >= 0 &&
+             request.resource.data.streak is number && request.resource.data.streak >= 0 &&
+             (!('lastActive' in request.resource.data) || request.resource.data.lastActive is timestamp);
+    }
+
+    function isValidCertificate() {
+      return hasRequiredFields(['certId', 'userId', 'userName', 'courseId', 'issueDate']) &&
+             request.resource.data.certId is string && request.resource.data.certId.size() > 0 && request.resource.data.certId.size() < 100 &&
+             request.resource.data.userId is string && request.resource.data.userId.size() > 0 && request.resource.data.userId.size() < 100 &&
+             request.resource.data.userName is string && request.resource.data.userName.size() > 0 && request.resource.data.userName.size() < 100 &&
+             request.resource.data.courseId is string && request.resource.data.courseId.size() > 0 && request.resource.data.courseId.size() < 100 &&
+             request.resource.data.issueDate is timestamp;
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /certificates/{certId} {
+      allow read: if true;
+      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid && isValidCertificate();
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    match /public_profiles/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isOwner(userId) && isValidPublicProfile() && uidUnchanged();
+      allow update: if isOwner(userId) && isValidPublicProfile() && uidNotModified();
+      allow delete: if isOwner(userId);
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidUser() && uidUnchanged();
+      allow update: if isOwner(userId) && isValidUser() && uidNotModified() && request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if isOwner(userId);
+
+      match /progress/{progressId} {
+        allow read: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidProgress() && request.resource.data.userId == request.auth.uid;
+        allow update: if isOwner(userId) && isValidProgress() && request.resource.data.userId == resource.data.userId && request.resource.data.completedAt == resource.data.completedAt;
+        allow delete: if isOwner(userId);
+      }
+    }
+  }
+}

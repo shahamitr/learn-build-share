@@ -4,15 +4,25 @@ import { aiCurriculum } from '../data/ai-curriculum';
 import { dockerCurriculum } from '../data/docker-curriculum';
 import { githubCurriculum } from '../data/github-curriculum';
 import { githubActionsCurriculum } from '../data/github-actions-curriculum';
-import { BookOpen, ChevronRight, GitBranch, Terminal, Shield, Zap, Bot, Code, Cpu, Container, Layers, Server, Users, Globe, Lock, Workflow, Play, Settings, Map as MapIcon, List } from 'lucide-react';
+import { manualTestingCurriculum } from '../data/manual-testing-curriculum';
+import { promptEngineeringCurriculum } from '../data/prompt-engineering-curriculum';
+import { cybersecurityCurriculum } from '../data/cybersecurity-curriculum';
+import { antigravityCurriculum } from '../data/antigravity-curriculum';
+import { BookOpen, ChevronRight, GitBranch, Terminal, Shield, Zap, Bot, Code, Cpu, Container, Layers, Server, Users, Globe, Lock, Workflow, Play, Settings, Map as MapIcon, List, CheckCircle2, Circle, Clock, Award, ShieldCheck, Sparkles, Rocket } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import AnimatedMindMap from '../components/AnimatedMindMap';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { useProgress } from '../context/ProgressContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function Tutorials() {
   const { courseId } = useParams();
   const navigate = useNavigate();
   const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
+  const { isCompleted } = useProgress();
+  const { user } = useAuth();
 
   let curriculum;
   let title;
@@ -34,6 +44,22 @@ export default function Tutorials() {
     curriculum = githubActionsCurriculum;
     title = 'GitHub Actions';
     description = 'Automate your software workflows with CI/CD. Build, test, and deploy directly from GitHub.';
+  } else if (courseId === 'manual-testing') {
+    curriculum = manualTestingCurriculum;
+    title = 'Manual Testing';
+    description = 'Learn the core concepts of software testing, writing test cases, and defect management.';
+  } else if (courseId === 'prompt-engineering') {
+    curriculum = promptEngineeringCurriculum;
+    title = 'Prompt Engineering';
+    description = 'Master the art of communicating with LLMs. Learn few-shot prompting and chain-of-thought.';
+  } else if (courseId === 'cybersecurity') {
+    curriculum = cybersecurityCurriculum;
+    title = 'Cybersecurity Fundamentals';
+    description = 'Learn the core concepts of information security, encryption, and web application vulnerabilities.';
+  } else if (courseId === 'antigravity') {
+    curriculum = antigravityCurriculum;
+    title = 'Working with Antigravity';
+    description = 'Learn the basics of working with the Antigravity framework, routing, and state management.';
   } else {
     curriculum = gitCurriculum;
     title = 'Git Mastery Curriculum';
@@ -73,6 +99,34 @@ export default function Tutorials() {
         case 'advanced': return <Settings className="w-6 h-6 text-rose-600" />;
         default: return <Workflow className="w-6 h-6" />;
       }
+    } else if (courseId === 'manual-testing') {
+      switch (levelId) {
+        case 'beginner': return <ShieldCheck className="w-6 h-6 text-emerald-600" />;
+        case 'intermediate': return <ShieldCheck className="w-6 h-6 text-amber-600" />;
+        case 'advanced': return <ShieldCheck className="w-6 h-6 text-rose-600" />;
+        default: return <ShieldCheck className="w-6 h-6" />;
+      }
+    } else if (courseId === 'prompt-engineering') {
+      switch (levelId) {
+        case 'beginner': return <Sparkles className="w-6 h-6 text-emerald-600" />;
+        case 'intermediate': return <Sparkles className="w-6 h-6 text-amber-600" />;
+        case 'advanced': return <Sparkles className="w-6 h-6 text-rose-600" />;
+        default: return <Sparkles className="w-6 h-6" />;
+      }
+    } else if (courseId === 'cybersecurity') {
+      switch (levelId) {
+        case 'beginner': return <Shield className="w-6 h-6 text-emerald-600" />;
+        case 'intermediate': return <Shield className="w-6 h-6 text-amber-600" />;
+        case 'advanced': return <Shield className="w-6 h-6 text-rose-600" />;
+        default: return <Shield className="w-6 h-6" />;
+      }
+    } else if (courseId === 'antigravity') {
+      switch (levelId) {
+        case 'beginner': return <Rocket className="w-6 h-6 text-emerald-600" />;
+        case 'intermediate': return <Rocket className="w-6 h-6 text-amber-600" />;
+        case 'advanced': return <Rocket className="w-6 h-6 text-rose-600" />;
+        default: return <Rocket className="w-6 h-6" />;
+      }
     } else {
       switch (levelId) {
         case 'beginner': return <Terminal className="w-6 h-6 text-emerald-600" />;
@@ -83,9 +137,17 @@ export default function Tutorials() {
     }
   };
 
+  const allModules = curriculum.flatMap(l => l.modules);
+  const totalModules = allModules.length;
+  const completedModules = allModules.filter(m => isCompleted(courseId || '', m.id)).length;
+  const progressPercentage = totalModules === 0 ? 0 : Math.round((completedModules / totalModules) * 100);
+  const timeSpentSeconds = user?.timeSpent?.[courseId || ''] || 0;
+  const timeSpentMinutes = Math.floor(timeSpentSeconds / 60);
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <Header />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="text-center mb-12">
           <Link to="/tutorials" className="text-indigo-600 font-medium hover:underline mb-4 inline-block">
             ← Back to Courses
@@ -105,6 +167,37 @@ export default function Tutorials() {
           >
             {description}
           </motion.p>
+
+          {/* Progress Overview */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3 }}
+            className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm max-w-md mx-auto mb-8"
+          >
+            <div className="flex justify-between items-end mb-2">
+              <span className="text-sm font-bold text-slate-500 uppercase tracking-wider">Course Progress</span>
+              <span className="text-2xl font-bold text-indigo-600">{progressPercentage}%</span>
+            </div>
+            <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden mb-2">
+              <div className="h-full bg-indigo-500 rounded-full transition-all duration-1000" style={{ width: `${progressPercentage}%` }}></div>
+            </div>
+            <div className="flex justify-between items-center text-sm text-slate-500">
+              <span>{completedModules} of {totalModules} modules completed</span>
+              <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {timeSpentMinutes}m spent</span>
+            </div>
+            {progressPercentage === 100 && (
+              <div className="mt-4 pt-4 border-t border-slate-100 flex justify-center">
+                <Link
+                  to={`/certificate/${courseId}`}
+                  className="inline-flex items-center gap-2 px-6 py-2 bg-amber-50 text-amber-700 rounded-lg font-medium hover:bg-amber-100 transition-colors"
+                >
+                  <Award className="w-5 h-5" />
+                  View Certificate
+                </Link>
+              </div>
+            )}
+          </motion.div>
 
           {/* View Toggle */}
           <div className="flex justify-center gap-2 mb-8">
@@ -177,23 +270,28 @@ export default function Tutorials() {
                   </div>
                   
                   <div className="divide-y divide-slate-100">
-                    {level.modules.map((module) => (
-                      <Link 
-                        key={module.id} 
-                        to={`/tutorials/${courseId}/${module.id}`}
-                        className="flex items-center justify-between p-6 hover:bg-slate-50 transition-colors group"
-                      >
-                        <div className="flex items-center gap-4">
-                          <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 font-mono text-sm group-hover:bg-indigo-100 group-hover:text-indigo-600 transition-colors">
-                            {module.title.split('.')[0]}
+                    {level.modules.map((module) => {
+                      const completed = isCompleted(courseId || '', module.id);
+                      return (
+                        <Link 
+                          key={module.id} 
+                          to={`/tutorials/${courseId}/${module.id}`}
+                          className="flex items-center justify-between p-6 hover:bg-slate-50 transition-colors group"
+                        >
+                          <div className="flex items-center gap-4">
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                              completed ? 'bg-emerald-100 text-emerald-600' : 'bg-slate-100 text-slate-500 group-hover:bg-indigo-100 group-hover:text-indigo-600'
+                            }`}>
+                              {completed ? <CheckCircle2 className="w-4 h-4" /> : <Circle className="w-4 h-4" />}
+                            </div>
+                            <span className={`font-medium transition-colors ${completed ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'}`}>
+                              {module.title}
+                            </span>
                           </div>
-                          <span className="font-medium text-slate-700 group-hover:text-slate-900">
-                            {module.title.split('. ')[1]}
-                          </span>
-                        </div>
-                        <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-indigo-600 transition-colors" />
-                      </Link>
-                    ))}
+                          <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-indigo-600 transition-colors" />
+                        </Link>
+                      );
+                    })}
                   </div>
                 </motion.div>
               ))}
@@ -201,6 +299,7 @@ export default function Tutorials() {
           )}
         </AnimatePresence>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,156 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user's unique ID"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address"
+        },
+        "name": {
+          "type": "string",
+          "description": "The user's display name"
+        },
+        "avatar": {
+          "type": "string",
+          "description": "The user's profile picture URL"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the user was created"
+        },
+        "lastActive": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the user was last active"
+        },
+        "timeSpent": {
+          "type": "object",
+          "description": "Time spent per course in seconds"
+        }
+      },
+      "required": ["uid", "email", "name", "createdAt"]
+    },
+    "Progress": {
+      "title": "Progress",
+      "description": "A record of a completed module for a user",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user who completed the module"
+        },
+        "courseId": {
+          "type": "string",
+          "description": "The ID of the course"
+        },
+        "moduleId": {
+          "type": "string",
+          "description": "The ID of the module"
+        },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the module was completed"
+        }
+      },
+      "required": ["userId", "courseId", "moduleId", "completedAt"]
+    },
+    "PublicProfile": {
+      "title": "PublicProfile",
+      "description": "Public profile information for leaderboard",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user's unique ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "The user's display name"
+        },
+        "avatar": {
+          "type": "string",
+          "description": "The user's profile picture URL"
+        },
+        "score": {
+          "type": "number",
+          "description": "The user's total score"
+        },
+        "streak": {
+          "type": "number",
+          "description": "The user's current streak"
+        },
+        "lastActive": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the user was last active"
+        }
+      },
+      "required": ["uid", "name", "score", "streak"]
+    },
+    "Certificate": {
+      "title": "Certificate",
+      "description": "A generated certificate for a completed course",
+      "type": "object",
+      "properties": {
+        "certId": {
+          "type": "string",
+          "description": "Unique certificate identifier"
+        },
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user who earned the certificate"
+        },
+        "userName": {
+          "type": "string",
+          "description": "The name of the user on the certificate"
+        },
+        "courseId": {
+          "type": "string",
+          "description": "The ID of the completed course"
+        },
+        "issueDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the certificate was issued"
+        }
+      },
+      "required": ["certId", "userId", "userName", "courseId", "issueDate"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/User"
+      },
+      "description": "Stores user profiles"
+    },
+    "/users/{userId}/progress/{progressId}": {
+      "schema": {
+        "$ref": "#/entities/Progress"
+      },
+      "description": "Stores completed modules for a user"
+    },
+    "/public_profiles/{userId}": {
+      "schema": {
+        "$ref": "#/entities/PublicProfile"
+      },
+      "description": "Stores public profiles for leaderboard"
+    },
+    "/certificates/{certId}": {
+      "schema": {
+        "$ref": "#/entities/Certificate"
+      },
+      "description": "Stores generated certificates for verification"
+    }
+  }
+}

@@ -1,56 +1,39 @@
+import { Workflow, Play, Settings } from 'lucide-react';
+
 export const promptEngineeringCurriculum = [
   {
     id: 'beginner',
-    level: 'Beginner',
-    title: 'Prompting Basics',
+    title: 'Beginner Level — Prompting Basics',
     description: 'Learn the fundamentals of communicating with Large Language Models.',
+    icon: Play,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-100',
     modules: [
-      {
-        id: 'intro-to-llms',
-        title: 'Introduction to LLMs',
-        description: 'What are Large Language Models and how do they work?',
-        path: '/prompt-engineering/intro.md'
-      },
-      {
-        id: 'basic-prompting',
-        title: 'Basic Prompting Strategies',
-        description: 'Learn how to write clear, concise, and effective prompts.',
-        path: '/prompt-engineering/basic.md'
-      }
+      { id: 'intro-to-llms', title: '01. Introduction to LLMs', duration: '20 min', type: 'theory', path: '/prompt-engineering/intro.md' },
+      { id: 'basic-prompting', title: '02. Basic Prompting Strategies', duration: '25 min', type: 'lab', path: '/prompt-engineering/basic.md' }
     ]
   },
   {
     id: 'intermediate',
-    level: 'Intermediate',
-    title: 'Advanced Techniques',
+    title: 'Intermediate Level — Advanced Techniques',
     description: 'Master techniques like few-shot prompting and chain-of-thought.',
+    icon: Workflow,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-100',
     modules: [
-      {
-        id: 'few-shot',
-        title: 'Few-Shot Prompting',
-        description: 'Provide examples to guide the model\'s output format and style.',
-        path: '/prompt-engineering/few-shot.md'
-      },
-      {
-        id: 'chain-of-thought',
-        title: 'Chain-of-Thought Prompting',
-        description: 'Encourage the model to break down complex problems step-by-step.',
-        path: '/prompt-engineering/cot.md'
-      }
+      { id: 'few-shot', title: '03. Few-Shot Prompting', duration: '30 min', type: 'lab', path: '/prompt-engineering/few-shot.md' },
+      { id: 'chain-of-thought', title: '04. Chain-of-Thought Prompting', duration: '30 min', type: 'lab', path: '/prompt-engineering/cot.md' }
     ]
   },
   {
     id: 'advanced',
-    level: 'Advanced',
-    title: 'System Prompts & Agents',
+    title: 'Advanced Level — System Prompts & Agents',
     description: 'Learn how to build complex AI agents and define system behaviors.',
+    icon: Settings,
+    color: 'text-rose-600',
+    bgColor: 'bg-rose-100',
     modules: [
-      {
-        id: 'system-prompts',
-        title: 'Designing System Prompts',
-        description: 'Set the persona, constraints, and overall behavior of an AI assistant.',
-        path: '/prompt-engineering/system-prompts.md'
-      }
+      { id: 'system-prompts', title: '05. Designing System Prompts', duration: '40 min', type: 'theory', path: '/prompt-engineering/system-prompts.md' }
     ]
   }
 ];

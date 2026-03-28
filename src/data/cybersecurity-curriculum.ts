@@ -1,80 +1,53 @@
+import { Workflow, Play, Settings } from 'lucide-react';
+
 export const cybersecurityCurriculum = [
   {
     id: 'beginner',
-    level: 'Beginner',
-    title: '🟢 Beginner Level (Foundation)',
-    description: 'Build your base understanding of cybersecurity, networking, and OS basics.',
+    title: 'Beginner Level — Foundation',
+    description: 'Start here to build your base understanding.',
+    icon: Play,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-100',
     modules: [
-      {
-        id: 'cyber-foundations',
-        title: 'Core Concepts & CIA Triad',
-        description: 'What is Cybersecurity, CIA Triad, Types of Hackers, and Common Threats.',
-        path: '/cybersecurity/foundations.md'
-      },
-      {
-        id: 'cyber-networking-os',
-        title: 'Networking & OS Basics',
-        description: 'IP/MAC addresses, DNS, HTTP/S, Ports, and Windows/Linux fundamentals.',
-        path: '/cybersecurity/networking-os.md'
-      },
-      {
-        id: 'cyber-security-tools',
-        title: 'Security Concepts & Tools',
-        description: 'Auth vs Auth, Encryption basics, Hashing, and Intro to Wireshark/Terminal.',
-        path: '/cybersecurity/security-tools.md'
-      }
+      { id: 'cyber-core-concepts', title: '01. Core Concepts', duration: '20 min', type: 'theory', path: '/cybersecurity/foundations.md' },
+      { id: 'cyber-networking-basics', title: '02. Networking Basics', duration: '25 min', type: 'theory', path: '/cybersecurity/networking.md' },
+      { id: 'cyber-os-basics', title: '03. Operating Systems Basics', duration: '20 min', type: 'theory', path: '/cybersecurity/os-basics.md' },
+      { id: 'cyber-security-concepts', title: '04. Basic Security Concepts', duration: '25 min', type: 'theory', path: '/cybersecurity/security-concepts.md' },
+      { id: 'cyber-tools-intro', title: '05. Tools (Intro Level)', duration: '20 min', type: 'lab', path: '/cybersecurity/tools-intro.md' }
     ]
   },
   {
     id: 'intermediate',
-    level: 'Intermediate',
-    title: '🟡 Intermediate Level (Practical)',
-    description: 'Start performing real security tasks, web testing, and ethical hacking basics.',
+    title: 'Intermediate Level — Practical Skills',
+    description: 'Now you start doing real security tasks.',
+    icon: Workflow,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-100',
     modules: [
-      {
-        id: 'cyber-web-security',
-        title: 'Network & Web Security',
-        description: 'Subnetting, Firewalls, VPNs, and common web vulnerabilities (SQLi, XSS).',
-        path: '/cybersecurity/web-security.md'
-      },
-      {
-        id: 'cyber-ethical-hacking',
-        title: 'Ethical Hacking & Tools',
-        description: 'Reconnaissance, Scanning, Enumeration, Nmap, Burp Suite, and Metasploit.',
-        path: '/cybersecurity/ethical-hacking.md'
-      },
-      {
-        id: 'cyber-crypto-system',
-        title: 'Cryptography & System Security',
-        description: 'PKI, SSL/TLS, System Hardening, and Basic Scripting (Bash/Python).',
-        path: '/cybersecurity/crypto-system.md'
-      }
+      { id: 'cyber-networking-security', title: '06. Networking & Security', duration: '30 min', type: 'lab', path: '/cybersecurity/networking-security.md' },
+      { id: 'cyber-web-security', title: '07. Web Security Basics', duration: '35 min', type: 'theory', path: '/cybersecurity/web-security.md' },
+      { id: 'cyber-ethical-hacking-basics', title: '08. Ethical Hacking Basics', duration: '30 min', type: 'lab', path: '/cybersecurity/ethical-hacking.md' },
+      { id: 'cyber-tools-hands-on', title: '09. Tools (Hands-on)', duration: '40 min', type: 'lab', path: '/cybersecurity/tools-hands-on.md' },
+      { id: 'cyber-crypto-intermediate', title: '10. Cryptography (Intermediate)', duration: '25 min', type: 'theory', path: '/cybersecurity/crypto-intermediate.md' },
+      { id: 'cyber-system-security', title: '11. System Security', duration: '30 min', type: 'lab', path: '/cybersecurity/system-security.md' },
+      { id: 'cyber-scripting', title: '12. Basic Scripting', duration: '35 min', type: 'lab', path: '/cybersecurity/scripting.md' }
     ]
   },
   {
     id: 'advanced',
-    level: 'Advanced',
-    title: '🔴 Advanced Level (Professional)',
-    description: 'Move toward professional cybersecurity roles with specialized skills.',
+    title: 'Advanced Level — Professional Skills',
+    description: 'This is where you move toward real cybersecurity roles.',
+    icon: Settings,
+    color: 'text-rose-600',
+    bgColor: 'bg-rose-100',
     modules: [
-      {
-        id: 'cyber-vapt',
-        title: 'Security Architecture & VAPT',
-        description: 'Cloud Security, Secure Coding, VAPT techniques, and Privilege Escalation.',
-        path: '/cybersecurity/vapt.md'
-      },
-      {
-        id: 'cyber-soc-malware',
-        title: 'SOC, Incident Response & Malware',
-        description: 'SIEM (Splunk), Log Analysis, Incident Lifecycle, and Malware Analysis.',
-        path: '/cybersecurity/soc-malware.md'
-      },
-      {
-        id: 'cyber-forensics-grc',
-        title: 'Forensics, GRC & Advanced Crypto',
-        description: 'Digital Forensics, ISO 27001, Risk Management, and Advanced Cryptography.',
-        path: '/cybersecurity/forensics-grc.md'
-      }
+      { id: 'cyber-adv-domains', title: '13. Advanced Security Domains', duration: '40 min', type: 'theory', path: '/cybersecurity/adv-domains.md' },
+      { id: 'cyber-adv-hacking', title: '14. Advanced Ethical Hacking', duration: '45 min', type: 'lab', path: '/cybersecurity/adv-hacking.md' },
+      { id: 'cyber-soc', title: '15. Security Operations (SOC)', duration: '40 min', type: 'theory', path: '/cybersecurity/soc.md' },
+      { id: 'cyber-malware', title: '16. Malware & Threat Analysis', duration: '35 min', type: 'theory', path: '/cybersecurity/malware.md' },
+      { id: 'cyber-forensics', title: '17. Digital Forensics', duration: '40 min', type: 'lab', path: '/cybersecurity/forensics.md' },
+      { id: 'cyber-governance', title: '18. Governance & Compliance', duration: '30 min', type: 'theory', path: '/cybersecurity/governance.md' },
+      { id: 'cyber-adv-crypto', title: '19. Advanced Cryptography', duration: '35 min', type: 'theory', path: '/cybersecurity/adv-crypto.md' }
     ]
   }
 ];

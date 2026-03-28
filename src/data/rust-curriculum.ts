@@ -1,80 +1,43 @@
+import { Workflow, Play, Settings } from 'lucide-react';
+
 export const rustCurriculum = [
   {
     id: 'beginner',
-    level: 'Beginner',
-    title: '🟢 Beginner Level (Foundations)',
+    title: 'Beginner Level — Rust Foundations',
     description: 'Start by understanding Rust basics, its core philosophy, and the unique ownership system.',
+    icon: Play,
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-100',
     modules: [
-      {
-        id: 'rust-foundations',
-        title: 'Core Concepts & Setup',
-        description: 'What is Rust, why it is popular, and setting up the environment with Cargo.',
-        path: '/rust/foundations.md'
-      },
-      {
-        id: 'rust-syntax-basics',
-        title: 'Syntax & Control Flow',
-        description: 'Variables, data types, and basic control flow (if, match, loops).',
-        path: '/rust/syntax-basics.md'
-      },
-      {
-        id: 'rust-ownership-system',
-        title: 'Ownership & Borrowing',
-        description: 'Ownership rules, borrowing, and references - the heart of Rust memory safety.',
-        path: '/rust/ownership-system.md'
-      }
+      { id: 'rust-foundations', title: '01. Core Concepts & Setup', duration: '20 min', type: 'theory', path: '/rust/foundations.md' },
+      { id: 'rust-syntax-basics', title: '02. Syntax & Control Flow', duration: '25 min', type: 'lab', path: '/rust/syntax-basics.md' },
+      { id: 'rust-ownership-system', title: '03. Ownership & Borrowing', duration: '30 min', type: 'theory', path: '/rust/ownership-system.md' }
     ]
   },
   {
     id: 'intermediate',
-    level: 'Intermediate',
-    title: '🟡 Intermediate Level (Core Rust Skills)',
+    title: 'Intermediate Level — Core Rust Skills',
     description: 'Move into real Rust development with structs, enums, error handling, and traits.',
+    icon: Workflow,
+    color: 'text-amber-600',
+    bgColor: 'bg-amber-100',
     modules: [
-      {
-        id: 'rust-structs-enums-errors',
-        title: 'Data Structures & Errors',
-        description: 'Structs, enums, and robust error handling with Result and Option.',
-        path: '/rust/data-errors.md'
-      },
-      {
-        id: 'rust-collections-traits',
-        title: 'Collections & Traits',
-        description: 'Vectors, HashMaps, Strings, and defining shared behavior with traits.',
-        path: '/rust/collections-traits.md'
-      },
-      {
-        id: 'rust-lifetimes-closures',
-        title: 'Lifetimes & Closures',
-        description: 'Lifetime annotations, closures, iterators, and the Rust ecosystem.',
-        path: '/rust/lifetimes-closures.md'
-      }
+      { id: 'rust-structs-enums-errors', title: '04. Data Structures & Errors', duration: '30 min', type: 'theory', path: '/rust/data-errors.md' },
+      { id: 'rust-collections-traits', title: '05. Collections & Traits', duration: '35 min', type: 'lab', path: '/rust/collections-traits.md' },
+      { id: 'rust-lifetimes-closures', title: '06. Lifetimes & Closures', duration: '30 min', type: 'theory', path: '/rust/lifetimes-closures.md' }
     ]
   },
   {
     id: 'advanced',
-    level: 'Advanced',
-    title: '🔴 Advanced Level (Professional Rust)',
+    title: 'Advanced Level — Professional Rust',
     description: 'Master powerful Rust features like concurrency, async, unsafe Rust, and macros.',
+    icon: Settings,
+    color: 'text-rose-600',
+    bgColor: 'bg-rose-100',
     modules: [
-      {
-        id: 'rust-concurrency-async',
-        title: 'Concurrency & Async',
-        description: 'Threads, message passing, shared state, and async/await with Tokio.',
-        path: '/rust/concurrency-async.md'
-      },
-      {
-        id: 'rust-memory-unsafe',
-        title: 'Memory & Unsafe Rust',
-        description: 'Smart pointers, interior mutability, and when to use the unsafe keyword.',
-        path: '/rust/memory-unsafe.md'
-      },
-      {
-        id: 'rust-macros-testing',
-        title: 'Macros & Testing',
-        description: 'Declarative and procedural macros, unit/integration testing, and benchmarking.',
-        path: '/rust/macros-testing.md'
-      }
+      { id: 'rust-concurrency-async', title: '07. Concurrency & Async', duration: '40 min', type: 'theory', path: '/rust/concurrency-async.md' },
+      { id: 'rust-memory-unsafe', title: '08. Memory & Unsafe Rust', duration: '35 min', type: 'theory', path: '/rust/memory-unsafe.md' },
+      { id: 'rust-macros-testing', title: '09. Macros & Testing', duration: '30 min', type: 'lab', path: '/rust/macros-testing.md' }
     ]
   }
 ];

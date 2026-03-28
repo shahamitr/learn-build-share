@@ -126,30 +126,50 @@ jobs:
     }
   },
   "manual-testing": {
-    "intro-to-testing": {
-      id: "intro-to-testing",
-      task: "Write a simple test case for a login page.",
-      solution: "Test Case: Verify successful login with valid credentials."
+    "foundations": {
+      id: "foundations",
+      task: "Explain the difference between Verification and Validation in one sentence.",
+      solution: "Verification is 'Are we building the product right?' while Validation is 'Are we building the right product?'"
     },
-    "test-cases": {
-      id: "test-cases",
-      task: "Write a test case to check the 'Forgot Password' functionality.",
-      solution: "Test Case: Verify that clicking 'Forgot Password' redirects to the reset password page."
+    "testing-basics": {
+      id: "testing-basics",
+      task: "Identify the type of testing performed to ensure that a specific bug fix works as expected.",
+      solution: "Retesting"
     },
-    "black-box": {
-      id: "black-box",
+    "artifacts-and-bugs": {
+      id: "artifacts-and-bugs",
+      task: "List the stages of a typical Bug Life Cycle in order.",
+      solution: "New -> Assigned -> Open -> Fixed -> Retest -> Closed"
+    },
+    "advanced-testing": {
+      id: "advanced-testing",
+      task: "What is the primary goal of Integration Testing?",
+      solution: "To verify that different modules or services work together as expected."
+    },
+    "test-design": {
+      id: "test-design",
       task: "Identify boundary values for an age input field accepting values from 18 to 65.",
       solution: "Boundary values: 17, 18, 19, 64, 65, 66."
     },
-    "exploratory": {
-      id: "exploratory",
-      task: "Describe how you would perform exploratory testing on a new shopping cart feature.",
-      solution: "I would try adding items, removing items, changing quantities, and checking out with different payment methods without a predefined script."
+    "practical-skills": {
+      id: "practical-skills",
+      task: "Which HTTP method is typically used to retrieve data from an API?",
+      solution: "GET"
     },
-    "bug-reporting": {
-      id: "bug-reporting",
-      task: "Write a bug report for a broken 'Submit' button on a contact form.",
-      solution: "Title: Submit button on contact form is unresponsive. Steps: 1. Go to contact page. 2. Fill out form. 3. Click Submit. Expected: Form submits. Actual: Nothing happens."
+    "strategy-and-agile": {
+      id: "strategy-and-agile",
+      task: "What is the role of QA in a Scrum team?",
+      solution: "QA is responsible for ensuring quality throughout the sprint and participating in all Agile ceremonies."
+    },
+    "specialized-testing": {
+      id: "specialized-testing",
+      task: "What is the difference between an Emulator and a Real Device in mobile testing?",
+      solution: "An emulator is a software simulation of a device, while a real device is the actual physical hardware."
+    },
+    "leadership-and-devops": {
+      id: "leadership-and-devops",
+      task: "What does CI/CD stand for in the context of DevOps?",
+      solution: "Continuous Integration and Continuous Deployment (or Continuous Delivery)."
     }
   },
   "prompt-engineering": {
@@ -180,30 +200,50 @@ jobs:
     }
   },
   "cybersecurity": {
-    "intro-to-cybersecurity": {
-      id: "intro-to-cybersecurity",
+    "cyber-foundations": {
+      id: "cyber-foundations",
       task: "Explain the CIA triad in cybersecurity.",
       solution: "The CIA triad stands for Confidentiality, Integrity, and Availability."
     },
-    "passwords-and-auth": {
-      id: "passwords-and-auth",
-      task: "List three characteristics of a strong password.",
-      solution: "A strong password should be long, complex (using mixed characters), and unique."
+    "cyber-networking-os": {
+      id: "cyber-networking-os",
+      task: "What is the purpose of DNS (Domain Name System)?",
+      solution: "DNS translates domain names (like google.com) into IP addresses."
     },
-    "network-fundamentals": {
-      id: "network-fundamentals",
-      task: "What is the purpose of a firewall?",
-      solution: "A firewall monitors and controls incoming and outgoing network traffic based on predetermined security rules."
+    "cyber-security-tools": {
+      id: "cyber-security-tools",
+      task: "Explain the difference between Symmetric and Asymmetric encryption.",
+      solution: "Symmetric encryption uses one key for both encryption and decryption, while asymmetric uses a public key for encryption and a private key for decryption."
     },
-    "encryption": {
-      id: "encryption",
-      task: "Explain the difference between symmetric and asymmetric encryption.",
-      solution: "Symmetric encryption uses the same key for encryption and decryption, while asymmetric uses a public key for encryption and a private key for decryption."
-    },
-    "owasp-top-10": {
-      id: "owasp-top-10",
+    "cyber-web-security": {
+      id: "cyber-web-security",
       task: "What is SQL Injection (SQLi)?",
       solution: "SQL Injection is a vulnerability where an attacker can interfere with the queries that an application makes to its database."
+    },
+    "cyber-ethical-hacking": {
+      id: "cyber-ethical-hacking",
+      task: "What is the primary purpose of Nmap?",
+      solution: "Nmap is used for network discovery and security auditing."
+    },
+    "cyber-crypto-system": {
+      id: "cyber-crypto-system",
+      task: "What does SSL/TLS stand for?",
+      solution: "Secure Sockets Layer and Transport Layer Security."
+    },
+    "cyber-vapt": {
+      id: "cyber-vapt",
+      task: "What is Privilege Escalation?",
+      solution: "Gaining higher-level access to a system (e.g., from a user account to an administrator account)."
+    },
+    "cyber-soc-malware": {
+      id: "cyber-soc-malware",
+      task: "What is the purpose of a SIEM tool like Splunk?",
+      solution: "SIEM tools are used for collecting and analyzing security logs."
+    },
+    "cyber-forensics-grc": {
+      id: "cyber-forensics-grc",
+      task: "What is the purpose of Digital Forensics?",
+      solution: "Digital forensics is used for collecting and analyzing digital evidence."
     }
   },
   "antigravity": {

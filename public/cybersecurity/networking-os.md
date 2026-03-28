@@ -2,17 +2,41 @@
 
 In this module, we'll cover the fundamental building blocks of networks and operating systems.
 
-## Networking Basics (Very Important)
-- **What is a Network?** A collection of computers and other devices connected together to share resources and information.
-- **IP Address:** A unique numerical label assigned to each device connected to a computer network.
-- **MAC Address:** A unique identifier assigned to a network interface controller (NIC) for use as a network address in communications within a network segment.
-- **DNS (Domain Name System):** The "phonebook" of the internet, translating domain names (like google.com) into IP addresses.
-- **HTTP vs HTTPS:** HTTP is the standard protocol for web communication, while HTTPS is the secure version, using encryption (SSL/TLS) to protect data.
-- **Ports & Protocols:** Ports are like "doors" to different services (e.g., Port 80 for HTTP, Port 443 for HTTPS). Protocols (like TCP/IP) are the rules for communication.
+## Networking Fundamentals
+- **OSI Model (7 Layers):**
+    1. **Physical:** Cables, bits.
+    2. **Data Link:** MAC addresses, frames, switches.
+    3. **Network:** IP addresses, packets, routers.
+    4. **Transport:** TCP/UDP, segments, port numbers.
+    5. **Session:** Session management.
+    6. **Presentation:** Encryption, formatting.
+    7. **Application:** HTTP, FTP, SMTP, DNS.
+- **TCP vs UDP:**
+    - **TCP (Transmission Control Protocol):** Connection-oriented, reliable, 3-way handshake (SYN, SYN-ACK, ACK).
+    - **UDP (User Datagram Protocol):** Connectionless, fast, unreliable (best-effort).
+- **IP Addressing:** IPv4 (32-bit) vs IPv6 (128-bit). Public vs Private IPs.
+- **Common Ports:**
+    - 21: FTP
+    - 22: SSH
+    - 23: Telnet
+    - 25: SMTP
+    - 53: DNS
+    - 80: HTTP
+    - 443: HTTPS
+    - 3389: RDP
 
-## Operating Systems Basics
-- **Windows Basics:** Understanding the file system, user accounts, and permissions.
-- **Linux Basics:** Learning common commands like `ls` (list files), `cd` (change directory), and `chmod` (change permissions).
+## Operating Systems Security
+- **Windows Security:**
+    - **User Account Control (UAC):** Prevents unauthorized changes.
+    - **NTFS Permissions:** Access control for files and folders.
+    - **Windows Registry:** Central database for configuration.
+    - **Active Directory:** Centralized management of users and computers.
+- **Linux Security:**
+    - **Root User:** The superuser with absolute power.
+    - **Permissions:** Read (r), Write (w), Execute (x) for Owner, Group, and Others.
+    - **Sudo:** Execute commands with root privileges.
+    - **Shells:** Bash, Zsh, Sh.
+    - **Package Managers:** apt, yum, pacman.
 
 ## Practical Tip
-When working with Linux, always be careful with the `chmod` command, as it can significantly impact system security.
+Use `ipconfig` (Windows) or `ip addr` (Linux) to find your IP address. Use `ping` to test connectivity and `traceroute` (or `tracert`) to see the path to a destination.

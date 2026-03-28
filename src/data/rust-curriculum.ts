@@ -2,54 +2,78 @@ export const rustCurriculum = [
   {
     id: 'beginner',
     level: 'Beginner',
-    title: 'Rust Basics',
-    description: 'Learn the fundamentals of the Rust programming language.',
+    title: '🟢 Beginner Level (Foundations)',
+    description: 'Start by understanding Rust basics, its core philosophy, and the unique ownership system.',
     modules: [
       {
-        id: 'intro-to-rust',
-        title: 'Introduction to Rust',
-        description: 'What is Rust? Explore the language features and setup.',
-        path: '/rust/intro.md'
+        id: 'rust-foundations',
+        title: 'Core Concepts & Setup',
+        description: 'What is Rust, why it is popular, and setting up the environment with Cargo.',
+        path: '/rust/foundations.md'
       },
       {
-        id: 'rust-syntax',
-        title: 'Rust Syntax & Variables',
-        description: 'Learn about variables, data types, and basic syntax.',
-        path: '/rust/syntax.md'
+        id: 'rust-syntax-basics',
+        title: 'Syntax & Control Flow',
+        description: 'Variables, data types, and basic control flow (if, match, loops).',
+        path: '/rust/syntax-basics.md'
+      },
+      {
+        id: 'rust-ownership-system',
+        title: 'Ownership & Borrowing',
+        description: 'Ownership rules, borrowing, and references - the heart of Rust memory safety.',
+        path: '/rust/ownership-system.md'
       }
     ]
   },
   {
     id: 'intermediate',
     level: 'Intermediate',
-    title: 'Ownership & Borrowing',
-    description: 'Master the core concepts of Rust memory management.',
+    title: '🟡 Intermediate Level (Core Rust Skills)',
+    description: 'Move into real Rust development with structs, enums, error handling, and traits.',
     modules: [
       {
-        id: 'rust-ownership',
-        title: 'Ownership in Rust',
-        description: 'Understand the unique ownership system in Rust.',
-        path: '/rust/ownership.md'
+        id: 'rust-structs-enums-errors',
+        title: 'Data Structures & Errors',
+        description: 'Structs, enums, and robust error handling with Result and Option.',
+        path: '/rust/data-errors.md'
       },
       {
-        id: 'rust-borrowing',
-        title: 'Borrowing & Lifetimes',
-        description: 'Learn how to borrow data and manage lifetimes.',
-        path: '/rust/borrowing.md'
+        id: 'rust-collections-traits',
+        title: 'Collections & Traits',
+        description: 'Vectors, HashMaps, Strings, and defining shared behavior with traits.',
+        path: '/rust/collections-traits.md'
+      },
+      {
+        id: 'rust-lifetimes-closures',
+        title: 'Lifetimes & Closures',
+        description: 'Lifetime annotations, closures, iterators, and the Rust ecosystem.',
+        path: '/rust/lifetimes-closures.md'
       }
     ]
   },
   {
     id: 'advanced',
     level: 'Advanced',
-    title: 'Advanced Rust',
-    description: 'Learn advanced Rust features for high-performance applications.',
+    title: '🔴 Advanced Level (Professional Rust)',
+    description: 'Master powerful Rust features like concurrency, async, unsafe Rust, and macros.',
     modules: [
       {
-        id: 'rust-concurrency',
-        title: 'Concurrency in Rust',
-        description: 'Learn how to write safe and efficient concurrent code.',
-        path: '/rust/concurrency.md'
+        id: 'rust-concurrency-async',
+        title: 'Concurrency & Async',
+        description: 'Threads, message passing, shared state, and async/await with Tokio.',
+        path: '/rust/concurrency-async.md'
+      },
+      {
+        id: 'rust-memory-unsafe',
+        title: 'Memory & Unsafe Rust',
+        description: 'Smart pointers, interior mutability, and when to use the unsafe keyword.',
+        path: '/rust/memory-unsafe.md'
+      },
+      {
+        id: 'rust-macros-testing',
+        title: 'Macros & Testing',
+        description: 'Declarative and procedural macros, unit/integration testing, and benchmarking.',
+        path: '/rust/macros-testing.md'
       }
     ]
   }

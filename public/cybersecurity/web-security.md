@@ -2,18 +2,28 @@
 
 In this module, we'll dive deeper into network security and common web vulnerabilities.
 
-## Networking & Security
-- **Subnetting Basics:** Dividing a network into smaller, more manageable sub-networks.
-- **Firewalls & IDS/IPS:** Firewalls control traffic, while Intrusion Detection Systems (IDS) and Intrusion Prevention Systems (IPS) monitor and block malicious activity.
-- **VPN Concepts:** Virtual Private Networks (VPNs) create a secure, encrypted connection between a device and a network.
-- **Packet Analysis (Wireshark Hands-on):** Capturing and analyzing network traffic to identify security issues.
+## Network Security (Intermediate)
+- **Subnetting:** Dividing a network into smaller, more manageable sub-networks. IPv4 Subnet Mask (e.g., 255.255.255.0), CIDR notation (/24).
+- **Firewalls & IDS/IPS:**
+    - **Firewalls:** Packet filtering, Stateful inspection, Next-Generation Firewalls (NGFW).
+    - **IDS/IPS:** Intrusion Detection System (detects) vs Intrusion Prevention System (blocks).
+- **VPN (Virtual Private Network):** Creates a secure, encrypted tunnel over a public network. Protocols: OpenVPN, IPsec, WireGuard.
+- **Network Segmentation:** Dividing a network into smaller segments to improve security and performance (VLANs).
+- **Packet Analysis (Wireshark):** Capturing and analyzing network traffic to identify security issues, troubleshoot connectivity, and detect malicious activity.
 
-## Web Security Basics
-- **How Web Apps Work:** Understanding the client-server model and the role of HTTP/S.
-- **Common Vulnerabilities:**
-    - **SQL Injection (SQLi):** An attacker can interfere with the queries that an application makes to its database.
-    - **Cross-Site Scripting (XSS):** An attacker can inject malicious scripts into web pages viewed by other users.
-    - **Cross-Site Request Forgery (CSRF):** An attacker can trick a user into performing an action they didn't intend to.
+## Web Application Security
+- **How Web Apps Work:** Client-server model, HTTP/S, Request/Response cycle, Cookies, Sessions.
+- **OWASP Top 10 (2021):**
+    1. **Broken Access Control:** Users can access data or perform actions outside their permissions.
+    2. **Cryptographic Failures:** Sensitive data is not properly protected (e.g., weak encryption).
+    3. **Injection:** SQLi, NoSQLi, OS Command Injection.
+    4. **Insecure Design:** Flaws in the application's architecture.
+    5. **Security Misconfiguration:** Improperly configured security settings.
+    6. **Vulnerable and Outdated Components:** Using libraries or frameworks with known vulnerabilities.
+    7. **Identification and Authentication Failures:** Weak passwords, improper session management.
+    8. **Software and Data Integrity Failures:** Insecure updates, CI/CD pipeline vulnerabilities.
+    9. **Security Logging and Monitoring Failures:** Insufficient logging and monitoring to detect attacks.
+    10. **Server-Side Request Forgery (SSRF):** An attacker can trick a server into making requests to internal or external resources.
 
 ## Practical Tip
-When testing for web vulnerabilities, always use a tool like Burp Suite to intercept and modify HTTP requests.
+When testing for web vulnerabilities, always use a tool like Burp Suite or OWASP ZAP to intercept and modify HTTP requests. Use `sqlmap` for automated SQL injection testing.

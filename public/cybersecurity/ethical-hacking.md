@@ -2,16 +2,34 @@
 
 In this module, we'll explore the basics of ethical hacking and the tools used in the process.
 
-## Ethical Hacking Basics
-- **Footprinting & Reconnaissance:** Gathering information about a target (e.g., domain names, IP addresses, user accounts).
-- **Scanning:** Identifying open ports and services on a target system.
-- **Enumeration Basics:** Discovering more detailed information about a target system (e.g., user names, shares, services).
+## The 5 Phases of Hacking
+1. **Reconnaissance (Footprinting):** Gathering information about the target (Passive vs Active). Tools: Google Dorking, Whois, Shodan, Maltego.
+2. **Scanning:** Identifying open ports, services, and vulnerabilities. Tools: Nmap, Nessus, Nikto.
+3. **Gaining Access:** Exploiting vulnerabilities to enter the system. Tools: Metasploit, Burp Suite, SQLmap.
+4. **Maintaining Access:** Establishing a persistent presence (Backdoors, Rootkits).
+5. **Clearing Tracks:** Deleting logs and hiding evidence of the intrusion.
 
-## Tools (Hands-on)
-- **Nmap (Network Scanning):** A powerful tool for network discovery and security auditing.
-- **Burp Suite (Web Testing Basics):** An integrated platform for performing security testing of web applications.
-- **Wireshark (Deep Usage):** Capturing and analyzing network traffic to identify security issues.
-- **Metasploit (Intro):** A powerful framework for developing and executing exploit code against a remote target machine.
+## Ethical Hacking Tools (Practical)
+- **Nmap (Network Mapper):**
+    - `-sS`: Stealth (SYN) scan.
+    - `-sV`: Service version detection.
+    - `-O`: OS detection.
+    - `-A`: Aggressive scan (includes OS detection, version detection, script scanning, and traceroute).
+- **Metasploit Framework:**
+    - **Exploit:** Code that takes advantage of a vulnerability.
+    - **Payload:** Code that runs on the target after exploitation (e.g., Meterpreter).
+    - **Auxiliary:** Tools for scanning, fuzzing, and sniffing.
+- **Burp Suite:**
+    - **Proxy:** Intercepts and modifies HTTP requests.
+    - **Intruder:** Automates customized attacks (e.g., brute-forcing).
+    - **Repeater:** Manually resends individual requests.
+- **Netcat (The Swiss Army Knife):** Used for reading from and writing to network connections using TCP or UDP.
+- **Hydra:** A very fast network logon cracker.
+
+## Vulnerability Scanning
+- **Nessus:** A widely used vulnerability scanner.
+- **OpenVAS:** An open-source alternative to Nessus.
+- **Nikto:** A web server scanner that tests for dangerous files, outdated versions, and other problems.
 
 ## Practical Tip
-When using Nmap, always be careful with the `-sV` (service version detection) and `-A` (aggressive scan) flags, as they can be noisy and easily detected.
+Always have written permission (a "Get Out of Jail Free" card) before performing any security testing. Use a lab environment (like TryHackMe or HackTheBox) to practice your skills legally and safely.

@@ -258,6 +258,44 @@ jobs:
       } else {
         response = `bash: ${cmd}: command not found`;
       }
+    } else if (courseId === 'gitlab') {
+      if (cmd === 'gitlab-runner') {
+        if (args[0] === '--version') {
+          response = 'gitlab-runner version 16.0.0 (abcdef12)';
+        } else {
+          response = `gitlab-runner: command not found: ${args[0]}`;
+        }
+      } else {
+        response = `bash: ${cmd}: command not found`;
+      }
+    } else if (courseId === 'kubernetes') {
+      if (cmd === 'kubectl') {
+        if (args[0] === 'cluster-info') {
+          response = 'Kubernetes control plane is running at https://127.0.0.1:6443\nCoreDNS is running at https://127.0.0.1:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy';
+        } else if (args[0] === 'get' && args[1] === 'pods') {
+          response = 'NAME                     READY   STATUS    RESTARTS   AGE\nnginx-7854ff6677-v2wzx   1/1     Running   0          5m';
+        } else {
+          response = `kubectl: command not found: ${args[0]}`;
+        }
+      } else {
+        response = `bash: ${cmd}: command not found`;
+      }
+    } else if (courseId === 'rust') {
+      if (cmd === 'rustc') {
+        if (args[0] === '--version') {
+          response = 'rustc 1.75.0 (82e1608df 2023-12-21)';
+        } else {
+          response = `rustc: command not found: ${args[0]}`;
+        }
+      } else if (cmd === 'cargo') {
+        if (args[0] === 'new') {
+          response = `Created binary (application) \`${args[1]}\` package`;
+        } else {
+          response = `cargo: command not found: ${args[0]}`;
+        }
+      } else {
+        response = `bash: ${cmd}: command not found`;
+      }
     }
 
     newHistory.push({ type: 'output' as const, text: response || 'Command executed successfully.' });
@@ -351,7 +389,7 @@ jobs:
 
         {/* Workspace Area */}
         <div className="flex-1 min-h-0">
-          {(courseId === 'git' || courseId === 'docker' || courseId === 'github' || courseId === 'cybersecurity' || courseId === 'antigravity') && (
+          {(courseId === 'git' || courseId === 'docker' || courseId === 'github' || courseId === 'cybersecurity' || courseId === 'antigravity' || courseId === 'gitlab' || courseId === 'kubernetes' || courseId === 'rust') && (
             <div className="flex flex-col h-full bg-slate-900 rounded-xl overflow-hidden border border-slate-700 font-mono text-sm">
               <div className="bg-slate-800 px-4 py-2 flex items-center justify-between border-b border-slate-700">
                 <div className="flex items-center gap-2">

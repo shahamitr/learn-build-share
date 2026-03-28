@@ -232,5 +232,101 @@ jobs:
       task: "Name one technique for optimizing performance in Antigravity.",
       solution: "Code splitting or lazy loading components."
     }
+  },
+  gitlab: {
+    "intro-to-gitlab": {
+      id: "intro-to-gitlab",
+      task: "Check the version of gitlab-runner installed.",
+      solution: "gitlab-runner --version",
+      expectedCommands: ["gitlab-runner --version"]
+    },
+    "gitlab-projects": {
+      id: "gitlab-projects",
+      task: "List all projects in your GitLab namespace.",
+      solution: "gitlab project list",
+      expectedCommands: ["gitlab project list"]
+    },
+    "gitlab-ci-basics": {
+      id: "gitlab-ci-basics",
+      task: "Create a basic .gitlab-ci.yml file with a single 'test' job.",
+      solution: "test_job:\n  script: echo 'Running tests'",
+      expectedCommands: [".gitlab-ci.yml"]
+    },
+    "gitlab-runners": {
+      id: "gitlab-runners",
+      task: "Register a new GitLab runner.",
+      solution: "gitlab-runner register",
+      expectedCommands: ["gitlab-runner register"]
+    },
+    "gitlab-security": {
+      id: "gitlab-security",
+      task: "Enable SAST (Static Application Security Testing) in your pipeline.",
+      solution: "include:\n  - template: Jobs/SAST.gitlab-ci.yml",
+      expectedCommands: ["SAST.gitlab-ci.yml"]
+    }
+  },
+  kubernetes: {
+    "intro-to-k8s": {
+      id: "intro-to-k8s",
+      task: "Check the status of the Kubernetes cluster.",
+      solution: "kubectl cluster-info",
+      expectedCommands: ["kubectl cluster-info"]
+    },
+    "k8s-objects": {
+      id: "k8s-objects",
+      task: "Describe the 'nginx' deployment.",
+      solution: "kubectl describe deployment nginx",
+      expectedCommands: ["kubectl describe deployment nginx"]
+    },
+    "k8s-config": {
+      id: "k8s-config",
+      task: "Create a ConfigMap named 'app-config' from a literal value.",
+      solution: "kubectl create configmap app-config --from-literal=key=value",
+      expectedCommands: ["kubectl create configmap app-config"]
+    },
+    "k8s-storage": {
+      id: "k8s-storage",
+      task: "List all Persistent Volumes (PV) in the cluster.",
+      solution: "kubectl get pv",
+      expectedCommands: ["kubectl get pv"]
+    },
+    "k8s-networking": {
+      id: "k8s-networking",
+      task: "Expose a deployment as a Service of type NodePort.",
+      solution: "kubectl expose deployment nginx --port=80 --type=NodePort",
+      expectedCommands: ["kubectl expose deployment"]
+    }
+  },
+  rust: {
+    "intro-to-rust": {
+      id: "intro-to-rust",
+      task: "Check the version of rustc installed.",
+      solution: "rustc --version",
+      expectedCommands: ["rustc --version"]
+    },
+    "rust-syntax": {
+      id: "rust-syntax",
+      task: "Compile a single Rust file named 'main.rs'.",
+      solution: "rustc main.rs",
+      expectedCommands: ["rustc main.rs"]
+    },
+    "rust-ownership": {
+      id: "rust-ownership",
+      task: "Check the code for ownership errors without building it.",
+      solution: "cargo check",
+      expectedCommands: ["cargo check"]
+    },
+    "rust-borrowing": {
+      id: "rust-borrowing",
+      task: "Build the project in release mode for optimization.",
+      solution: "cargo build --release",
+      expectedCommands: ["cargo build --release"]
+    },
+    "rust-concurrency": {
+      id: "rust-concurrency",
+      task: "Run tests in your Rust project.",
+      solution: "cargo test",
+      expectedCommands: ["cargo test"]
+    }
   }
 };

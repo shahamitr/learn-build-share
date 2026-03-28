@@ -9,13 +9,13 @@ export const manualTestingCurriculum = [
         id: 'intro-to-testing',
         title: 'Introduction to Software Testing',
         description: 'What is testing? Why is it important? Explore the software testing life cycle (STLC).',
-        path: '/content/manual-testing/intro.md'
+        path: '/manual-testing/intro.md'
       },
       {
         id: 'test-cases',
         title: 'Writing Test Cases',
         description: 'Learn how to write effective, clear, and comprehensive test cases.',
-        path: '/content/manual-testing/test-cases.md'
+        path: '/manual-testing/test-cases.md'
       }
     ]
   },
@@ -29,13 +29,13 @@ export const manualTestingCurriculum = [
         id: 'black-box',
         title: 'Black Box Testing',
         description: 'Equivalence partitioning, boundary value analysis, and decision table testing.',
-        path: '/content/manual-testing/black-box.md'
+        path: '/manual-testing/black-box.md'
       },
       {
         id: 'exploratory',
         title: 'Exploratory Testing',
         description: 'Learn how to test software without predefined test cases using heuristics.',
-        path: '/content/manual-testing/exploratory.md'
+        path: '/manual-testing/exploratory.md'
       }
     ]
   },
@@ -49,7 +49,7 @@ export const manualTestingCurriculum = [
         id: 'bug-reporting',
         title: 'Effective Bug Reporting',
         description: 'How to write a bug report that developers will love.',
-        path: '/content/manual-testing/bug-reporting.md'
+        path: '/manual-testing/bug-reporting.md'
       }
     ]
   }

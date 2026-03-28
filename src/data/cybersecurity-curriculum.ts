@@ -9,13 +9,13 @@ export const cybersecurityCurriculum = [
         id: 'intro-to-cybersecurity',
         title: 'Introduction to Cybersecurity',
         description: 'What is cybersecurity? Explore the CIA triad and common threats.',
-        path: '/content/cybersecurity/intro.md'
+        path: '/cybersecurity/intro.md'
       },
       {
         id: 'passwords-and-auth',
         title: 'Authentication and Passwords',
         description: 'Learn about strong passwords, MFA, and secure authentication.',
-        path: '/content/cybersecurity/auth.md'
+        path: '/cybersecurity/auth.md'
       }
     ]
   },
@@ -29,13 +29,13 @@ export const cybersecurityCurriculum = [
         id: 'network-fundamentals',
         title: 'Network Fundamentals',
         description: 'Learn about IP addresses, ports, protocols, and firewalls.',
-        path: '/content/cybersecurity/network.md'
+        path: '/cybersecurity/network.md'
       },
       {
         id: 'encryption',
         title: 'Encryption Basics',
         description: 'Understand symmetric and asymmetric encryption, hashing, and digital signatures.',
-        path: '/content/cybersecurity/encryption.md'
+        path: '/cybersecurity/encryption.md'
       }
     ]
   },
@@ -49,7 +49,7 @@ export const cybersecurityCurriculum = [
         id: 'owasp-top-10',
         title: 'OWASP Top 10',
         description: 'Explore the most critical web application security risks (SQLi, XSS, etc.).',
-        path: '/content/cybersecurity/owasp.md'
+        path: '/cybersecurity/owasp.md'
       }
     ]
   }

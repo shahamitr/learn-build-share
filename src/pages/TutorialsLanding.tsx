@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Github, Bot, ArrowRight, Container, Workflow, CheckCircle2, ShieldCheck, Sparkles, Shield, Rocket } from 'lucide-react';
+import { Github, Bot, ArrowRight, Container, Workflow, CheckCircle2, ShieldCheck, Sparkles, Shield, Rocket, Gitlab, Box, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -13,6 +13,9 @@ import { manualTestingCurriculum } from '../data/manual-testing-curriculum';
 import { promptEngineeringCurriculum } from '../data/prompt-engineering-curriculum';
 import { cybersecurityCurriculum } from '../data/cybersecurity-curriculum';
 import { antigravityCurriculum } from '../data/antigravity-curriculum';
+import { gitlabCurriculum } from '../data/gitlab-curriculum';
+import { kubernetesCurriculum } from '../data/kubernetes-curriculum';
+import { rustCurriculum } from '../data/rust-curriculum';
 
 export default function TutorialsLanding() {
   const { isCompleted } = useProgress();
@@ -33,6 +36,9 @@ export default function TutorialsLanding() {
   const promptEngineeringProgress = getCourseProgress('prompt-engineering', promptEngineeringCurriculum);
   const cybersecurityProgress = getCourseProgress('cybersecurity', cybersecurityCurriculum);
   const antigravityProgress = getCourseProgress('antigravity', antigravityCurriculum);
+  const gitlabProgress = getCourseProgress('gitlab', gitlabCurriculum);
+  const kubernetesProgress = getCourseProgress('kubernetes', kubernetesCurriculum);
+  const rustProgress = getCourseProgress('rust', rustCurriculum);
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -340,6 +346,96 @@ export default function TutorialsLanding() {
                   Learn the basics of working with the Antigravity framework, routing, and state management.
                 </p>
                 <div className="flex items-center text-cyan-600 font-medium text-lg">
+                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* GitLab Course */}
+          <motion.div variants={item}>
+            <Link to="/tutorials/gitlab" className="group block h-full">
+              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-orange-200 transition-all h-full flex flex-col">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-16 h-16 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Gitlab className="w-8 h-8" />
+                  </div>
+                  {gitlabProgress.percentage > 0 && (
+                    <div className="flex flex-col items-end">
+                      <span className="text-sm font-bold text-orange-600">{gitlabProgress.percentage}%</span>
+                      <div className="w-20 h-1.5 bg-orange-100 rounded-full mt-1 overflow-hidden">
+                        <div className="h-full bg-orange-500 rounded-full" style={{ width: `${gitlabProgress.percentage}%` }}></div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
+                  GitLab CI/CD
+                </h2>
+                <p className="text-slate-600 mb-6 flex-grow text-lg">
+                  Master GitLab for source control and powerful CI/CD pipelines.
+                </p>
+                <div className="flex items-center text-orange-600 font-medium text-lg">
+                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* Kubernetes Course */}
+          <motion.div variants={item}>
+            <Link to="/tutorials/kubernetes" className="group block h-full">
+              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all h-full flex flex-col">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Box className="w-8 h-8" />
+                  </div>
+                  {kubernetesProgress.percentage > 0 && (
+                    <div className="flex flex-col items-end">
+                      <span className="text-sm font-bold text-blue-600">{kubernetesProgress.percentage}%</span>
+                      <div className="w-20 h-1.5 bg-blue-100 rounded-full mt-1 overflow-hidden">
+                        <div className="h-full bg-blue-500 rounded-full" style={{ width: `${kubernetesProgress.percentage}%` }}></div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                  Kubernetes Fundamentals
+                </h2>
+                <p className="text-slate-600 mb-6 flex-grow text-lg">
+                  Learn container orchestration with Kubernetes. Deploy and scale applications with ease.
+                </p>
+                <div className="flex items-center text-blue-600 font-medium text-lg">
+                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* Rust Course */}
+          <motion.div variants={item}>
+            <Link to="/tutorials/rust" className="group block h-full">
+              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-orange-200 transition-all h-full flex flex-col">
+                <div className="flex items-center justify-between mb-6">
+                  <div className="w-16 h-16 bg-orange-50 text-orange-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Zap className="w-8 h-8" />
+                  </div>
+                  {rustProgress.percentage > 0 && (
+                    <div className="flex flex-col items-end">
+                      <span className="text-sm font-bold text-orange-700">{rustProgress.percentage}%</span>
+                      <div className="w-20 h-1.5 bg-orange-100 rounded-full mt-1 overflow-hidden">
+                        <div className="h-full bg-orange-600 rounded-full" style={{ width: `${rustProgress.percentage}%` }}></div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-700 transition-colors">
+                  Rust Programming
+                </h2>
+                <p className="text-slate-600 mb-6 flex-grow text-lg">
+                  Learn the Rust programming language. Fast, safe, and memory-efficient.
+                </p>
+                <div className="flex items-center text-orange-700 font-medium text-lg">
                   Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>

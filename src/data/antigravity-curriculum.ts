@@ -9,13 +9,13 @@ export const antigravityCurriculum = [
         id: 'intro-to-antigravity',
         title: 'Introduction to Antigravity',
         description: 'What is Antigravity? Explore its core concepts and architecture.',
-        path: '/content/antigravity/intro.md'
+        path: '/antigravity/intro.md'
       },
       {
         id: 'setup-and-installation',
         title: 'Setup and Installation',
         description: 'Learn how to install and configure Antigravity for your project.',
-        path: '/content/antigravity/setup.md'
+        path: '/antigravity/setup.md'
       }
     ]
   },
@@ -29,13 +29,13 @@ export const antigravityCurriculum = [
         id: 'routing',
         title: 'Routing and Navigation',
         description: 'Learn how to define routes and navigate between pages.',
-        path: '/content/antigravity/routing.md'
+        path: '/antigravity/routing.md'
       },
       {
         id: 'state-management',
         title: 'State Management',
         description: 'Understand how to manage application state with Antigravity.',
-        path: '/content/antigravity/state.md'
+        path: '/antigravity/state.md'
       }
     ]
   },
@@ -49,7 +49,7 @@ export const antigravityCurriculum = [
         id: 'performance-optimization',
         title: 'Performance Optimization',
         description: 'Learn how to optimize your Antigravity applications for speed and efficiency.',
-        path: '/content/antigravity/performance.md'
+        path: '/antigravity/performance.md'
       }
     ]
   }

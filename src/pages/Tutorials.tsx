@@ -8,7 +8,10 @@ import { manualTestingCurriculum } from '../data/manual-testing-curriculum';
 import { promptEngineeringCurriculum } from '../data/prompt-engineering-curriculum';
 import { cybersecurityCurriculum } from '../data/cybersecurity-curriculum';
 import { antigravityCurriculum } from '../data/antigravity-curriculum';
-import { BookOpen, ChevronRight, GitBranch, Terminal, Shield, Zap, Bot, Code, Cpu, Container, Layers, Server, Users, Globe, Lock, Workflow, Play, Settings, Map as MapIcon, List, CheckCircle2, Circle, Clock, Award, ShieldCheck, Sparkles, Rocket } from 'lucide-react';
+import { gitlabCurriculum } from '../data/gitlab-curriculum';
+import { kubernetesCurriculum } from '../data/kubernetes-curriculum';
+import { rustCurriculum } from '../data/rust-curriculum';
+import { BookOpen, ChevronRight, GitBranch, Terminal, Shield, Zap, Bot, Code, Cpu, Container, Layers, Server, Users, Globe, Lock, Workflow, Play, Settings, Map as MapIcon, List, CheckCircle2, Circle, Clock, Award, ShieldCheck, Sparkles, Rocket, Gitlab, Box } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import AnimatedMindMap from '../components/AnimatedMindMap';
@@ -60,6 +63,18 @@ export default function Tutorials() {
     curriculum = antigravityCurriculum;
     title = 'Working with Antigravity';
     description = 'Learn the basics of working with the Antigravity framework, routing, and state management.';
+  } else if (courseId === 'gitlab') {
+    curriculum = gitlabCurriculum;
+    title = 'GitLab CI/CD';
+    description = 'Master GitLab for source control and powerful CI/CD pipelines.';
+  } else if (courseId === 'kubernetes') {
+    curriculum = kubernetesCurriculum;
+    title = 'Kubernetes Fundamentals';
+    description = 'Learn container orchestration with Kubernetes. Deploy and scale applications with ease.';
+  } else if (courseId === 'rust') {
+    curriculum = rustCurriculum;
+    title = 'Rust Programming';
+    description = 'Learn the Rust programming language. Fast, safe, and memory-efficient.';
   } else {
     curriculum = gitCurriculum;
     title = 'Git Mastery Curriculum';
@@ -126,6 +141,27 @@ export default function Tutorials() {
         case 'intermediate': return <Rocket className="w-6 h-6 text-amber-600" />;
         case 'advanced': return <Rocket className="w-6 h-6 text-rose-600" />;
         default: return <Rocket className="w-6 h-6" />;
+      }
+    } else if (courseId === 'gitlab') {
+      switch (levelId) {
+        case 'beginner': return <Gitlab className="w-6 h-6 text-emerald-600" />;
+        case 'intermediate': return <Gitlab className="w-6 h-6 text-amber-600" />;
+        case 'advanced': return <Gitlab className="w-6 h-6 text-rose-600" />;
+        default: return <Gitlab className="w-6 h-6" />;
+      }
+    } else if (courseId === 'kubernetes') {
+      switch (levelId) {
+        case 'beginner': return <Box className="w-6 h-6 text-emerald-600" />;
+        case 'intermediate': return <Box className="w-6 h-6 text-amber-600" />;
+        case 'advanced': return <Box className="w-6 h-6 text-rose-600" />;
+        default: return <Box className="w-6 h-6" />;
+      }
+    } else if (courseId === 'rust') {
+      switch (levelId) {
+        case 'beginner': return <Zap className="w-6 h-6 text-emerald-600" />;
+        case 'intermediate': return <Zap className="w-6 h-6 text-amber-600" />;
+        case 'advanced': return <Zap className="w-6 h-6 text-rose-600" />;
+        default: return <Zap className="w-6 h-6" />;
       }
     } else {
       switch (levelId) {

@@ -12,6 +12,9 @@ import { manualTestingCurriculum } from '../data/manual-testing-curriculum';
 import { promptEngineeringCurriculum } from '../data/prompt-engineering-curriculum';
 import { cybersecurityCurriculum } from '../data/cybersecurity-curriculum';
 import { antigravityCurriculum } from '../data/antigravity-curriculum';
+import { gitlabCurriculum } from '../data/gitlab-curriculum';
+import { kubernetesCurriculum } from '../data/kubernetes-curriculum';
+import { rustCurriculum } from '../data/rust-curriculum';
 import { ArrowLeft, Loader2, PanelRightOpen, PanelRightClose, CheckCircle2, Circle, Check, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useProgress } from '../context/ProgressContext';
@@ -75,6 +78,12 @@ export default function TutorialViewer() {
     curriculum = cybersecurityCurriculum;
   } else if (courseId === 'antigravity') {
     curriculum = antigravityCurriculum;
+  } else if (courseId === 'gitlab') {
+    curriculum = gitlabCurriculum;
+  } else if (courseId === 'kubernetes') {
+    curriculum = kubernetesCurriculum;
+  } else if (courseId === 'rust') {
+    curriculum = rustCurriculum;
   } else {
     curriculum = gitCurriculum;
   }

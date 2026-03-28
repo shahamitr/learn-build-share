@@ -9,6 +9,9 @@ import { manualTestingCurriculum } from '../data/manual-testing-curriculum';
 import { promptEngineeringCurriculum } from '../data/prompt-engineering-curriculum';
 import { cybersecurityCurriculum } from '../data/cybersecurity-curriculum';
 import { antigravityCurriculum } from '../data/antigravity-curriculum';
+import { gitlabCurriculum } from '../data/gitlab-curriculum';
+import { kubernetesCurriculum } from '../data/kubernetes-curriculum';
+import { rustCurriculum } from '../data/rust-curriculum';
 import { Link, Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -56,6 +59,9 @@ export default function Dashboard() {
     { id: 'prompt-engineering', title: 'Prompt Engineering', progress: getCourseProgress('prompt-engineering', promptEngineeringCurriculum), color: 'violet' },
     { id: 'cybersecurity', title: 'Cybersecurity Fundamentals', progress: getCourseProgress('cybersecurity', cybersecurityCurriculum), color: 'red' },
     { id: 'antigravity', title: 'Working with Antigravity', progress: getCourseProgress('antigravity', antigravityCurriculum), color: 'cyan' },
+    { id: 'gitlab', title: 'GitLab CI/CD', progress: getCourseProgress('gitlab', gitlabCurriculum), color: 'orange' },
+    { id: 'kubernetes', title: 'Kubernetes Fundamentals', progress: getCourseProgress('kubernetes', kubernetesCurriculum), color: 'blue' },
+    { id: 'rust', title: 'Rust Programming', progress: getCourseProgress('rust', rustCurriculum), color: 'orange' },
   ];
 
   const totalCompletedModules = courses.reduce((acc, course) => acc + course.progress.completed, 0);

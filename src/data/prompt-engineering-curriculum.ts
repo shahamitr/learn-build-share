@@ -9,13 +9,13 @@ export const promptEngineeringCurriculum = [
         id: 'intro-to-llms',
         title: 'Introduction to LLMs',
         description: 'What are Large Language Models and how do they work?',
-        path: '/content/prompt-engineering/intro.md'
+        path: '/prompt-engineering/intro.md'
       },
       {
         id: 'basic-prompting',
         title: 'Basic Prompting Strategies',
         description: 'Learn how to write clear, concise, and effective prompts.',
-        path: '/content/prompt-engineering/basic.md'
+        path: '/prompt-engineering/basic.md'
       }
     ]
   },
@@ -29,13 +29,13 @@ export const promptEngineeringCurriculum = [
         id: 'few-shot',
         title: 'Few-Shot Prompting',
         description: 'Provide examples to guide the model\'s output format and style.',
-        path: '/content/prompt-engineering/few-shot.md'
+        path: '/prompt-engineering/few-shot.md'
       },
       {
         id: 'chain-of-thought',
         title: 'Chain-of-Thought Prompting',
         description: 'Encourage the model to break down complex problems step-by-step.',
-        path: '/content/prompt-engineering/cot.md'
+        path: '/prompt-engineering/cot.md'
       }
     ]
   },
@@ -49,7 +49,7 @@ export const promptEngineeringCurriculum = [
         id: 'system-prompts',
         title: 'Designing System Prompts',
         description: 'Set the persona, constraints, and overall behavior of an AI assistant.',
-        path: '/content/prompt-engineering/system-prompts.md'
+        path: '/prompt-engineering/system-prompts.md'
       }
     ]
   }

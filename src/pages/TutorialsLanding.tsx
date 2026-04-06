@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Bot, ArrowRight, Container, Workflow, CheckCircle2, ShieldCheck, Sparkles, Shield, Rocket, Gitlab, Box, Zap, Terminal, Cloud, Database } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Github, Bot, ArrowRight, Container, Workflow, CheckCircle2, ShieldCheck, Sparkles, Shield, Rocket, Gitlab, Box, Zap, Terminal, Cloud, Database, Search } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useProgress } from '../context/ProgressContext';
@@ -22,6 +23,25 @@ import { sqlCurriculum } from '../data/sql-curriculum';
 
 export default function TutorialsLanding() {
   const { isCompleted } = useProgress();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const courses = [
+    { id: 'git', title: 'Mastering Git', icon: <Github className="w-8 h-8" />, description: 'From basic commands to advanced workflows.', link: '/tutorials/git', bgColor: 'bg-orange-100', textColor: 'text-orange-600', curriculum: gitCurriculum },
+    { id: 'ai', title: 'AI-Assisted Development', icon: <Bot className="w-8 h-8" />, description: 'Learn to use AI tools effectively.', link: '/tutorials/ai', bgColor: 'bg-indigo-100', textColor: 'text-indigo-600', curriculum: aiCurriculum },
+    { id: 'docker', title: 'Docker Fundamentals', icon: <Container className="w-8 h-8" />, description: 'Master containers and images.', link: '/tutorials/docker', bgColor: 'bg-blue-100', textColor: 'text-blue-600', curriculum: dockerCurriculum },
+    { id: 'github', title: 'GitHub Fundamentals', icon: <Github className="w-8 h-8" />, description: 'Learn GitHub for collaboration.', link: '/tutorials/github', bgColor: 'bg-purple-100', textColor: 'text-purple-600', curriculum: githubCurriculum },
+    { id: 'github-actions', title: 'GitHub Actions', icon: <Workflow className="w-8 h-8" />, description: 'Automate your workflows.', link: '/tutorials/github-actions', bgColor: 'bg-emerald-100', textColor: 'text-emerald-600', curriculum: githubActionsCurriculum },
+    { id: 'manual-testing', title: 'Manual Testing', icon: <ShieldCheck className="w-8 h-8" />, description: 'Core concepts of software testing.', link: '/tutorials/manual-testing', bgColor: 'bg-pink-100', textColor: 'text-pink-600', curriculum: manualTestingCurriculum },
+    { id: 'prompt-engineering', title: 'Prompt Engineering', icon: <Sparkles className="w-8 h-8" />, description: 'Master the art of prompting.', link: '/tutorials/prompt-engineering', bgColor: 'bg-yellow-100', textColor: 'text-yellow-600', curriculum: promptEngineeringCurriculum },
+    { id: 'cybersecurity', title: 'Cybersecurity Fundamentals', icon: <Shield className="w-8 h-8" />, description: 'Learn core security concepts.', link: '/tutorials/cybersecurity', bgColor: 'bg-red-100', textColor: 'text-red-600', curriculum: cybersecurityCurriculum },
+    { id: 'antigravity', title: 'Working with Antigravity', icon: <Rocket className="w-8 h-8" />, description: 'Basics of the Antigravity framework.', link: '/tutorials/antigravity', bgColor: 'bg-cyan-100', textColor: 'text-cyan-600', curriculum: antigravityCurriculum },
+    { id: 'gitlab', title: 'GitLab CI/CD', icon: <Gitlab className="w-8 h-8" />, description: 'Master GitLab CI/CD pipelines.', link: '/tutorials/gitlab', bgColor: 'bg-orange-50', textColor: 'text-orange-600', curriculum: gitlabCurriculum },
+    { id: 'kubernetes', title: 'Kubernetes Fundamentals', icon: <Box className="w-8 h-8" />, description: 'Container orchestration basics.', link: '/tutorials/kubernetes', bgColor: 'bg-blue-50', textColor: 'text-blue-600', curriculum: kubernetesCurriculum },
+    { id: 'rust', title: 'Rust Programming', icon: <Zap className="w-8 h-8" />, description: 'Fast, safe, memory-efficient.', link: '/tutorials/rust', bgColor: 'bg-orange-50', textColor: 'text-orange-700', curriculum: rustCurriculum },
+    { id: 'linux', title: 'Linux Basics', icon: <Terminal className="w-8 h-8" />, description: 'Fundamental Linux concepts.', link: '/tutorials/linux', bgColor: 'bg-slate-100', textColor: 'text-slate-700', curriculum: linuxCurriculum },
+    { id: 'aws', title: 'AWS Cloud Practitioner', icon: <Cloud className="w-8 h-8" />, description: 'Fundamental cloud concepts.', link: '/tutorials/aws', bgColor: 'bg-amber-100', textColor: 'text-amber-600', curriculum: awsCurriculum },
+    { id: 'sql', title: 'SQL Basics', icon: <Database className="w-8 h-8" />, description: 'Relational database basics.', link: '/tutorials/sql', bgColor: 'bg-sky-100', textColor: 'text-sky-600', curriculum: sqlCurriculum },
+  ];
 
   const getCourseProgress = (courseId: string, curriculum: any) => {
     const allModules = curriculum.flatMap((l: any) => l.modules);
@@ -30,45 +50,20 @@ export default function TutorialsLanding() {
     return { total, completed, percentage: total === 0 ? 0 : Math.round((completed / total) * 100) };
   };
 
-  const gitProgress = getCourseProgress('git', gitCurriculum);
-  const aiProgress = getCourseProgress('ai', aiCurriculum);
-  const dockerProgress = getCourseProgress('docker', dockerCurriculum);
-  const githubProgress = getCourseProgress('github', githubCurriculum);
-  const actionsProgress = getCourseProgress('github-actions', githubActionsCurriculum);
-  const manualTestingProgress = getCourseProgress('manual-testing', manualTestingCurriculum);
-  const promptEngineeringProgress = getCourseProgress('prompt-engineering', promptEngineeringCurriculum);
-  const cybersecurityProgress = getCourseProgress('cybersecurity', cybersecurityCurriculum);
-  const antigravityProgress = getCourseProgress('antigravity', antigravityCurriculum);
-  const gitlabProgress = getCourseProgress('gitlab', gitlabCurriculum);
-  const kubernetesProgress = getCourseProgress('kubernetes', kubernetesCurriculum);
-  const rustProgress = getCourseProgress('rust', rustCurriculum);
-  const linuxProgress = getCourseProgress('linux', linuxCurriculum);
-  const awsProgress = getCourseProgress('aws', awsCurriculum);
-  const sqlProgress = getCourseProgress('sql', sqlCurriculum);
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
-  };
+  const filteredCourses = courses.filter(course => 
+    course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    course.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans">
+    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       <Header />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div className="text-center mb-16">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl font-bold text-slate-900 dark:text-white mb-4"
+            className="text-5xl font-extrabold text-slate-900 mb-6"
           >
             Choose Your Path
           </motion.h1>
@@ -76,467 +71,73 @@ export default function TutorialsLanding() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
+            className="text-xl text-slate-600 max-w-2xl mx-auto mb-12"
           >
-            Select a curriculum to start learning.
+            Select a curriculum to start learning and build your skills.
           </motion.p>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="relative max-w-lg mx-auto"
+          >
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+            <input 
+              type="text"
+              placeholder="Search courses..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-12 pr-4 py-4 rounded-2xl border border-slate-200 shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none text-lg"
+            />
+          </motion.div>
         </div>
 
         <motion.div 
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"
+          layout
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {/* Git Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/git" className="group block h-full">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-orange-200 dark:hover:border-orange-900 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-orange-100 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Github className="w-8 h-8" />
-                  </div>
-                  {gitProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-orange-600 dark:text-orange-400">{gitProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-orange-100 dark:bg-orange-900/20 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-orange-500 dark:bg-orange-400 rounded-full" style={{ width: `${gitProgress.percentage}%` }}></div>
+          <AnimatePresence>
+            {filteredCourses.map((course) => {
+              const progress = getCourseProgress(course.id, course.curriculum);
+              return (
+                <motion.div 
+                  key={course.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  whileHover={{ y: -10 }}
+                >
+                  <Link to={course.link} className="group block h-full">
+                    <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all h-full flex flex-col">
+                      <div className="flex items-center justify-between mb-8">
+                        <div className={`w-16 h-16 ${course.bgColor} ${course.textColor} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                          {course.icon}
+                        </div>
+                        {progress.percentage > 0 && (
+                          <div className="flex flex-col items-end">
+                            <span className={`text-sm font-bold ${course.textColor}`}>{progress.percentage}%</span>
+                            <div className={`w-20 h-1.5 ${course.bgColor} rounded-full mt-1 overflow-hidden`}>
+                              <div className={`h-full ${course.textColor.replace('text-', 'bg-')} rounded-full`} style={{ width: `${progress.percentage}%` }}></div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      <h2 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-indigo-600 transition-colors">
+                        {course.title}
+                      </h2>
+                      <p className="text-slate-600 mb-8 flex-grow text-lg">
+                        {course.description}
+                      </p>
+                      <div className={`flex items-center ${course.textColor} font-semibold text-lg`}>
+                        Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
                       </div>
                     </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
-                  Mastering Git
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow text-lg">
-                  From basic commands to advanced workflows. Learn how to manage version control like a pro.
-                </p>
-                <div className="flex items-center text-orange-600 dark:text-orange-400 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* AI Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/ai" className="group block h-full">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-indigo-200 dark:hover:border-indigo-900 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Bot className="w-8 h-8" />
-                  </div>
-                  {aiProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{aiProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-indigo-100 dark:bg-indigo-900/20 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-indigo-500 dark:bg-indigo-400 rounded-full" style={{ width: `${aiProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
-                  AI-Assisted Development
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow text-lg">
-                  Learn to use AI tools effectively for coding, debugging, testing, and system design.
-                </p>
-                <div className="flex items-center text-indigo-600 dark:text-indigo-400 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Docker Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/docker" className="group block h-full">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-200 dark:hover:border-blue-900 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Container className="w-8 h-8" />
-                  </div>
-                  {dockerProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{dockerProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-blue-100 dark:bg-blue-900/20 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-blue-500 dark:bg-blue-400 rounded-full" style={{ width: `${dockerProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  Docker Fundamentals
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow text-lg">
-                  Master containers, images, volumes, and networking. Build and deploy applications with Docker.
-                </p>
-                <div className="flex items-center text-blue-600 dark:text-blue-400 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* GitHub Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/github" className="group block h-full">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-purple-200 dark:hover:border-purple-900 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Github className="w-8 h-8" />
-                  </div>
-                  {githubProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-purple-600 dark:text-purple-400">{githubProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-purple-100 dark:bg-purple-900/20 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-purple-500 dark:bg-purple-400 rounded-full" style={{ width: `${githubProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-                  GitHub Fundamentals
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow text-lg">
-                  Learn how to use GitHub to store code, collaborate with others, and automate workflows.
-                </p>
-                <div className="flex items-center text-purple-600 dark:text-purple-400 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* GitHub Actions Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/github-actions" className="group block h-full">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-emerald-200 dark:hover:border-emerald-900 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Workflow className="w-8 h-8" />
-                  </div>
-                  {actionsProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{actionsProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-emerald-100 dark:bg-emerald-900/20 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full" style={{ width: `${actionsProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                  GitHub Actions
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow text-lg">
-                  Automate your software workflows with CI/CD. Build, test, and deploy directly from GitHub.
-                </p>
-                <div className="flex items-center text-emerald-600 dark:text-emerald-400 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Manual Testing Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/manual-testing" className="group block h-full">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-pink-200 dark:hover:border-pink-900 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-pink-100 dark:bg-pink-900/20 text-pink-600 dark:text-pink-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <ShieldCheck className="w-8 h-8" />
-                  </div>
-                  {manualTestingProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-pink-600 dark:text-pink-400">{manualTestingProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-pink-100 dark:bg-pink-900/20 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-pink-500 dark:bg-pink-400 rounded-full" style={{ width: `${manualTestingProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
-                  Manual Testing
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow text-lg">
-                  Learn the core concepts of software testing, writing test cases, and defect management.
-                </p>
-                <div className="flex items-center text-pink-600 dark:text-pink-400 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Prompt Engineering Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/prompt-engineering" className="group block h-full">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-yellow-200 dark:hover:border-yellow-900 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Sparkles className="w-8 h-8" />
-                  </div>
-                  {promptEngineeringProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-yellow-600 dark:text-yellow-400">{promptEngineeringProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-yellow-100 dark:bg-yellow-900/20 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-yellow-500 dark:bg-yellow-400 rounded-full" style={{ width: `${promptEngineeringProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors">
-                  Prompt Engineering
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow text-lg">
-                  Master the art of communicating with LLMs. Learn few-shot prompting and chain-of-thought.
-                </p>
-                <div className="flex items-center text-yellow-600 dark:text-yellow-400 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Cybersecurity Fundamentals Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/cybersecurity" className="group block h-full">
-              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-red-200 dark:hover:border-red-900 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-red-100 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Shield className="w-8 h-8" />
-                  </div>
-                  {cybersecurityProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-red-600 dark:text-red-400">{cybersecurityProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-red-100 dark:bg-red-900/20 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-red-500 dark:bg-red-400 rounded-full" style={{ width: `${cybersecurityProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">
-                  Cybersecurity Fundamentals
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 flex-grow text-lg">
-                  Learn the core concepts of information security, encryption, and web application vulnerabilities.
-                </p>
-                <div className="flex items-center text-red-600 dark:text-red-400 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Antigravity Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/antigravity" className="group block h-full">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-cyan-200 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Rocket className="w-8 h-8" />
-                  </div>
-                  {antigravityProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-cyan-600">{antigravityProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-cyan-100 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-cyan-500 rounded-full" style={{ width: `${antigravityProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-cyan-600 transition-colors">
-                  Working with Antigravity
-                </h2>
-                <p className="text-slate-600 mb-6 flex-grow text-lg">
-                  Learn the basics of working with the Antigravity framework, routing, and state management.
-                </p>
-                <div className="flex items-center text-cyan-600 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* GitLab Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/gitlab" className="group block h-full">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-orange-200 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Gitlab className="w-8 h-8" />
-                  </div>
-                  {gitlabProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-orange-600">{gitlabProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-orange-100 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-orange-500 rounded-full" style={{ width: `${gitlabProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-600 transition-colors">
-                  GitLab CI/CD
-                </h2>
-                <p className="text-slate-600 mb-6 flex-grow text-lg">
-                  Master GitLab for source control and powerful CI/CD pipelines.
-                </p>
-                <div className="flex items-center text-orange-600 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Kubernetes Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/kubernetes" className="group block h-full">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Box className="w-8 h-8" />
-                  </div>
-                  {kubernetesProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-blue-600">{kubernetesProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-blue-100 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-blue-500 rounded-full" style={{ width: `${kubernetesProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                  Kubernetes Fundamentals
-                </h2>
-                <p className="text-slate-600 mb-6 flex-grow text-lg">
-                  Learn container orchestration with Kubernetes. Deploy and scale applications with ease.
-                </p>
-                <div className="flex items-center text-blue-600 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Rust Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/rust" className="group block h-full">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-orange-200 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-orange-50 text-orange-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Zap className="w-8 h-8" />
-                  </div>
-                  {rustProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-orange-700">{rustProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-orange-100 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-orange-600 rounded-full" style={{ width: `${rustProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-orange-700 transition-colors">
-                  Rust Programming
-                </h2>
-                <p className="text-slate-600 mb-6 flex-grow text-lg">
-                  Learn the Rust programming language. Fast, safe, and memory-efficient.
-                </p>
-                <div className="flex items-center text-orange-700 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* Linux Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/linux" className="group block h-full">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Terminal className="w-8 h-8" />
-                  </div>
-                  {linuxProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-slate-700">{linuxProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-slate-200 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-slate-600 rounded-full" style={{ width: `${linuxProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-slate-700 transition-colors">
-                  Linux Basics
-                </h2>
-                <p className="text-slate-600 mb-6 flex-grow text-lg">
-                  Learn the fundamental concepts of the Linux operating system and command line.
-                </p>
-                <div className="flex items-center text-slate-700 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* AWS Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/aws" className="group block h-full">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-200 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Cloud className="w-8 h-8" />
-                  </div>
-                  {awsProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-amber-600">{awsProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-amber-100 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-amber-500 rounded-full" style={{ width: `${awsProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">
-                  AWS Cloud Practitioner
-                </h2>
-                <p className="text-slate-600 mb-6 flex-grow text-lg">
-                  Understand the fundamental concepts of cloud computing and AWS.
-                </p>
-                <div className="flex items-center text-amber-600 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
-
-          {/* SQL Course */}
-          <motion.div variants={item}>
-            <Link to="/tutorials/sql" className="group block h-full">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-sky-200 transition-all h-full flex flex-col">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="w-16 h-16 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Database className="w-8 h-8" />
-                  </div>
-                  {sqlProgress.percentage > 0 && (
-                    <div className="flex flex-col items-end">
-                      <span className="text-sm font-bold text-sky-600">{sqlProgress.percentage}%</span>
-                      <div className="w-20 h-1.5 bg-sky-100 rounded-full mt-1 overflow-hidden">
-                        <div className="h-full bg-sky-500 rounded-full" style={{ width: `${sqlProgress.percentage}%` }}></div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-sky-600 transition-colors">
-                  SQL Basics
-                </h2>
-                <p className="text-slate-600 mb-6 flex-grow text-lg">
-                  Learn the basics of Structured Query Language and relational databases.
-                </p>
-                <div className="flex items-center text-sky-600 font-medium text-lg">
-                  Start Course <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          </motion.div>
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </motion.div>
       </div>
       <Footer />

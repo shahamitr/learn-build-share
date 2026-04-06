@@ -3,6 +3,7 @@ export const sqlCurriculum = [
     id: 'sql-intro',
     title: 'Introduction to SQL',
     description: 'Learn the basics of Structured Query Language and relational databases.',
+    estimatedDuration: '1 hour',
     modules: [
       {
         id: 'sql-what-is-db',
@@ -46,6 +47,7 @@ export const sqlCurriculum = [
     id: 'sql-data-manipulation',
     title: 'Data Manipulation',
     description: 'Learn how to insert, update, and delete data in a database.',
+    estimatedDuration: '1 hour 30 mins',
     modules: [
       {
         id: 'sql-insert',
@@ -113,6 +115,7 @@ export const sqlCurriculum = [
     id: 'sql-advanced-queries',
     title: 'Advanced Queries',
     description: 'Learn how to sort, group, and join data from multiple tables.',
+    estimatedDuration: '4 hours 25 mins',
     modules: [
       {
         id: 'sql-like',
@@ -264,6 +267,7 @@ export const sqlCurriculum = [
     id: 'sql-database',
     title: 'Database Management',
     description: 'Learn how to create, alter, and manage database tables.',
+    estimatedDuration: '1 hour 55 mins',
     modules: [
       {
         id: 'sql-create-table',

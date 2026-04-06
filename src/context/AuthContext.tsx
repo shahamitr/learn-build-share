@@ -11,6 +11,7 @@ interface User {
   streak: number;
   score: number;
   timeSpent?: Record<string, number>;
+  onboardingCompleted?: boolean;
 }
 
 interface AuthContextType {
@@ -48,6 +49,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         
         let newStreak = 1;
         let currentScore = 0;
+        let onboardingCompleted = false;
 
         if (!userDoc.exists()) {
           await setDoc(userRef, {
@@ -61,7 +63,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             avatar: userData.avatar,
             score: 0,
             streak: 1,
-            lastActive: serverTimestamp()
+            lastActive: serverTimestamp(),
+            onboardingCompleted: false
           });
         } else {
           const existingPublicData = publicDoc.data();
@@ -71,6 +74,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           
           currentScore = existingPublicData?.score || 0;
           newStreak = existingPublicData?.streak || 1;
+          onboardingCompleted = existingPublicData?.onboardingCompleted || false;
 
           const msInDay = 24 * 60 * 60 * 1000;
           if (today - lastActiveDay === msInDay) {
@@ -97,7 +101,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           avatar: userData.avatar,
           streak: newStreak,
           score: currentScore,
-          timeSpent: userDoc.exists() ? userDoc.data()?.timeSpent || {} : {}
+          timeSpent: userDoc.exists() ? userDoc.data()?.timeSpent || {} : {},
+          onboardingCompleted: onboardingCompleted
         });
       } else {
         setUser(null);

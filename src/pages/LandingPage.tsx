@@ -11,37 +11,44 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        <div className="text-center max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <motion.span 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-sm font-medium mb-6 border border-indigo-100"
             >
-              <span className="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-sm font-medium mb-6 border border-indigo-100">
-                Open Source Community
-              </span>
-              <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-slate-900 mb-8">
-                Learn together.<br />
-                <span className="text-indigo-600">Build faster.</span><br />
-                Share with the world.
-              </h1>
-              <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-                A collaborative ecosystem where developers of all levels come together to master new technologies, build meaningful projects, and share their knowledge.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link to="/tutorials" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 hover:shadow-indigo-300">
-                    Start Learning
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link to="/tutorials" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all">
-                    View Documentation
-                  </Link>
-                </motion.div>
-              </div>
-            </motion.div>
+              🚀 Open Source Community
+            </motion.span>
+            <h1 className="text-6xl sm:text-7xl font-extrabold tracking-tight text-slate-900 mb-8 leading-tight">
+              Learn together.<br />
+              <motion.span 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-indigo-600"
+              >
+                Build faster.
+              </motion.span><br />
+              Share with the world.
+            </h1>
+            <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-2xl mx-auto">
+              A collaborative ecosystem where developers of all levels come together to master new technologies, build meaningful projects, and share their knowledge.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link to="/tutorials" className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-indigo-600 rounded-2xl hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 hover:shadow-indigo-300">
+                  Start Learning
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -51,35 +58,35 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-12">
             {[
               {
-                icon: <BookOpen className="w-6 h-6 text-indigo-600" />,
+                icon: <BookOpen className="w-8 h-8 text-indigo-600" />,
                 title: "Learn",
                 description: "Access curated learning paths, interactive tutorials, and expert-led workshops designed to accelerate your growth."
               },
               {
-                icon: <Hammer className="w-6 h-6 text-indigo-600" />,
+                icon: <Hammer className="w-8 h-8 text-indigo-600" />,
                 title: "Build",
                 description: "Put your skills to the test by contributing to real-world open source projects and building your portfolio."
               },
               {
-                icon: <Share2 className="w-6 h-6 text-indigo-600" />,
+                icon: <Share2 className="w-8 h-8 text-indigo-600" />,
                 title: "Share",
                 description: "Give back to the community by mentoring others, writing articles, and sharing your project insights."
               }
             ].map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: index * 0.2, duration: 0.6, ease: "easeOut" }}
                 whileHover={{ y: -10 }}
-                className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-100 hover:shadow-lg hover:shadow-indigo-50 transition-all"
+                className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-indigo-100 hover:shadow-2xl hover:shadow-indigo-50 transition-all"
               >
-                <div className="w-12 h-12 bg-white rounded-xl border border-slate-200 flex items-center justify-center mb-6 shadow-sm">
+                <div className="w-16 h-16 bg-white rounded-2xl border border-slate-200 flex items-center justify-center mb-8 shadow-sm">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-                <p className="text-slate-600 leading-relaxed">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">{feature.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-lg">
                   {feature.description}
                 </p>
               </motion.div>
@@ -92,23 +99,12 @@ export default function LandingPage() {
       <section id="tutorials" className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-slate-900 mb-4"
-            >
+            <h2 className="text-4xl font-extrabold text-slate-900 mb-6">
               Start Your Journey
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-lg text-slate-600"
-            >
+            </h2>
+            <p className="text-xl text-slate-600">
               Dive into our comprehensive guides and master essential tools.
-            </motion.p>
+            </p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -161,25 +157,25 @@ export default function LandingPage() {
             ].map((card, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
                 whileHover={{ y: -10 }}
               >
                 <Link to={card.link} className="group block h-full">
-                  <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all h-full flex flex-col">
-                    <div className={`w-12 h-12 ${card.bgColor} ${card.textColor} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                  <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all h-full flex flex-col">
+                    <div className={`w-16 h-16 ${card.bgColor} ${card.textColor} rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform`}>
                       {card.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-indigo-600 transition-colors">
                       {card.title}
                     </h3>
-                    <p className="text-slate-600 mb-6 flex-grow">
+                    <p className="text-slate-600 mb-8 flex-grow text-lg">
                       {card.description}
                     </p>
-                    <div className={`flex items-center ${card.textColor} font-medium`}>
-                      {card.buttonText} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <div className={`flex items-center ${card.textColor} font-semibold text-lg`}>
+                      {card.buttonText} <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </div>
                   </div>
                 </Link>
@@ -192,22 +188,22 @@ export default function LandingPage() {
       {/* Community Section */}
       <section id="community" className="py-20 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-slate-900 rounded-3xl p-12 sm:p-20 text-center relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          <div className="bg-slate-900 rounded-[3rem] p-12 sm:p-24 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
             
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+            <div className="relative z-10 max-w-3xl mx-auto">
+              <h2 className="text-5xl font-extrabold text-white mb-8">
                 Join our growing community
               </h2>
-              <p className="text-slate-400 text-lg mb-10">
+              <p className="text-slate-400 text-xl mb-12 leading-relaxed">
                 Be part of a diverse group of developers, designers, and creators. 
                 Follow our Code of Conduct to ensure a safe space for everyone.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/code-of-conduct" className="px-6 py-3 bg-white text-slate-900 rounded-lg font-medium hover:bg-indigo-50 transition-colors">
+              <div className="flex flex-wrap justify-center gap-6">
+                <Link to="/code-of-conduct" className="px-8 py-4 bg-white text-slate-900 rounded-xl font-semibold text-lg hover:bg-indigo-50 transition-colors">
                   Read Code of Conduct
                 </Link>
-                <Link to="/contributing" className="px-6 py-3 bg-slate-800 text-white rounded-lg font-medium hover:bg-slate-700 transition-colors">
+                <Link to="/contributing" className="px-8 py-4 bg-slate-800 text-white rounded-xl font-semibold text-lg hover:bg-slate-700 transition-colors">
                   Contribution Guidelines
                 </Link>
               </div>

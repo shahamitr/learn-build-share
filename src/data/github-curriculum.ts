@@ -5,6 +5,7 @@ export const githubCurriculum = [
     id: 'beginner',
     title: 'GitHub Fundamentals',
     description: 'Learn how to use GitHub to store code and collaborate with others.',
+    estimatedDuration: '2 hours 15 mins',
     icon: 'Users',
     color: 'emerald',
     modules: [
@@ -24,6 +25,7 @@ export const githubCurriculum = [
     id: 'intermediate',
     title: 'Professional Team Workflow',
     description: 'Work effectively in a collaborative team environment.',
+    estimatedDuration: '2 hours 25 mins',
     icon: 'Globe',
     color: 'amber',
     modules: [
@@ -43,6 +45,7 @@ export const githubCurriculum = [
     id: 'advanced',
     title: 'Enterprise Collaboration',
     description: 'Use GitHub like a professional engineering team.',
+    estimatedDuration: '2 hours 45 mins',
     icon: 'Lock',
     color: 'rose',
     modules: [

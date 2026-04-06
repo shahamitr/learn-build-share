@@ -43,29 +43,6 @@ export default function TutorialViewer() {
 
   const isModuleCompleted = courseId && moduleId ? isCompleted(courseId, moduleId) : false;
 
-  useEffect(() => {
-    // Reset state when module changes
-    setIsRead(false);
-    setIsLabCompleted(false);
-    startTimeRef.current = Date.now();
-    
-    return () => {
-      // When unmounting or changing modules, update time spent
-      if (courseId) {
-        const timeSpent = Math.floor((Date.now() - startTimeRef.current) / 1000);
-        if (timeSpent > 5) { // Only track if spent more than 5 seconds
-          updateTimeSpent(courseId, timeSpent);
-        }
-      }
-    };
-  }, [courseId, moduleId, updateTimeSpent]);
-
-  useEffect(() => {
-    if (isRead && isLabCompleted && courseId && moduleId && !isModuleCompleted && module) {
-      markCompleted(courseId, moduleId, module.xp || 0);
-    }
-  }, [isRead, isLabCompleted, courseId, moduleId, isModuleCompleted, markCompleted, module]);
-
   let curriculum;
   if (courseId === 'ai') {
     curriculum = aiCurriculum;
@@ -102,6 +79,29 @@ export default function TutorialViewer() {
   const module = curriculum
     .flatMap(l => l.modules)
     .find(m => m.id === moduleId);
+
+  useEffect(() => {
+    // Reset state when module changes
+    setIsRead(false);
+    setIsLabCompleted(false);
+    startTimeRef.current = Date.now();
+    
+    return () => {
+      // When unmounting or changing modules, update time spent
+      if (courseId) {
+        const timeSpent = Math.floor((Date.now() - startTimeRef.current) / 1000);
+        if (timeSpent > 5) { // Only track if spent more than 5 seconds
+          updateTimeSpent(courseId, timeSpent);
+        }
+      }
+    };
+  }, [courseId, moduleId, updateTimeSpent]);
+
+  useEffect(() => {
+    if (isRead && isLabCompleted && courseId && moduleId && !isModuleCompleted && module) {
+      markCompleted(courseId, moduleId, module.xp || 0);
+    }
+  }, [isRead, isLabCompleted, courseId, moduleId, isModuleCompleted, markCompleted, module]);
 
   useEffect(() => {
     if (!module) {

@@ -3,6 +3,7 @@ export const awsCurriculum = [
     id: 'aws-cloud-concepts',
     title: 'Cloud Concepts',
     description: 'Understand the fundamental concepts of cloud computing and AWS.',
+    estimatedDuration: '1 hour 15 mins',
     modules: [
       {
         id: 'aws-what-is-cloud',
@@ -43,6 +44,7 @@ export const awsCurriculum = [
     id: 'aws-compute',
     title: 'Compute Services',
     description: 'Learn about the core compute services offered by AWS.',
+    estimatedDuration: '1 hour 15 mins',
     modules: [
       {
         id: 'aws-ec2-basics',
@@ -83,6 +85,7 @@ export const awsCurriculum = [
     id: 'aws-storage',
     title: 'Storage Services',
     description: 'Explore the different storage options available in AWS.',
+    estimatedDuration: '1 hour 15 mins',
     modules: [
       {
         id: 'aws-s3-basics',
@@ -123,6 +126,7 @@ export const awsCurriculum = [
     id: 'aws-security-network',
     title: 'Security & Networking',
     description: 'Learn about AWS security and networking services.',
+    estimatedDuration: '2 hours 25 mins',
     modules: [
       {
         id: 'aws-iam-basics',
@@ -185,6 +189,7 @@ export const awsCurriculum = [
     id: 'aws-databases',
     title: 'Databases',
     description: 'Learn about AWS database services.',
+    estimatedDuration: '50 mins',
     modules: [
       {
         id: 'aws-rds-basics',
@@ -214,6 +219,7 @@ export const awsCurriculum = [
     id: 'aws-messaging-monitoring',
     title: 'Messaging & Monitoring',
     description: 'Learn about AWS messaging and monitoring services.',
+    estimatedDuration: '55 mins',
     modules: [
       {
         id: 'aws-sns-sqs',

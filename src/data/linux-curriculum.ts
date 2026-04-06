@@ -3,6 +3,7 @@ export const linuxCurriculum = [
     id: 'linux-basics',
     title: 'Linux Basics',
     description: 'Learn the fundamental concepts of the Linux operating system.',
+    estimatedDuration: '1 hour',
     modules: [
       {
         id: 'linux-intro',
@@ -43,6 +44,7 @@ export const linuxCurriculum = [
     id: 'linux-file-management',
     title: 'File Management',
     description: 'Learn how to create, move, copy, and delete files and directories.',
+    estimatedDuration: '50 mins',
     modules: [
       {
         id: 'linux-creating-files',
@@ -83,6 +85,7 @@ export const linuxCurriculum = [
     id: 'linux-permissions',
     title: 'Permissions and Ownership',
     description: 'Understand how Linux handles file permissions and user ownership.',
+    estimatedDuration: '1 hour',
     modules: [
       {
         id: 'linux-understanding-permissions',
@@ -123,6 +126,7 @@ export const linuxCurriculum = [
     id: 'linux-advanced-commands',
     title: 'Advanced Commands',
     description: 'Learn powerful text processing and search commands.',
+    estimatedDuration: '3 hours 10 mins',
     modules: [
       {
         id: 'linux-grep',

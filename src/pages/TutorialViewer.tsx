@@ -25,6 +25,8 @@ import { useAuth } from '../context/AuthContext';
 import { useRef } from 'react';
 import Footer from '../components/Footer';
 import InteractiveLab from '../components/InteractiveLab';
+import Notes from '../components/Notes';
+import QuickQuiz from '../components/QuickQuiz';
 import 'highlight.js/styles/github-dark.css';
 
 export default function TutorialViewer() {
@@ -59,10 +61,10 @@ export default function TutorialViewer() {
   }, [courseId, moduleId, updateTimeSpent]);
 
   useEffect(() => {
-    if (isRead && isLabCompleted && courseId && moduleId && !isModuleCompleted) {
-      markCompleted(courseId, moduleId);
+    if (isRead && isLabCompleted && courseId && moduleId && !isModuleCompleted && module) {
+      markCompleted(courseId, moduleId, module.xp || 0);
     }
-  }, [isRead, isLabCompleted, courseId, moduleId, isModuleCompleted, markCompleted]);
+  }, [isRead, isLabCompleted, courseId, moduleId, isModuleCompleted, markCompleted, module]);
 
   let curriculum;
   if (courseId === 'ai') {
@@ -280,10 +282,16 @@ export default function TutorialViewer() {
                 )}
               </div>
             </motion.div>
-            
-            <div className="mt-20">
-              <Footer />
+
+            {/* Gamification & Notes */}
+            <div className="mt-12 space-y-8">
+              <Notes courseId={courseId || ''} moduleId={moduleId || ''} />
+              {isRead && <QuickQuiz courseId={courseId || ''} moduleId={moduleId || ''} />}
             </div>
+            
+          </div>
+          <div className="px-8 pb-12">
+            <Footer />
           </div>
         </div>
 

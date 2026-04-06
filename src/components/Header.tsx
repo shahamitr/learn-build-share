@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Github, LogOut, User as UserIcon } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { useProgress } from '../context/ProgressContext';
 import { useState } from 'react';
 import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const { user, loginWithGoogle, logout } = useAuth();
+  const { xp, level } = useProgress();
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
@@ -27,7 +29,12 @@ export default function Header() {
             <ThemeToggle />
             
             {user ? (
-              <div className="relative">
+              <div className="relative flex items-center gap-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-indigo-600 dark:text-indigo-400">
+                  <span>Lvl {level}</span>
+                  <span className="text-slate-400">|</span>
+                  <span>{xp} XP</span>
+                </div>
                 <button 
                   onClick={() => setShowDropdown(!showDropdown)}
                   className="flex items-center gap-2 focus:outline-none"

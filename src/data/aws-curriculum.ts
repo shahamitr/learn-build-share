@@ -156,6 +156,28 @@ export const awsCurriculum = [
         icon: 'Network',
         color: 'amber',
         bgColor: 'amber'
+      },
+      {
+        id: 'aws-route53',
+        title: 'Amazon Route 53',
+        description: 'Scalable cloud Domain Name System (DNS) web service.',
+        duration: '25 mins',
+        type: 'reading',
+        path: '/aws/route53.md',
+        icon: 'Globe',
+        color: 'amber',
+        bgColor: 'amber'
+      },
+      {
+        id: 'aws-cloudfront',
+        title: 'Amazon CloudFront',
+        description: 'Fast content delivery network (CDN) service.',
+        duration: '30 mins',
+        type: 'reading',
+        path: '/aws/cloudfront.md',
+        icon: 'Zap',
+        color: 'amber',
+        bgColor: 'amber'
       }
     ]
   },

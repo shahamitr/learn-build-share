@@ -13,7 +13,8 @@ export const sqlCurriculum = [
         path: '/sql/what-is-db.md',
         icon: 'Database',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 50
       },
       {
         id: 'sql-select-basics',
@@ -24,7 +25,8 @@ export const sqlCurriculum = [
         path: '/sql/select-basics.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       },
       {
         id: 'sql-filtering',
@@ -35,7 +37,8 @@ export const sqlCurriculum = [
         path: '/sql/filtering.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       }
     ]
   },
@@ -53,7 +56,8 @@ export const sqlCurriculum = [
         path: '/sql/insert.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       },
       {
         id: 'sql-update',
@@ -64,7 +68,8 @@ export const sqlCurriculum = [
         path: '/sql/update.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       },
       {
         id: 'sql-delete',
@@ -75,7 +80,8 @@ export const sqlCurriculum = [
         path: '/sql/delete.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       },
       {
         id: 'sql-null-values',
@@ -86,7 +92,8 @@ export const sqlCurriculum = [
         path: '/sql/null-values.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 50
       },
       {
         id: 'sql-functions',
@@ -97,7 +104,8 @@ export const sqlCurriculum = [
         path: '/sql/functions.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       }
     ]
   },
@@ -115,7 +123,8 @@ export const sqlCurriculum = [
         path: '/sql/like.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 50
       },
       {
         id: 'sql-in-between',
@@ -126,7 +135,8 @@ export const sqlCurriculum = [
         path: '/sql/in-between.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 50
       },
       {
         id: 'sql-sorting',
@@ -137,7 +147,8 @@ export const sqlCurriculum = [
         path: '/sql/sorting.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 50
       },
       {
         id: 'sql-grouping',
@@ -148,7 +159,8 @@ export const sqlCurriculum = [
         path: '/sql/grouping.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 150
       },
       {
         id: 'sql-joins',
@@ -159,7 +171,8 @@ export const sqlCurriculum = [
         path: '/sql/joins.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 200
       },
       {
         id: 'sql-aliases',
@@ -170,7 +183,8 @@ export const sqlCurriculum = [
         path: '/sql/aliases.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 50
       },
       {
         id: 'sql-union',
@@ -181,7 +195,8 @@ export const sqlCurriculum = [
         path: '/sql/union.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       },
       {
         id: 'sql-having',
@@ -192,7 +207,8 @@ export const sqlCurriculum = [
         path: '/sql/having.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       },
       {
         id: 'sql-case',
@@ -203,7 +219,44 @@ export const sqlCurriculum = [
         path: '/sql/case.md',
         icon: 'Terminal',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
+      },
+      {
+        id: 'sql-transactions',
+        title: 'SQL Transactions',
+        description: 'Learn ACID properties, COMMIT, ROLLBACK, and SAVEPOINT.',
+        duration: '25 mins',
+        type: 'interactive',
+        path: '/sql/transactions.md',
+        icon: 'Terminal',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 150
+      },
+      {
+        id: 'sql-stored-procedures',
+        title: 'Stored Procedures',
+        description: 'Learn how to create and execute stored procedures.',
+        duration: '30 mins',
+        type: 'interactive',
+        path: '/sql/stored-procedures.md',
+        icon: 'Terminal',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 200
+      },
+      {
+        id: 'sql-indexes',
+        title: 'SQL Indexes',
+        description: 'Learn how to create and use indexes to improve query performance.',
+        duration: '25 mins',
+        type: 'interactive',
+        path: '/sql/indexes.md',
+        icon: 'Database',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 150
       }
     ]
   },
@@ -221,7 +274,8 @@ export const sqlCurriculum = [
         path: '/sql/create-table.md',
         icon: 'Database',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 150
       },
       {
         id: 'sql-alter-table',
@@ -232,7 +286,8 @@ export const sqlCurriculum = [
         path: '/sql/alter-table.md',
         icon: 'Database',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       },
       {
         id: 'sql-drop-table',
@@ -243,7 +298,8 @@ export const sqlCurriculum = [
         path: '/sql/drop-table.md',
         icon: 'Database',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 50
       },
       {
         id: 'sql-views',
@@ -254,7 +310,8 @@ export const sqlCurriculum = [
         path: '/sql/views.md',
         icon: 'Database',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 150
       },
       {
         id: 'sql-injection',
@@ -265,7 +322,8 @@ export const sqlCurriculum = [
         path: '/sql/injection.md',
         icon: 'Shield',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 100
       },
       {
         id: 'sql-hosting',
@@ -276,7 +334,8 @@ export const sqlCurriculum = [
         path: '/sql/hosting.md',
         icon: 'Cloud',
         color: 'sky',
-        bgColor: 'sky'
+        bgColor: 'sky',
+        xp: 50
       }
     ]
   }

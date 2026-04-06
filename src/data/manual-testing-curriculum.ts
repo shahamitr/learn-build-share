@@ -9,9 +9,9 @@ export const manualTestingCurriculum = [
     color: 'text-emerald-600',
     bgColor: 'bg-emerald-100',
     modules: [
-      { id: 'foundations', title: '01. Core Concepts & SDLC', duration: '20 min', type: 'theory', path: '/manual-testing/foundations.md' },
-      { id: 'testing-basics', title: '02. Testing Types & Techniques', duration: '25 min', type: 'theory', path: '/manual-testing/testing-basics.md' },
-      { id: 'artifacts-and-bugs', title: '03. Test Artifacts & Bug Life Cycle', duration: '30 min', type: 'lab', path: '/manual-testing/artifacts-and-bugs.md' }
+      { id: 'foundations', title: '01. Core Concepts & SDLC', duration: '20 min', type: 'theory', path: '/manual-testing/foundations.md', xp: 50 },
+      { id: 'testing-basics', title: '02. Testing Types & Techniques', duration: '25 min', type: 'theory', path: '/manual-testing/testing-basics.md', xp: 100 },
+      { id: 'artifacts-and-bugs', title: '03. Test Artifacts & Bug Life Cycle', duration: '30 min', type: 'lab', path: '/manual-testing/artifacts-and-bugs.md', xp: 100 }
     ]
   },
   {
@@ -22,11 +22,13 @@ export const manualTestingCurriculum = [
     color: 'text-amber-600',
     bgColor: 'bg-amber-100',
     modules: [
-      { id: 'advanced-testing', title: '04. Integration, System & Exploratory', duration: '30 min', type: 'lab', path: '/manual-testing/advanced-testing.md' },
-      { id: 'test-design', title: '05. Test Design Techniques', duration: '35 min', type: 'theory', path: '/manual-testing/test-design.md' },
-      { id: 'practical-skills', title: '06. Web, API & SQL for Testers', duration: '40 min', type: 'lab', path: '/manual-testing/practical-skills.md' },
-      { id: 'api-testing', title: '06.1 API Testing Basics', duration: '30 min', type: 'lab', path: '/manual-testing/api-testing.md' },
-      { id: 'performance-testing', title: '06.2 Performance Testing Basics', duration: '30 min', type: 'theory', path: '/manual-testing/performance-testing.md' }
+      { id: 'advanced-testing', title: '04. Integration, System & Exploratory', duration: '30 min', type: 'lab', path: '/manual-testing/advanced-testing.md', xp: 150 },
+      { id: 'test-design', title: '05. Test Design Techniques', duration: '35 min', type: 'theory', path: '/manual-testing/test-design.md', xp: 150 },
+      { id: 'practical-skills', title: '06. Web, API & SQL for Testers', duration: '40 min', type: 'lab', path: '/manual-testing/practical-skills.md', xp: 200 },
+      { id: 'api-testing', title: '06.1 API Testing Basics', duration: '30 min', type: 'lab', path: '/manual-testing/api-testing.md', xp: 150 },
+      { id: 'performance-testing', title: '06.2 Performance Testing Basics', duration: '30 min', type: 'theory', path: '/manual-testing/performance-testing.md', xp: 150 },
+      { id: 'security-testing', title: '06.3 Security Testing Basics', duration: '35 min', type: 'theory', path: '/manual-testing/security-testing.md', xp: 150 },
+      { id: 'accessibility-testing', title: '06.4 Accessibility Testing Basics', duration: '30 min', type: 'theory', path: '/manual-testing/accessibility-testing.md', xp: 150 }
     ]
   },
   {
@@ -37,9 +39,9 @@ export const manualTestingCurriculum = [
     color: 'text-rose-600',
     bgColor: 'bg-rose-100',
     modules: [
-      { id: 'strategy-and-agile', title: '07. Test Strategy & Agile QA', duration: '35 min', type: 'theory', path: '/manual-testing/strategy-and-agile.md' },
-      { id: 'specialized-testing', title: '08. Mobile, Security & Performance', duration: '40 min', type: 'theory', path: '/manual-testing/specialized-testing.md' },
-      { id: 'leadership-and-devops', title: '09. DevOps Awareness & Leadership', duration: '45 min', type: 'theory', path: '/manual-testing/leadership-and-devops.md' }
+      { id: 'strategy-and-agile', title: '07. Test Strategy & Agile QA', duration: '35 min', type: 'theory', path: '/manual-testing/strategy-and-agile.md', xp: 200 },
+      { id: 'specialized-testing', title: '08. Mobile, Security & Performance', duration: '40 min', type: 'theory', path: '/manual-testing/specialized-testing.md', xp: 200 },
+      { id: 'leadership-and-devops', title: '09. DevOps Awareness & Leadership', duration: '45 min', type: 'theory', path: '/manual-testing/leadership-and-devops.md', xp: 250 }
     ]
   }
 ];

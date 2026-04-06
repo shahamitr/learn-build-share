@@ -21,10 +21,18 @@ import Footer from '../components/Footer';
 import { BookOpen, CheckCircle2, Trophy, Clock, ArrowRight, Flame, Award } from 'lucide-react';
 import { motion } from 'motion/react';
 import Leaderboard from '../components/Leaderboard';
+import OnboardingTour from '../components/OnboardingTour';
 
 export default function Dashboard() {
   const { user, loading } = useAuth();
-  const { isCompleted } = useProgress();
+  const { isCompleted, xp, level, streak } = useProgress();
+  const [runTour, setRunTour] = useState(false);
+
+  useEffect(() => {
+    if (user && !user.onboardingCompleted) {
+      setRunTour(true);
+    }
+  }, [user]);
 
   if (loading) {
     return (
@@ -77,10 +85,11 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
       <Header />
+      {runTour && <OnboardingTour />}
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         {/* Profile Header */}
-        <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-8 flex flex-col md:flex-row items-center gap-8">
+        <div className="dashboard-header bg-white rounded-3xl p-8 border border-slate-200 shadow-sm mb-8 flex flex-col md:flex-row items-center gap-8">
           <img src={user.avatar} alt={user.name} className="w-32 h-32 rounded-full border-4 border-indigo-50 shadow-md" />
           <div className="text-center md:text-left flex-1">
             <h1 className="text-3xl font-bold text-slate-900 mb-2">Welcome back, {user.name}!</h1>
@@ -89,15 +98,15 @@ export default function Dashboard() {
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <div className="bg-orange-50 text-orange-700 px-4 py-2 rounded-xl flex items-center gap-2 font-medium">
                 <Flame className="w-5 h-5 text-orange-500" />
-                <span>{user.streak || 0} Day Streak</span>
+                <span>{streak || 0} Day Streak</span>
               </div>
               <div className="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-xl flex items-center gap-2 font-medium">
                 <Trophy className="w-5 h-5 text-indigo-500" />
-                <span>{user.score || 0} Points</span>
+                <span>Level {level || 1}</span>
               </div>
               <div className="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-xl flex items-center gap-2 font-medium">
-                <CheckCircle2 className="w-5 h-5" />
-                <span>{totalCompletedModules} Modules Completed</span>
+                <Award className="w-5 h-5 text-emerald-500" />
+                <span>{xp || 0} XP</span>
               </div>
             </div>
           </div>
@@ -105,7 +114,7 @@ export default function Dashboard() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content - Course Progress */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="course-list lg:col-span-2 space-y-6">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">Your Learning Paths</h2>
             
             {courses.map((course, index) => (
@@ -167,7 +176,7 @@ export default function Dashboard() {
           </div>
 
           {/* Sidebar - Stats & Activity */}
-          <div className="space-y-6">
+          <div className="leaderboard space-y-6">
             <Leaderboard />
 
             <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">

@@ -1,17 +1,19 @@
 # Advanced Physics & Relativity
 
-In this module, we'll explore the more advanced concepts of physics and relativity.
+To understand theoretical concepts like antigravity, we must delve into advanced physics and relativity.
 
 ## Special Relativity
-- **Time Dilation:** The difference in the elapsed time as measured by two clocks, either due to a relative velocity between them or to a difference in gravitational potential between their locations.
-- **Energy-Mass Relation (E=mc²):** This equation expresses the equivalence of mass and energy.
+Special relativity is a scientific theory regarding the relationship between space and time. In Albert Einstein's original treatment, the theory is based on two postulates:
+1. The laws of physics are invariant (i.e., identical) in all inertial frames of reference (that is, frames of reference with no acceleration).
+2. The speed of light in vacuum is the same for all observers, regardless of the motion of the light source or observer.
 
-## General Relativity Basics
-- **Spacetime Curvature:** The idea that gravity is not a force, but a consequence of the curvature of spacetime caused by the uneven distribution of mass and energy.
-- **Gravitational Time Dilation:** The difference in the elapsed time as measured by two clocks, either due to a relative velocity between them or to a difference in gravitational potential between their locations.
+### Key Concepts
+- **Time Dilation:** The difference of elapsed time between two events as measured by observers either moving relative to each other or differently situated from a gravitational mass or masses.
+- **Length Contraction:** The phenomenon that a moving object's length is measured to be shorter than its proper length.
 
-## Quantum Mechanics (Intro)
-Quantum mechanics is a fundamental theory in physics that provides a description of the physical properties of nature at the scale of atoms and subatomic particles.
+## General Relativity
+General relativity is the geometric theory of gravitation published by Albert Einstein in 1915. It is the current description of gravitation in modern physics.
 
-## Practical Tip
-When thinking about relativity, remember that time and space are not absolute; they are relative to the observer's frame of reference.
+### Key Concepts
+- **Spacetime Curvature:** Gravity is not a force, but a consequence of the curvature of spacetime caused by the uneven distribution of mass/energy.
+- **Equivalence Principle:** The gravitational "force" as experienced locally while standing on a massive body (such as the Earth) is the same as the pseudo-force experienced by an observer in a non-inertial (accelerated) frame of reference.

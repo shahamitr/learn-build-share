@@ -24,7 +24,9 @@ export const manualTestingCurriculum = [
     modules: [
       { id: 'advanced-testing', title: '04. Integration, System & Exploratory', duration: '30 min', type: 'lab', path: '/manual-testing/advanced-testing.md' },
       { id: 'test-design', title: '05. Test Design Techniques', duration: '35 min', type: 'theory', path: '/manual-testing/test-design.md' },
-      { id: 'practical-skills', title: '06. Web, API & SQL for Testers', duration: '40 min', type: 'lab', path: '/manual-testing/practical-skills.md' }
+      { id: 'practical-skills', title: '06. Web, API & SQL for Testers', duration: '40 min', type: 'lab', path: '/manual-testing/practical-skills.md' },
+      { id: 'api-testing', title: '06.1 API Testing Basics', duration: '30 min', type: 'lab', path: '/manual-testing/api-testing.md' },
+      { id: 'performance-testing', title: '06.2 Performance Testing Basics', duration: '30 min', type: 'theory', path: '/manual-testing/performance-testing.md' }
     ]
   },
   {

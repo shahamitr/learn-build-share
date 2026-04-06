@@ -12,32 +12,36 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-sm font-medium mb-6 border border-indigo-100">
-              Open Source Community
-            </span>
-            <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-slate-900 mb-8">
-              Learn together.<br />
-              <span className="text-indigo-600">Build faster.</span><br />
-              Share with the world.
-            </h1>
-            <p className="text-xl text-slate-600 mb-10 leading-relaxed">
-              A collaborative ecosystem where developers of all levels come together to master new technologies, build meaningful projects, and share their knowledge.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/tutorials" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 hover:shadow-indigo-300">
-                Start Learning
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-              <Link to="/tutorials" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all">
-                View Documentation
-              </Link>
-            </div>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-sm font-medium mb-6 border border-indigo-100">
+                Open Source Community
+              </span>
+              <h1 className="text-5xl sm:text-6xl font-bold tracking-tight text-slate-900 mb-8">
+                Learn together.<br />
+                <span className="text-indigo-600">Build faster.</span><br />
+                Share with the world.
+              </h1>
+              <p className="text-xl text-slate-600 mb-10 leading-relaxed">
+                A collaborative ecosystem where developers of all levels come together to master new technologies, build meaningful projects, and share their knowledge.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link to="/tutorials" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 hover:shadow-indigo-300">
+                    Start Learning
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link to="/tutorials" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-all">
+                    View Documentation
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
         </div>
       </section>
 
@@ -67,7 +71,8 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
+                whileHover={{ y: -10 }}
                 className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-100 hover:shadow-lg hover:shadow-indigo-50 transition-all"
               >
                 <div className="w-12 h-12 bg-white rounded-xl border border-slate-200 flex items-center justify-center mb-6 shadow-sm">
@@ -107,130 +112,79 @@ export default function LandingPage() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Beginner Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              <Link to="/tutorials/git/01-intro" className="group block h-full">
-                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-emerald-200 transition-all h-full flex flex-col">
-                  <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Terminal className="w-6 h-6" />
+            {[
+              {
+                icon: <Terminal className="w-6 h-6" />,
+                title: "Git Essentials",
+                description: "Start here! Learn the basics of version control, commits, and history.",
+                link: "/tutorials/git/01-intro",
+                bgColor: "bg-emerald-100",
+                textColor: "text-emerald-600",
+                buttonText: "Start Learning"
+              },
+              {
+                icon: <GitBranch className="w-6 h-6" />,
+                title: "Branching & Merging",
+                description: "Master feature branches, merge conflicts, and team workflows.",
+                link: "/tutorials/git/11-branching-strategy",
+                bgColor: "bg-amber-100",
+                textColor: "text-amber-600",
+                buttonText: "Level Up"
+              },
+              {
+                icon: <Shield className="w-6 h-6" />,
+                title: "Advanced Git",
+                description: "Deep dive into internals, history rewriting, and complex recovery.",
+                link: "/tutorials/git/21-internals",
+                bgColor: "bg-rose-100",
+                textColor: "text-rose-600",
+                buttonText: "Go Deep"
+              },
+              {
+                icon: <Github className="w-6 h-6" />,
+                title: "GitHub Fundamentals",
+                description: "Collaborate effectively. Master pull requests, issues, and project management.",
+                link: "/tutorials/github",
+                bgColor: "bg-purple-100",
+                textColor: "text-purple-600",
+                buttonText: "Start Course"
+              },
+              {
+                icon: <Workflow className="w-6 h-6" />,
+                title: "GitHub Actions",
+                description: "Automate your workflow. Build CI/CD pipelines to test and deploy your code.",
+                link: "/tutorials/github-actions",
+                bgColor: "bg-blue-100",
+                textColor: "text-blue-600",
+                buttonText: "Start Automating"
+              }
+            ].map((card, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
+                whileHover={{ y: -10 }}
+              >
+                <Link to={card.link} className="group block h-full">
+                  <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all h-full flex flex-col">
+                    <div className={`w-12 h-12 ${card.bgColor} ${card.textColor} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                      {card.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                      {card.title}
+                    </h3>
+                    <p className="text-slate-600 mb-6 flex-grow">
+                      {card.description}
+                    </p>
+                    <div className={`flex items-center ${card.textColor} font-medium`}>
+                      {card.buttonText} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">
-                    Git Essentials
-                  </h3>
-                  <p className="text-slate-600 mb-6 flex-grow">
-                    Start here! Learn the basics of version control, commits, and history.
-                  </p>
-                  <div className="flex items-center text-emerald-600 font-medium">
-                    Start Learning <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* Intermediate Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-            >
-              <Link to="/tutorials/git/11-branching-strategy" className="group block h-full">
-                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-amber-200 transition-all h-full flex flex-col">
-                  <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <GitBranch className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">
-                    Branching & Merging
-                  </h3>
-                  <p className="text-slate-600 mb-6 flex-grow">
-                    Master feature branches, merge conflicts, and team workflows.
-                  </p>
-                  <div className="flex items-center text-amber-600 font-medium">
-                    Level Up <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* Advanced Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              <Link to="/tutorials/git/21-internals" className="group block h-full">
-                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-rose-200 transition-all h-full flex flex-col">
-                  <div className="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Shield className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-rose-600 transition-colors">
-                    Advanced Git
-                  </h3>
-                  <p className="text-slate-600 mb-6 flex-grow">
-                    Deep dive into internals, history rewriting, and complex recovery.
-                  </p>
-                  <div className="flex items-center text-rose-600 font-medium">
-                    Go Deep <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* GitHub Fundamentals Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-            >
-              <Link to="/tutorials/github" className="group block h-full">
-                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-purple-200 transition-all h-full flex flex-col">
-                  <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Github className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-purple-600 transition-colors">
-                    GitHub Fundamentals
-                  </h3>
-                  <p className="text-slate-600 mb-6 flex-grow">
-                    Collaborate effectively. Master pull requests, issues, and project management.
-                  </p>
-                  <div className="flex items-center text-purple-600 font-medium">
-                    Start Course <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-
-            {/* GitHub Actions Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-            >
-              <Link to="/tutorials/github-actions" className="group block h-full">
-                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all h-full flex flex-col">
-                  <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <Workflow className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    GitHub Actions
-                  </h3>
-                  <p className="text-slate-600 mb-6 flex-grow">
-                    Automate your workflow. Build CI/CD pipelines to test and deploy your code.
-                  </p>
-                  <div className="flex items-center text-blue-600 font-medium">
-                    Start Automating <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

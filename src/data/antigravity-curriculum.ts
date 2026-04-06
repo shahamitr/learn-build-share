@@ -10,6 +10,7 @@ export const antigravityCurriculum = [
     bgColor: 'bg-emerald-100',
     modules: [
       { id: 'gravity-physics-foundations', title: '01. Core Physics Concepts', duration: '20 min', type: 'theory', path: '/antigravity/foundations.md' },
+      { id: 'antigravity-cli', title: '01.1 Antigravity CLI', duration: '15 min', type: 'lab', path: '/antigravity/cli.md' },
       { id: 'fundamental-laws', title: '02. Fundamental Laws', duration: '25 min', type: 'theory', path: '/antigravity/laws.md' },
       { id: 'space-science-intro', title: '03. Intro to Space Science', duration: '30 min', type: 'lab', path: '/antigravity/space-science.md' }
     ]

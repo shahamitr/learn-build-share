@@ -15,6 +15,9 @@ import { antigravityCurriculum } from '../data/antigravity-curriculum';
 import { gitlabCurriculum } from '../data/gitlab-curriculum';
 import { kubernetesCurriculum } from '../data/kubernetes-curriculum';
 import { rustCurriculum } from '../data/rust-curriculum';
+import { linuxCurriculum } from '../data/linux-curriculum';
+import { awsCurriculum } from '../data/aws-curriculum';
+import { sqlCurriculum } from '../data/sql-curriculum';
 import { ArrowLeft, Loader2, PanelRightOpen, PanelRightClose, CheckCircle2, Circle, Check, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useProgress } from '../context/ProgressContext';
@@ -84,6 +87,12 @@ export default function TutorialViewer() {
     curriculum = kubernetesCurriculum;
   } else if (courseId === 'rust') {
     curriculum = rustCurriculum;
+  } else if (courseId === 'linux') {
+    curriculum = linuxCurriculum;
+  } else if (courseId === 'aws') {
+    curriculum = awsCurriculum;
+  } else if (courseId === 'sql') {
+    curriculum = sqlCurriculum;
   } else {
     curriculum = gitCurriculum;
   }

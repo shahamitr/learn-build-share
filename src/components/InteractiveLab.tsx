@@ -147,6 +147,15 @@ jobs:
           case 'log':
             response = 'commit a1b2c3d4e5f6g7h8i9j0 (HEAD -> main)\nAuthor: Learner <learner@example.com>\nDate:   Fri Mar 27 14:32:06 2026 +0000\n\n    initial commit';
             break;
+          case 'stash':
+            response = 'Saved working directory and index state WIP on main: a1b2c3d initial commit';
+            break;
+          case 'rebase':
+            response = 'Successfully rebased and updated refs/heads/main.';
+            break;
+          case 'cherry-pick':
+            response = '[main b2c3d4e] cherry-picked commit\n Date: Fri Mar 27 15:00:00 2026 +0000\n 1 file changed, 5 insertions(+)';
+            break;
           default:
             response = `git: '${subCmd}' is not a git command. See 'git --help'.`;
         }
@@ -186,6 +195,23 @@ jobs:
             break;
           case 'rm':
             response = args[1] || 'Container removed.';
+            break;
+          case 'rmi':
+            response = `Untagged: ${args[1]}\nDeleted: sha256:1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7a8b9c0d1e2f`;
+            break;
+          case 'volume':
+            if (args[1] === 'create') {
+              response = args[2] || 'volume_name';
+            } else {
+              response = 'Usage: docker volume <command>';
+            }
+            break;
+          case 'network':
+            if (args[1] === 'ls') {
+              response = 'NETWORK ID     NAME      DRIVER    SCOPE\n1a2b3c4d5e6f   bridge    bridge    local\n7g8h9i0j1k2l   host      host      local\n3m4n5o6p7q8r   none      null      local';
+            } else {
+              response = 'Usage: docker network <command>';
+            }
             break;
           default:
             response = `docker: '${subCmd}' is not a docker command.`;
@@ -262,6 +288,8 @@ jobs:
       if (cmd === 'gitlab-runner') {
         if (args[0] === '--version') {
           response = 'gitlab-runner version 16.0.0 (abcdef12)';
+        } else if (args[0] === 'status') {
+          response = 'Runtime platform                                    arch=amd64 os=linux pid=1234 revision=abcdef12 version=16.0.0\ngitlab-runner: Service is running';
         } else {
           response = `gitlab-runner: command not found: ${args[0]}`;
         }
@@ -274,6 +302,12 @@ jobs:
           response = 'Kubernetes control plane is running at https://127.0.0.1:6443\nCoreDNS is running at https://127.0.0.1:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy';
         } else if (args[0] === 'get' && args[1] === 'pods') {
           response = 'NAME                     READY   STATUS    RESTARTS   AGE\nnginx-7854ff6677-v2wzx   1/1     Running   0          5m';
+        } else if (args[0] === 'get' && (args[1] === 'services' || args[1] === 'svc')) {
+          response = 'NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE\nkubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   10d';
+        } else if (args[0] === 'describe' && args[1] === 'pod') {
+          response = `Name:         ${args[2] || 'my-pod'}\nNamespace:    default\nPriority:     0\nNode:         minikube/192.168.49.2\nStart Time:   Sun, 29 Mar 2026 10:00:00 +0000\nLabels:       app=my-app\nAnnotations:  <none>\nStatus:       Running\nIP:           10.244.0.5\nIPs:\n  IP:  10.244.0.5\nContainers:\n  my-container:\n    Container ID:   docker://abcdef1234567890\n    Image:          nginx:latest\n    Image ID:       docker-pullable://nginx@sha256:...\n    Port:           80/TCP\n    Host Port:      0/TCP\n    State:          Running\n      Started:      Sun, 29 Mar 2026 10:00:05 +0000\n    Ready:          True\n    Restart Count:  0\n    Environment:    <none>\n    Mounts:\n      /var/run/secrets/kubernetes.io/serviceaccount from default-token-abcde (ro)\nConditions:\n  Type              Status\n  Initialized       True \n  Ready             True \n  ContainersReady   True \n  PodScheduled      True \nVolumes:\n  default-token-abcde:\n    Type:        Secret (a volume populated by a Secret)\n    SecretName:  default-token-abcde\n    Optional:    false\nQoS Class:       BestEffort\nNode-Selectors:  <none>\nTolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s\n                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s\nEvents:\n  Type    Reason     Age   From               Message\n  ----    ------     ----  ----               -------\n  Normal  Scheduled  5m    default-scheduler  Successfully assigned default/${args[2] || 'my-pod'} to minikube\n  Normal  Pulling    5m    kubelet            Pulling image "nginx:latest"\n  Normal  Pulled     5m    kubelet            Successfully pulled image "nginx:latest"\n  Normal  Created    5m    kubelet            Created container my-container\n  Normal  Started    5m    kubelet            Started container my-container`;
+        } else if (args[0] === 'logs') {
+          response = `192.168.1.1 - - [29/Mar/2026:10:05:00 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.81.0" "-"`;
         } else {
           response = `kubectl: command not found: ${args[0]}`;
         }
@@ -290,9 +324,157 @@ jobs:
       } else if (cmd === 'cargo') {
         if (args[0] === 'new') {
           response = `Created binary (application) \`${args[1]}\` package`;
+        } else if (args[0] === 'build') {
+          response = '   Compiling my-project v0.1.0 (/home/user/my-project)\n    Finished dev [unoptimized + debuginfo] target(s) in 0.52s';
+        } else if (args[0] === 'run') {
+          response = '   Compiling my-project v0.1.0 (/home/user/my-project)\n    Finished dev [unoptimized + debuginfo] target(s) in 0.52s\n     Running `target/debug/my-project`\nHello, world!';
         } else {
           response = `cargo: command not found: ${args[0]}`;
         }
+      } else {
+        response = `bash: ${cmd}: command not found`;
+      }
+    } else if (courseId === 'linux') {
+      if (cmd === 'uname') {
+        response = 'Linux 5.15.0-101-generic x86_64';
+      } else if (cmd === 'ls') {
+        if (input.includes('| grep')) {
+          response = 'hello.txt';
+        } else if (args[0] === '/') {
+          response = 'bin  boot  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var';
+        } else if (args[0] === '-l') {
+          response = 'total 12\ndrwxr-xr-x 2 user user 4096 Mar 27 10:00 .\ndrwxr-xr-x 3 user user 4096 Mar 27 09:00 ..\n-rw-r--r-- 1 user user   15 Mar 27 10:00 hello.txt';
+        } else {
+          response = 'hello.txt  script.sh';
+        }
+      } else if (cmd === 'pwd') {
+        response = '/home/user/project';
+      } else if (cmd === 'touch') {
+        response = '';
+      } else if (cmd === 'cp') {
+        response = '';
+      } else if (cmd === 'rm') {
+        response = '';
+      } else if (cmd === 'chmod') {
+        response = '';
+      } else if (cmd === 'chown') {
+        response = '';
+      } else if (cmd === 'grep') {
+        response = 'Hello World!';
+      } else if (cmd === 'find') {
+        response = './hello.txt';
+      } else if (cmd === 'tar') {
+        response = 'file.txt';
+      } else if (cmd === 'wget') {
+        response = 'Saving to: ‘file.zip’\n\nfile.zip           100%[===================>]   1.23M  --.-KB/s    in 0.1s    \n\n2026-03-29 10:00:00 (12.3 MB/s) - ‘file.zip’ saved [1289748/1289748]';
+      } else if (cmd === 'ps') {
+        response = '  PID TTY          TIME CMD\n    1 ?        00:00:01 systemd\n   10 ?        00:00:00 bash\n  123 ?        00:00:00 ps';
+      } else if (cmd === 'df') {
+        response = 'Filesystem      Size  Used Avail Use% Mounted on\n/dev/sda1        50G   10G   38G  21% /\ntmpfs           3.9G     0  3.9G   0% /dev/shm';
+      } else if (cmd === 'sed') {
+        response = 'orange\norange\nbanana';
+      } else if (cmd === 'awk') {
+        response = 'John 25\nJane 30\nDoe 22';
+      } else {
+        response = `bash: ${cmd}: command not found`;
+      }
+    } else if (courseId === 'aws') {
+      if (cmd === 'aws') {
+        if (args[0] === '--version') {
+          response = 'aws-cli/2.15.0 Python/3.11.6 Linux/5.15.0-101-generic exe/x86_64.ubuntu.22 prompt/off';
+        } else if (args[0] === 'configure') {
+          response = 'AWS Access Key ID [None]: \nAWS Secret Access Key [None]: \nDefault region name [None]: \nDefault output format [None]: ';
+        } else if (args[0] === 'ec2') {
+          if (args[1] === 'describe-regions') {
+            response = '{\n    "Regions": [\n        {\n            "Endpoint": "ec2.eu-north-1.amazonaws.com",\n            "RegionName": "eu-north-1",\n            "OptInStatus": "opt-in-not-required"\n        }\n    ]\n}';
+          } else if (args[1] === 'describe-instances') {
+            response = '{\n    "Reservations": []\n}';
+          } else if (args[1] === 'start-instances') {
+            response = '{\n    "StartingInstances": [\n        {\n            "CurrentState": {\n                "Code": 0,\n                "Name": "pending"\n            },\n            "InstanceId": "i-1234567890abcdef0",\n            "PreviousState": {\n                "Code": 80,\n                "Name": "stopped"\n            }\n        }\n    ]\n}';
+          } else if (args[1] === 'stop-instances') {
+            response = '{\n    "StoppingInstances": [\n        {\n            "CurrentState": {\n                "Code": 64,\n                "Name": "stopping"\n            },\n            "InstanceId": "i-1234567890abcdef0",\n            "PreviousState": {\n                "Code": 16,\n                "Name": "running"\n            }\n        }\n    ]\n}';
+          } else if (args[1] === 'describe-volumes') {
+            response = '{\n    "Volumes": []\n}';
+          } else {
+            response = `aws ec2: command not found: ${args[1]}`;
+          }
+        } else if (args[0] === 'lambda') {
+          if (args[1] === 'list-functions') {
+            response = '{\n    "Functions": []\n}';
+          } else {
+            response = `aws lambda: command not found: ${args[1]}`;
+          }
+        } else if (args[0] === 's3') {
+          if (args[1] === 'ls') {
+            response = '2026-03-27 10:00:00 my-awesome-bucket';
+          } else if (args[1] === 'mb') {
+            response = `make_bucket: ${args[2]}`;
+          } else if (args[1] === 'rm') {
+            response = `delete: ${args[2]}`;
+          } else {
+            response = `aws s3: command not found: ${args[1]}`;
+          }
+        } else if (args[0] === 'iam') {
+          if (args[1] === 'list-users') {
+            response = '{\n    "Users": [\n        {\n            "Path": "/",\n            "UserName": "admin",\n            "UserId": "AIDA1234567890",\n            "Arn": "arn:aws:iam::123456789012:user/admin",\n            "CreateDate": "2026-03-27T10:00:00Z"\n        }\n    ]\n}';
+          } else {
+            response = `aws iam: command not found: ${args[1]}`;
+          }
+        } else if (args[0] === 'cloudwatch') {
+          if (args[1] === 'list-metrics') {
+            response = '{\n    "Metrics": [\n        {\n            "Namespace": "AWS/EC2",\n            "MetricName": "CPUUtilization",\n            "Dimensions": [\n                {\n                    "Name": "InstanceId",\n                    "Value": "i-1234567890abcdef0"\n                }\n            ]\n        }\n    ]\n}';
+          } else {
+            response = `aws cloudwatch: command not found: ${args[1]}`;
+          }
+        } else {
+          response = `aws: command not found: ${args[0]}`;
+        }
+      } else {
+        response = `bash: ${cmd}: command not found`;
+      }
+    } else if (courseId === 'sql') {
+      if (cmd === 'mysql') {
+        response = 'Welcome to the MySQL monitor.  Commands end with ; or \\g.\nYour MySQL connection id is 10\nServer version: 8.0.35-0ubuntu0.22.04.1 (Ubuntu)\n\nType \'help;\' or \'\\h\' for help. Type \'\\c\' to clear the current input statement.\n\nmysql>';
+      } else if (input.toUpperCase().startsWith('SELECT')) {
+        if (input.toUpperCase().includes('HAVING')) {
+          response = '+----------+----------+\n| city     | COUNT(*) |\n+----------+----------+\n| New York |        5 |\n+----------+----------+\n1 row in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('UNION')) {
+          response = '+-------+\n| name  |\n+-------+\n| Alice |\n| Bob   |\n| Carol |\n| Dave  |\n+-------+\n4 rows in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('AS USER_NAME')) {
+          response = '+-----------+\n| User_Name |\n+-----------+\n| Alice     |\n| Bob       |\n| Carol     |\n+-----------+\n3 rows in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('MAX(AGE)')) {
+          response = '+----------+\n| MAX(age) |\n+----------+\n|       30 |\n+----------+\n1 row in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('LIKE \'A%\'')) {
+          response = '+----+-------+-----+\n| id | name  | age |\n+----+-------+-----+\n|  1 | Alice |  25 |\n+----+-------+-----+\n1 row in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('BETWEEN 20 AND 30')) {
+          response = '+----+-------+-----+\n| id | name  | age |\n+----+-------+-----+\n|  1 | Alice |  25 |\n|  2 | Bob   |  30 |\n|  3 | Carol |  22 |\n+----+-------+-----+\n3 rows in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('COUNT')) {
+          response = '+----------+----------+\n| city     | COUNT(*) |\n+----------+----------+\n| New York |        5 |\n| London   |        3 |\n+----------+----------+\n2 rows in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('JOIN')) {
+          response = '+-------+------------+\n| name  | order_date |\n+-------+------------+\n| Alice | 2026-03-25 |\n| Bob   | 2026-03-26 |\n+-------+------------+\n2 rows in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('IS NULL')) {
+          response = '+----+------+------+\n| id | name | email|\n+----+------+------+\n|  3 | Carol| NULL |\n+----+------+------+\n1 row in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('CASE')) {
+          response = '+-------+--------+\n| name  | status |\n+-------+--------+\n| Alice | Adult  |\n| Bob   | Adult  |\n| Carol | Minor  |\n+-------+--------+\n3 rows in set (0.00 sec)';
+        } else if (input.toUpperCase().includes('WHERE')) {
+          response = '+----+-------+-----+\n| id | name  | age |\n+----+-------+-----+\n|  1 | Alice |  25 |\n|  2 | Bob   |  30 |\n+----+-------+-----+\n2 rows in set (0.00 sec)';
+        } else {
+          response = '+----+-------+-----+\n| id | name  | age |\n+----+-------+-----+\n|  1 | Alice |  25 |\n|  2 | Bob   |  30 |\n|  3 | Carol |  22 |\n+----+-------+-----+\n3 rows in set (0.00 sec)';
+        }
+      } else if (input.toUpperCase().startsWith('INSERT')) {
+        response = 'Query OK, 1 row affected (0.01 sec)';
+      } else if (input.toUpperCase().startsWith('UPDATE')) {
+        response = 'Query OK, 1 row affected (0.01 sec)\nRows matched: 1  Changed: 1  Warnings: 0';
+      } else if (input.toUpperCase().startsWith('DELETE')) {
+        response = 'Query OK, 1 row affected (0.01 sec)';
+      } else if (input.toUpperCase().startsWith('CREATE TABLE')) {
+        response = 'Query OK, 0 rows affected (0.02 sec)';
+      } else if (input.toUpperCase().startsWith('ALTER TABLE')) {
+        response = 'Query OK, 0 rows affected (0.03 sec)\nRecords: 0  Duplicates: 0  Warnings: 0';
+      } else if (input.toUpperCase().startsWith('DROP TABLE')) {
+        response = 'Query OK, 0 rows affected (0.02 sec)';
+      } else if (input.toUpperCase().startsWith('CREATE VIEW')) {
+        response = 'Query OK, 0 rows affected (0.01 sec)';
       } else {
         response = `bash: ${cmd}: command not found`;
       }
@@ -389,7 +571,7 @@ jobs:
 
         {/* Workspace Area */}
         <div className="flex-1 min-h-0">
-          {(courseId === 'git' || courseId === 'docker' || courseId === 'github' || courseId === 'cybersecurity' || courseId === 'antigravity' || courseId === 'gitlab' || courseId === 'kubernetes' || courseId === 'rust') && (
+          {(courseId === 'git' || courseId === 'docker' || courseId === 'github' || courseId === 'cybersecurity' || courseId === 'antigravity' || courseId === 'gitlab' || courseId === 'kubernetes' || courseId === 'rust' || courseId === 'aws' || courseId === 'sql' || courseId === 'linux') && (
             <div className="flex flex-col h-full bg-slate-900 rounded-xl overflow-hidden border border-slate-700 font-mono text-sm">
               <div className="bg-slate-800 px-4 py-2 flex items-center justify-between border-b border-slate-700">
                 <div className="flex items-center gap-2">

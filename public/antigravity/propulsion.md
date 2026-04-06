@@ -1,20 +1,15 @@
 # Propulsion & Simulations
 
-In this module, we'll explore the fundamental concepts of propulsion and simulations.
+Propulsion is the action or process of pushing or pulling to drive an object forward. In aerospace, propulsion systems are used to generate thrust to move spacecraft.
 
-## Space & Propulsion Concepts
-- **Rocket Propulsion Basics:** How rockets work by ejecting mass at high velocity.
-- **Ion Drives:** A type of electric propulsion that uses ions to create thrust.
-- **Gravity Assist (Slingshot Effect):** Using the gravity of a planet to change the speed and direction of a spacecraft.
+## Types of Propulsion
+- **Chemical Propulsion:** The most common type of rocket propulsion, using chemical reactions to produce high-temperature, high-pressure gases that are expelled through a nozzle to generate thrust.
+- **Electric Propulsion:** Uses electrical energy to accelerate propellant, typically ions, to high velocities. This provides higher specific impulse but lower thrust compared to chemical propulsion.
+- **Nuclear Thermal Propulsion:** Uses a nuclear reactor to heat a propellant, such as hydrogen, which is then expelled through a nozzle.
 
-## Math Skills
-- **Calculus (Very Important):** For understanding how things change over time.
-- **Vectors and Basic Differential Equations:** For describing motion and forces.
+## Simulating Propulsion
+Simulations are crucial for designing and testing propulsion systems before physical prototypes are built.
 
-## Simulation & Tools
-- **Python for Physics Simulations:** Using Python to model physical systems.
-- **MATLAB / Numerical Tools:** For solving complex mathematical problems.
-- **Basic Modeling of Motion and Forces:** Creating models to understand how things move and interact.
-
-## Practical Tip
-When creating physics simulations, always start with a simple model and then add complexity as needed.
+### Key Concepts
+- **Computational Fluid Dynamics (CFD):** A branch of fluid mechanics that uses numerical analysis and data structures to analyze and solve problems that involve fluid flows.
+- **Finite Element Analysis (FEA):** A numerical method for solving problems of engineering and mathematical physics, useful for structural analysis of propulsion components.

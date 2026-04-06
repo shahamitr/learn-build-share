@@ -10,6 +10,7 @@ export const rustCurriculum = [
     bgColor: 'bg-emerald-100',
     modules: [
       { id: 'rust-foundations', title: '01. Core Concepts & Setup', duration: '20 min', type: 'theory', path: '/rust/foundations.md' },
+      { id: 'rust-build-run', title: '01.1 Building and Running', duration: '15 min', type: 'lab', path: '/rust/build-run.md' },
       { id: 'rust-syntax-basics', title: '02. Syntax & Control Flow', duration: '25 min', type: 'lab', path: '/rust/syntax-basics.md' },
       { id: 'rust-ownership-system', title: '03. Ownership & Borrowing', duration: '30 min', type: 'theory', path: '/rust/ownership-system.md' }
     ]

@@ -12,6 +12,9 @@ import { antigravityCurriculum } from '../data/antigravity-curriculum';
 import { gitlabCurriculum } from '../data/gitlab-curriculum';
 import { kubernetesCurriculum } from '../data/kubernetes-curriculum';
 import { rustCurriculum } from '../data/rust-curriculum';
+import { linuxCurriculum } from '../data/linux-curriculum';
+import { awsCurriculum } from '../data/aws-curriculum';
+import { sqlCurriculum } from '../data/sql-curriculum';
 import { Link, Navigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -62,6 +65,9 @@ export default function Dashboard() {
     { id: 'gitlab', title: 'GitLab CI/CD', progress: getCourseProgress('gitlab', gitlabCurriculum), color: 'orange' },
     { id: 'kubernetes', title: 'Kubernetes Fundamentals', progress: getCourseProgress('kubernetes', kubernetesCurriculum), color: 'blue' },
     { id: 'rust', title: 'Rust Programming', progress: getCourseProgress('rust', rustCurriculum), color: 'orange' },
+    { id: 'linux', title: 'Linux Basics', progress: getCourseProgress('linux', linuxCurriculum), color: 'slate' },
+    { id: 'aws', title: 'AWS Cloud Practitioner', progress: getCourseProgress('aws', awsCurriculum), color: 'amber' },
+    { id: 'sql', title: 'SQL Basics', progress: getCourseProgress('sql', sqlCurriculum), color: 'sky' },
   ];
 
   const totalCompletedModules = courses.reduce((acc, course) => acc + course.progress.completed, 0);
@@ -107,7 +113,8 @@ export default function Dashboard() {
                 key={course.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05, duration: 0.5, ease: "easeOut" }}
+                whileHover={{ y: -5 }}
                 className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">

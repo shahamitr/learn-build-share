@@ -11,7 +11,10 @@ import { antigravityCurriculum } from '../data/antigravity-curriculum';
 import { gitlabCurriculum } from '../data/gitlab-curriculum';
 import { kubernetesCurriculum } from '../data/kubernetes-curriculum';
 import { rustCurriculum } from '../data/rust-curriculum';
-import { BookOpen, ChevronRight, GitBranch, Terminal, Shield, Zap, Bot, Code, Cpu, Container, Layers, Server, Users, Globe, Lock, Workflow, Play, Settings, Map as MapIcon, List, CheckCircle2, Circle, Clock, Award, ShieldCheck, Sparkles, Rocket, Gitlab, Box } from 'lucide-react';
+import { linuxCurriculum } from '../data/linux-curriculum';
+import { awsCurriculum } from '../data/aws-curriculum';
+import { sqlCurriculum } from '../data/sql-curriculum';
+import { BookOpen, ChevronRight, GitBranch, Terminal, Shield, Zap, Bot, Code, Cpu, Container, Layers, Server, Users, Globe, Lock, Workflow, Play, Settings, Map as MapIcon, List, CheckCircle2, Circle, Clock, Award, ShieldCheck, Sparkles, Rocket, Gitlab, Box, Cloud, Database } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import AnimatedMindMap from '../components/AnimatedMindMap';
@@ -75,6 +78,18 @@ export default function Tutorials() {
     curriculum = rustCurriculum;
     title = 'Rust Programming';
     description = 'Learn the Rust programming language. Fast, safe, and memory-efficient.';
+  } else if (courseId === 'linux') {
+    curriculum = linuxCurriculum;
+    title = 'Linux Basics';
+    description = 'Learn the fundamental concepts of the Linux operating system and command line.';
+  } else if (courseId === 'aws') {
+    curriculum = awsCurriculum;
+    title = 'AWS Cloud Practitioner';
+    description = 'Understand the fundamental concepts of cloud computing and AWS.';
+  } else if (courseId === 'sql') {
+    curriculum = sqlCurriculum;
+    title = 'SQL Basics';
+    description = 'Learn the basics of Structured Query Language and relational databases.';
   } else {
     curriculum = gitCurriculum;
     title = 'Git Mastery Curriculum';
@@ -315,16 +330,31 @@ export default function Tutorials() {
                           className="flex items-center justify-between p-6 hover:bg-slate-50 transition-colors group"
                         >
                           <div className="flex items-center gap-4">
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
                               completed ? 'bg-emerald-100 text-emerald-600' : 'bg-slate-100 text-slate-500 group-hover:bg-indigo-100 group-hover:text-indigo-600'
                             }`}>
-                              {completed ? <CheckCircle2 className="w-4 h-4" /> : <Circle className="w-4 h-4" />}
+                              {completed ? <CheckCircle2 className="w-5 h-5" /> : <Play className="w-5 h-5" />}
                             </div>
-                            <span className={`font-medium transition-colors ${completed ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'}`}>
-                              {module.title}
-                            </span>
+                            <div className="flex flex-col">
+                              <span className={`font-semibold transition-colors ${completed ? 'text-slate-900' : 'text-slate-700 group-hover:text-slate-900'}`}>
+                                {module.title}
+                              </span>
+                              <div className="flex items-center gap-2 text-xs text-slate-500 mt-1">
+                                <span className="flex items-center gap-1">
+                                  <Clock className="w-3 h-3" />
+                                  {module.duration}
+                                </span>
+                                <span>•</span>
+                                <span className="capitalize">{module.type}</span>
+                              </div>
+                            </div>
                           </div>
-                          <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-indigo-600 transition-colors" />
+                          <div className="flex items-center gap-4">
+                            {completed && (
+                              <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">Completed</span>
+                            )}
+                            <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-indigo-600 transition-colors" />
+                          </div>
                         </Link>
                       );
                     })}

@@ -1,18 +1,17 @@
 # Cutting-edge Concepts
 
-In this module, we'll explore the more advanced concepts of cutting-edge physics.
+The frontier of physics is filled with cutting-edge concepts that challenge our understanding of reality.
 
-## Cutting-edge Concepts
-- **Warp Drive (Alcubierre Metric):** A theoretical concept for a spacecraft that could travel faster than light by contracting spacetime in front of it and expanding it behind it.
-- **Wormholes:** A theoretical shortcut through spacetime.
-- **Quantum Gravity Theories:**
-    - **String Theory:** A theoretical framework in which the point-like particles of particle physics are replaced by one-dimensional objects called strings.
-    - **Loop Quantum Gravity:** A theory that attempts to merge quantum mechanics and general relativity.
+## Dark Matter and Dark Energy
+- **Dark Matter:** A hypothetical form of matter thought to account for approximately 85% of the matter in the universe. It does not interact with electromagnetic force, making it invisible to the entire electromagnetic spectrum.
+- **Dark Energy:** An unknown form of energy that affects the universe on the largest scales. The first observational evidence for its existence came from measurements of supernovae, which showed that the universe does not expand at a constant rate; rather, the expansion of the universe is accelerating.
 
-## Experimental Physics Areas
-- **Superconductors & Magnetic Levitation:** Materials that have zero electrical resistance and can expel magnetic fields.
-- **Gravitational Wave Detection:** Detecting ripples in spacetime caused by massive objects.
-- **High-Energy Particle Physics:** Studying the fundamental building blocks of matter and energy.
+## Wormholes
+A wormhole is a speculative structure linking disparate points in spacetime, and is based on a special solution of the Einstein field equations.
 
-## Practical Tip
-When thinking about cutting-edge concepts, remember that they're still mostly speculative; we haven't yet found a way to test many of these ideas.
+### Key Concepts
+- **Einstein-Rosen Bridge:** The original term for a wormhole, describing a hypothetical topological feature of spacetime that would fundamentally be a "shortcut" through spacetime.
+- **Traversable Wormholes:** Hypothetical wormholes that could be crossed in both directions. Their existence would require exotic matter with negative energy density.
+
+## The Multiverse
+The multiverse is a hypothetical group of multiple universes. Together, these universes comprise everything that exists: the entirety of space, time, matter, energy, information, and the physical laws and constants that describe them.

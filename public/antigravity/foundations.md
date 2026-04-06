@@ -1,20 +1,19 @@
 # Core Physics Concepts
 
-To understand "antigravity," we must first understand gravity itself.
+Welcome to the foundations of physics, the stepping stone to understanding advanced concepts like antigravity.
 
-## What is Gravity?
-Gravity is a fundamental interaction which causes mutual attraction between all things with mass or energy.
+## Classical Mechanics
+Classical mechanics describes the motion of macroscopic objects, from projectiles to parts of machinery, and astronomical objects, such as spacecraft, planets, stars, and galaxies.
 
-## Newtonian Gravity vs. General Relativity
-- **Newtonian Gravity (Force-based):** Isaac Newton described gravity as an invisible force that pulls objects toward each other. The strength of this force depends on the masses of the objects and the distance between them.
-- **General Relativity (Spacetime Curvature):** Albert Einstein proposed that gravity is not a force, but a consequence of the curvature of spacetime caused by the uneven distribution of mass and energy.
-
-## Key Concepts
+### Key Concepts
 - **Mass:** The amount of matter in an object.
-- **Force:** A push or pull upon an object resulting from the object's interaction with another object.
-- **Acceleration:** The rate at which an object changes its velocity.
+- **Force:** An interaction that, when unopposed, will change the motion of an object.
+- **Acceleration:** The rate of change of velocity of an object with respect to time.
 
-## Basic Math for Physics
-Understanding physics requires a solid foundation in:
-- **Algebra:** For manipulating equations and solving for unknowns.
-- **Trigonometry:** For understanding vectors, angles, and periodic motion.
+## Gravity
+Gravity is a natural phenomenon by which all things with mass or energy—including planets, stars, galaxies, and even light—are brought toward one another. On Earth, gravity gives weight to physical objects, and the Moon's gravity causes the ocean tides.
+
+## Energy and Work
+- **Work:** The energy transferred to or from an object via the application of force along a displacement.
+- **Kinetic Energy:** The energy that an object possesses due to its motion.
+- **Potential Energy:** The energy held by an object because of its position relative to other objects, stresses within itself, its electric charge, or other factors.

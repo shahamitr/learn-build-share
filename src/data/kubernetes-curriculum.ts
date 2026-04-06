@@ -30,7 +30,8 @@ export const kubernetesCurriculum = [
       { id: 'k8s-storage', title: '09. Storage', duration: '35 min', type: 'lab', path: '/kubernetes/storage.md' },
       { id: 'k8s-scaling', title: '10. Scaling & Updates', duration: '40 min', type: 'lab', path: '/kubernetes/scaling-helm-debug.md' },
       { id: 'k8s-helm', title: '11. Helm', duration: '30 min', type: 'lab', path: '/kubernetes/scaling-helm-debug.md' },
-      { id: 'k8s-debugging', title: '12. Debugging', duration: '35 min', type: 'lab', path: '/kubernetes/scaling-helm-debug.md' }
+      { id: 'k8s-debugging', title: '12. Debugging', duration: '35 min', type: 'lab', path: '/kubernetes/scaling-helm-debug.md' },
+      { id: 'k8s-describe', title: '12.1 Describing Resources', duration: '20 min', type: 'lab', path: '/kubernetes/describe.md' }
     ]
   },
   {

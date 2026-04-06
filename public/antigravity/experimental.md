@@ -1,21 +1,18 @@
 # Experimental Physics & Aerospace
 
-In this module, we'll explore the more advanced concepts of experimental physics and aerospace.
+Experimental physics is the category of disciplines and sub-disciplines in the field of physics that are concerned with the observation of physical phenomena and experiments.
 
-## Experimental Physics Areas
-- **Superconductors & Magnetic Levitation:** Materials that have zero electrical resistance and can expel magnetic fields.
-- **Gravitational Wave Detection:** Detecting ripples in spacetime caused by massive objects.
-- **High-Energy Particle Physics:** Studying the fundamental building blocks of matter and energy.
+## Aerospace Engineering
+Aerospace engineering is the primary field of engineering concerned with the development of aircraft and spacecraft. It has two major and overlapping branches: aeronautical engineering and astronautical engineering.
 
-## Aerospace & Engineering Links
-- **Advanced Propulsion Systems:** Developing new ways to propel spacecraft (e.g., using ion drives, nuclear propulsion).
-- **Spacecraft Design:** Designing and building spacecraft that can withstand the harsh environment of space.
-- **NASA / ESA Research Directions:** Exploring the latest research from space agencies around the world.
+### Key Concepts
+- **Aerodynamics:** The study of the motion of air, particularly its interaction with a solid object, such as an airplane wing.
+- **Avionics:** The electronic systems used on aircraft, artificial satellites, and spacecraft.
 
-## Research Skills
-- **Reading Scientific Papers:** Learning how to read and understand scientific literature.
-- **Writing Research Proposals:** Learning how to write a proposal for a research project.
-- **Data Analysis & Modeling:** Learning how to analyze and model data from experiments.
+## Experimental Methods
+Experimental physicists use a variety of methods to test theories and discover new phenomena.
 
-## Practical Tip
-When performing research, always follow a methodology (e.g., the scientific method) to ensure that you're covering all the necessary steps.
+### Key Concepts
+- **Particle Accelerators:** Machines that use electromagnetic fields to propel charged particles to very high speeds and energies, and to contain them in well-defined beams.
+- **Telescopes:** Instruments that aid in the observation of remote objects by collecting electromagnetic radiation (such as visible light).
+- **Interferometers:** Instruments that merge two or more sources of light to create an interference pattern, which can be measured and analyzed.

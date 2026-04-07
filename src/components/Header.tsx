@@ -21,9 +21,12 @@ export default function Header() {
             <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">Learn Build Share</span>
           </Link>
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/tutorials" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition-colors">Courses</Link>
-            <Link to="/#community" className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-indigo-600 transition-colors">Community</Link>
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
+            <Link to="/" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Home</Link>
+            <Link to="/tutorials" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Learn</Link>
+            <Link to="/projects" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Projects</Link>
+            <Link to="/about" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">About</Link>
+            <Link to="/contribute" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Contribute</Link>
+            <a href="https://github.com/shahamitr/learn-build-share" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">
               <Github className="w-5 h-5" />
             </a>
             <ThemeToggle />

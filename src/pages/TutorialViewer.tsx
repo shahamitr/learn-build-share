@@ -14,10 +14,21 @@ import { cybersecurityCurriculum } from '../data/cybersecurity-curriculum';
 import { antigravityCurriculum } from '../data/antigravity-curriculum';
 import { gitlabCurriculum } from '../data/gitlab-curriculum';
 import { kubernetesCurriculum } from '../data/kubernetes-curriculum';
-import { rustCurriculum } from '../data/rust-curriculum';
 import { linuxCurriculum } from '../data/linux-curriculum';
 import { awsCurriculum } from '../data/aws-curriculum';
 import { sqlCurriculum } from '../data/sql-curriculum';
+import { introToProgrammingCurriculum } from '../data/intro-to-programming-curriculum';
+import { javascriptCurriculum } from '../data/javascript-curriculum';
+import { dsaCurriculum } from '../data/dsa-curriculum';
+import { bashCurriculum } from '../data/bash-curriculum';
+import { goCurriculum } from '../data/go-curriculum';
+import { genAiCurriculum } from '../data/genai-curriculum';
+import { devopsCurriculum } from '../data/devops-curriculum';
+import { cloudComputingCurriculum } from '../data/cloud-curriculum';
+import { systemDesignCurriculum } from '../data/system-design-curriculum';
+import { dataScienceCurriculum } from '../data/data-science-curriculum';
+import { rustCurriculum } from '../data/rust-curriculum';
+import { mobileDevCurriculum } from '../data/mobile-dev-curriculum';
 import { ArrowLeft, Loader2, PanelRightOpen, PanelRightClose, CheckCircle2, Circle, Check, BookOpen } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useProgress } from '../context/ProgressContext';
@@ -47,6 +58,30 @@ export default function TutorialViewer() {
   let curriculum;
   if (courseId === 'ai') {
     curriculum = aiCurriculum;
+  } else if (courseId === 'intro-to-programming') {
+    curriculum = introToProgrammingCurriculum;
+  } else if (courseId === 'javascript') {
+    curriculum = javascriptCurriculum;
+  } else if (courseId === 'dsa') {
+    curriculum = dsaCurriculum;
+  } else if (courseId === 'bash') {
+    curriculum = bashCurriculum;
+  } else if (courseId === 'go') {
+    curriculum = goCurriculum;
+  } else if (courseId === 'gen-ai') {
+    curriculum = genAiCurriculum;
+  } else if (courseId === 'devops') {
+    curriculum = devopsCurriculum;
+  } else if (courseId === 'cloud') {
+    curriculum = cloudComputingCurriculum;
+  } else if (courseId === 'system-design') {
+    curriculum = systemDesignCurriculum;
+  } else if (courseId === 'data-science') {
+    curriculum = dataScienceCurriculum;
+  } else if (courseId === 'rust') {
+    curriculum = rustCurriculum;
+  } else if (courseId === 'mobile-dev') {
+    curriculum = mobileDevCurriculum;
   } else if (courseId === 'docker') {
     curriculum = dockerCurriculum;
   } else if (courseId === 'github') {

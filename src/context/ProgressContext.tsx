@@ -18,6 +18,8 @@ interface ProgressContextType {
   xp: number;
   level: number;
   streak: number;
+  badges: string[];
+  challenges: string[];
 }
 
 const ProgressContext = createContext<ProgressContextType | undefined>(undefined);
@@ -29,6 +31,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   const [xp, setXp] = useState(0);
   const [level, setLevel] = useState(1);
   const [streak, setStreak] = useState(0);
+  const [badges, setBadges] = useState<string[]>([]);
+  const [challenges, setChallenges] = useState<string[]>([]);
 
   useEffect(() => {
     if (!user) {
@@ -36,6 +40,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
       setXp(0);
       setLevel(1);
       setStreak(0);
+      setBadges([]);
+      setChallenges([]);
       setLoading(false);
       return;
     }
@@ -60,6 +66,8 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
           setXp(data.xp || 0);
           setLevel(Math.floor((data.xp || 0) / 1000) + 1);
           setStreak(data.streak || 0);
+          setBadges(data.badges || []);
+          setChallenges(data.challenges || []);
         }
       } catch (error) {
         console.error('Failed to fetch progress:', error);
@@ -170,7 +178,7 @@ export function ProgressProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <ProgressContext.Provider value={{ completedModules, markCompleted, isCompleted, updateTimeSpent, loading, xp, level, streak }}>
+    <ProgressContext.Provider value={{ completedModules, markCompleted, isCompleted, updateTimeSpent, loading, xp, level, streak, badges, challenges }}>
       {children}
     </ProgressContext.Provider>
   );

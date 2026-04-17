@@ -1,248 +1,43 @@
 export const awsCurriculum = [
   {
-    id: 'aws-cloud-concepts',
-    title: 'Cloud Concepts',
-    description: 'Understand the fundamental concepts of cloud computing and AWS.',
-    estimatedDuration: '1 hour 15 mins',
+    id: 'beginner',
+    title: 'Beginner Level — AWS Foundations',
+    description: 'Start here to build your base understanding of AWS.',
+    estimatedDuration: '2 hours',
     modules: [
-      {
-        id: 'aws-what-is-cloud',
-        title: 'What is Cloud Computing?',
-        description: 'Introduction to cloud computing models (IaaS, PaaS, SaaS) and deployment models.',
-        duration: '20 mins',
-        type: 'video',
-        path: '/aws/what-is-cloud.md',
-        icon: 'Cloud',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-global-infrastructure',
-        title: 'AWS Global Infrastructure',
-        description: 'Regions, Availability Zones, and Edge Locations.',
-        duration: '25 mins',
-        type: 'reading',
-        path: '/aws/global-infrastructure.md',
-        icon: 'Globe',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-cli-intro',
-        title: 'Introduction to AWS CLI',
-        description: 'Learn how to interact with AWS using the command line interface.',
-        duration: '30 mins',
-        type: 'interactive',
-        path: '/aws/cli-intro.md',
-        icon: 'Terminal',
-        color: 'amber',
-        bgColor: 'amber'
-      }
+      { id: 'aws-what-is-cloud', title: '01. Cloud Concepts', duration: '20 min', type: 'theory', path: '/aws/what-is-cloud.md' },
+      { id: 'aws-global-infrastructure', title: '02. Global Infrastructure', duration: '25 min', type: 'theory', path: '/aws/global-infrastructure.md' },
+      { id: 'aws-cli-intro', title: '03. AWS CLI Basics', duration: '30 min', type: 'lab', path: '/aws/cli-intro.md' },
+      { id: 'aws-iam-basics', title: '04. IAM Basics', duration: '30 min', type: 'theory', path: '/aws/iam-basics.md' },
+      { id: 'aws-beginner-challenge', title: '05. AWS Beginner Challenge', duration: '15 min', type: 'lab', path: '/aws/beginner-challenge.md' }
     ]
   },
   {
-    id: 'aws-compute',
-    title: 'Compute Services',
-    description: 'Learn about the core compute services offered by AWS.',
-    estimatedDuration: '1 hour 15 mins',
+    id: 'intermediate',
+    title: 'Intermediate Level — Core Services',
+    description: 'Master core compute, storage, and networking services.',
+    estimatedDuration: '3 hours 30 mins',
     modules: [
-      {
-        id: 'aws-ec2-basics',
-        title: 'Amazon EC2 Basics',
-        description: 'Virtual servers in the cloud. Instance types and pricing models.',
-        duration: '30 mins',
-        type: 'video',
-        path: '/aws/ec2-basics.md',
-        icon: 'Server',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-ec2-cli',
-        title: 'Managing EC2 with CLI',
-        description: 'Use the AWS CLI to describe and manage EC2 instances.',
-        duration: '25 mins',
-        type: 'interactive',
-        path: '/aws/ec2-cli.md',
-        icon: 'Terminal',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-lambda-basics',
-        title: 'AWS Lambda',
-        description: 'Serverless compute. Run code without provisioning or managing servers.',
-        duration: '20 mins',
-        type: 'reading',
-        path: '/aws/lambda-basics.md',
-        icon: 'Zap',
-        color: 'amber',
-        bgColor: 'amber'
-      }
+      { id: 'aws-ec2-basics', title: '06. EC2 Basics', duration: '30 min', type: 'lab', path: '/aws/ec2-basics.md' },
+      { id: 'aws-lambda-basics', title: '07. Lambda Basics', duration: '20 min', type: 'theory', path: '/aws/lambda-basics.md' },
+      { id: 'aws-s3-basics', title: '08. S3 Basics', duration: '25 min', type: 'lab', path: '/aws/s3-basics.md' },
+      { id: 'aws-vpc-basics', title: '09. VPC Basics', duration: '35 min', type: 'theory', path: '/aws/vpc-basics.md' },
+      { id: 'aws-rds-basics', title: '10. RDS Basics', duration: '25 min', type: 'lab', path: '/aws/rds-basics.md' },
+      { id: 'aws-intermediate-challenge', title: '11. AWS Intermediate Challenge', duration: '45 min', type: 'lab', path: '/aws/intermediate-challenge.md' }
     ]
   },
   {
-    id: 'aws-storage',
-    title: 'Storage Services',
-    description: 'Explore the different storage options available in AWS.',
-    estimatedDuration: '1 hour 15 mins',
+    id: 'advanced',
+    title: 'Advanced Level — Architecture & Scalability',
+    description: 'Learn advanced architectural patterns and professional skills.',
+    estimatedDuration: '4 hours',
     modules: [
-      {
-        id: 'aws-s3-basics',
-        title: 'Amazon S3 Basics',
-        description: 'Object storage built to store and retrieve any amount of data.',
-        duration: '25 mins',
-        type: 'video',
-        path: '/aws/s3-basics.md',
-        icon: 'Database',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-s3-cli',
-        title: 'Managing S3 with CLI',
-        description: 'Use the AWS CLI to create buckets and upload objects.',
-        duration: '30 mins',
-        type: 'interactive',
-        path: '/aws/s3-cli.md',
-        icon: 'Terminal',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-ebs-efs',
-        title: 'Amazon EBS and EFS',
-        description: 'Block storage and file storage solutions for EC2.',
-        duration: '20 mins',
-        type: 'reading',
-        path: '/aws/ebs-efs.md',
-        icon: 'HardDrive',
-        color: 'amber',
-        bgColor: 'amber'
-      }
-    ]
-  },
-  {
-    id: 'aws-security-network',
-    title: 'Security & Networking',
-    description: 'Learn about AWS security and networking services.',
-    estimatedDuration: '2 hours 25 mins',
-    modules: [
-      {
-        id: 'aws-iam-basics',
-        title: 'AWS IAM Basics',
-        description: 'Identity and Access Management. Securely manage access to AWS services and resources.',
-        duration: '30 mins',
-        type: 'video',
-        path: '/aws/iam-basics.md',
-        icon: 'Shield',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-iam-cli',
-        title: 'Managing IAM with CLI',
-        description: 'Use the AWS CLI to list users and manage IAM resources.',
-        duration: '25 mins',
-        type: 'interactive',
-        path: '/aws/iam-cli.md',
-        icon: 'Terminal',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-vpc-basics',
-        title: 'Amazon VPC Basics',
-        description: 'Virtual Private Cloud. Provision a logically isolated section of the AWS Cloud.',
-        duration: '35 mins',
-        type: 'reading',
-        path: '/aws/vpc-basics.md',
-        icon: 'Network',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-route53',
-        title: 'Amazon Route 53',
-        description: 'Scalable cloud Domain Name System (DNS) web service.',
-        duration: '25 mins',
-        type: 'reading',
-        path: '/aws/route53.md',
-        icon: 'Globe',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-cloudfront',
-        title: 'Amazon CloudFront',
-        description: 'Fast content delivery network (CDN) service.',
-        duration: '30 mins',
-        type: 'reading',
-        path: '/aws/cloudfront.md',
-        icon: 'Zap',
-        color: 'amber',
-        bgColor: 'amber'
-      }
-    ]
-  },
-  {
-    id: 'aws-databases',
-    title: 'Databases',
-    description: 'Learn about AWS database services.',
-    estimatedDuration: '50 mins',
-    modules: [
-      {
-        id: 'aws-rds-basics',
-        title: 'Amazon RDS Basics',
-        description: 'Relational Database Service. Set up, operate, and scale a relational database in the cloud.',
-        duration: '25 mins',
-        type: 'video',
-        path: '/aws/rds-basics.md',
-        icon: 'Database',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-dynamodb-basics',
-        title: 'Amazon DynamoDB Basics',
-        description: 'Fast and flexible NoSQL database service for any scale.',
-        duration: '25 mins',
-        type: 'reading',
-        path: '/aws/dynamodb-basics.md',
-        icon: 'Database',
-        color: 'amber',
-        bgColor: 'amber'
-      }
-    ]
-  },
-  {
-    id: 'aws-messaging-monitoring',
-    title: 'Messaging & Monitoring',
-    description: 'Learn about AWS messaging and monitoring services.',
-    estimatedDuration: '55 mins',
-    modules: [
-      {
-        id: 'aws-sns-sqs',
-        title: 'Amazon SNS & SQS',
-        description: 'Simple Notification Service and Simple Queue Service for decoupled applications.',
-        duration: '30 mins',
-        type: 'reading',
-        path: '/aws/sns-sqs.md',
-        icon: 'MessageSquare',
-        color: 'amber',
-        bgColor: 'amber'
-      },
-      {
-        id: 'aws-cloudwatch',
-        title: 'Amazon CloudWatch',
-        description: 'Monitor resources and applications in AWS.',
-        duration: '25 mins',
-        type: 'interactive',
-        path: '/aws/cloudwatch.md',
-        icon: 'Activity',
-        color: 'amber',
-        bgColor: 'amber'
-      }
+      { id: 'aws-route53', title: '12. Route 53', duration: '25 min', type: 'theory', path: '/aws/route53.md' },
+      { id: 'aws-cloudfront', title: '13. CloudFront', duration: '30 min', type: 'theory', path: '/aws/cloudfront.md' },
+      { id: 'aws-dynamodb-basics', title: '14. DynamoDB Basics', duration: '25 min', type: 'theory', path: '/aws/dynamodb-basics.md' },
+      { id: 'aws-sns-sqs', title: '15. SNS & SQS', duration: '30 min', type: 'theory', path: '/aws/sns-sqs.md' },
+      { id: 'aws-cloudwatch', title: '16. CloudWatch', duration: '25 min', type: 'lab', path: '/aws/cloudwatch.md' },
+      { id: 'aws-advanced-capstone', title: '17. AWS Capstone Project', duration: '105 min', type: 'lab', path: '/aws/advanced-challenge.md' }
     ]
   }
 ];

@@ -30,6 +30,30 @@ export const sqlCurriculum = [
         xp: 100
       },
       {
+        id: 'sql-select-distinct',
+        title: 'SELECT DISTINCT',
+        description: 'Return only distinct (different) values.',
+        duration: '15 mins',
+        type: 'interactive',
+        path: '/sql/select-distinct.md',
+        icon: 'Terminal',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 50
+      },
+      {
+        id: 'sql-and-or-not',
+        title: 'AND, OR, NOT',
+        description: 'Filter records with multiple conditions.',
+        duration: '20 mins',
+        type: 'interactive',
+        path: '/sql/and-or-not.md',
+        icon: 'Terminal',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 75
+      },
+      {
         id: 'sql-filtering',
         title: 'Filtering Data with WHERE',
         description: 'Use the WHERE clause to filter records based on specific conditions.',
@@ -40,6 +64,18 @@ export const sqlCurriculum = [
         color: 'sky',
         bgColor: 'sky',
         xp: 100
+      },
+      {
+        id: 'sql-intro-challenge',
+        title: 'SQL Intro Final Challenge',
+        description: 'Test your knowledge of basic SQL queries with this interactive challenge.',
+        duration: '30 mins',
+        type: 'interactive',
+        path: '/sql/intro-challenge.md',
+        icon: 'Award',
+        color: 'amber',
+        bgColor: 'amber',
+        xp: 200
       }
     ]
   },
@@ -316,30 +352,126 @@ export const sqlCurriculum = [
         color: 'sky',
         bgColor: 'sky',
         xp: 150
-      },
+      }
+    ]
+  },
+  {
+    id: 'sql-constraints',
+    title: 'SQL Constraints',
+    description: 'Learn how to enforce data integrity with constraints.',
+    estimatedDuration: '1 hour 30 mins',
+    modules: [
       {
-        id: 'sql-injection',
-        title: 'SQL Injection',
-        description: 'Learn about SQL Injection and how to prevent it.',
-        duration: '20 mins',
-        type: 'reading',
-        path: '/sql/injection.md',
+        id: 'sql-not-null',
+        title: 'NOT NULL',
+        description: 'Ensure a column cannot have a NULL value.',
+        duration: '15 mins',
+        type: 'interactive',
+        path: '/sql/not-null.md',
         icon: 'Shield',
         color: 'sky',
         bgColor: 'sky',
-        xp: 100
+        xp: 50
       },
       {
-        id: 'sql-hosting',
-        title: 'SQL Hosting',
-        description: 'Learn how to host your SQL database.',
+        id: 'sql-unique',
+        title: 'UNIQUE',
+        description: 'Ensure all values in a column are different.',
         duration: '15 mins',
-        type: 'reading',
-        path: '/sql/hosting.md',
-        icon: 'Cloud',
+        type: 'interactive',
+        path: '/sql/unique.md',
+        icon: 'Shield',
         color: 'sky',
         bgColor: 'sky',
         xp: 50
+      },
+      {
+        id: 'sql-primary-key',
+        title: 'PRIMARY KEY',
+        description: 'Uniquely identify each record in a table.',
+        duration: '20 mins',
+        type: 'interactive',
+        path: '/sql/primary-key.md',
+        icon: 'Shield',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 75
+      },
+      {
+        id: 'sql-foreign-key',
+        title: 'FOREIGN KEY',
+        description: 'Prevent actions that would destroy links between tables.',
+        duration: '20 mins',
+        type: 'interactive',
+        path: '/sql/foreign-key.md',
+        icon: 'Shield',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 75
+      },
+      {
+        id: 'sql-check',
+        title: 'CHECK',
+        description: 'Ensure that all values in a column satisfy a specific condition.',
+        duration: '20 mins',
+        type: 'interactive',
+        path: '/sql/check.md',
+        icon: 'Shield',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 75
+      }
+    ]
+  },
+  {
+    id: 'sql-dates',
+    title: 'SQL Dates',
+    description: 'Learn how to work with date and time data.',
+    estimatedDuration: '45 mins',
+    modules: [
+      {
+        id: 'sql-dates-intro',
+        title: 'SQL Dates Intro',
+        description: 'Understand how to handle date and time data in SQL.',
+        duration: '20 mins',
+        type: 'interactive',
+        path: '/sql/dates-intro.md',
+        icon: 'Calendar',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 50
+      },
+      {
+        id: 'sql-dates-functions',
+        title: 'SQL Date Functions',
+        description: 'Learn common functions for manipulating dates.',
+        duration: '25 mins',
+        type: 'interactive',
+        path: '/sql/dates-functions.md',
+        icon: 'Calendar',
+        color: 'sky',
+        bgColor: 'sky',
+        xp: 75
+      }
+    ]
+  },
+  {
+    id: 'sql-capstone',
+    title: 'SQL Capstone Project',
+    description: 'Apply all your SQL knowledge to build a complete database solution.',
+    estimatedDuration: '2 hours',
+    modules: [
+      {
+        id: 'sql-capstone-project',
+        title: 'SQL Capstone Project',
+        description: 'Design, build, and query a database for a real-world application.',
+        duration: '2 hours',
+        type: 'interactive',
+        path: '/sql/capstone.md',
+        icon: 'Award',
+        color: 'rose',
+        bgColor: 'rose',
+        xp: 500
       }
     ]
   }
